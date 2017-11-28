@@ -1,7 +1,11 @@
 package com.example.pdspe.virtualguitarist;
 
 import android.app.Dialog;
+import android.content.Context;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.net.Uri;
+import android.os.Environment;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -25,6 +29,9 @@ import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
 
 import java.io.File;
+import java.io.IOException;
+
+import static android.media.AudioManager.*;
 
 public class Metronome extends AppCompatActivity {
 
@@ -110,32 +117,24 @@ public class Metronome extends AppCompatActivity {
         media.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(isPlay){
-
-                    media.setImageDrawable(
-                            ContextCompat.getDrawable(getApplicationContext(), R.drawable.play_button));
-                }else{
-                    media.setImageDrawable(
-                            ContextCompat.getDrawable(getApplicationContext(), R.drawable.pause_button));
-                }
 
                 isPlay = !isPlay; // reverse
 
                 int fsignature = Integer.parseInt(String.valueOf(first.getText()));
                 int ssignature = Integer.parseInt(String.valueOf(second.getText()));
                 int tempoValue = Integer.parseInt(String.valueOf(tempo.getText()));
-                new PlayMetronome(fsignature,ssignature,tempoValue,isPlay);
+                PlayMetronome a = new PlayMetronome(fsignature,ssignature,tempoValue,isPlay);
 
-                if(!isPlay){
-                    PlayMetronome.play();
-                } else{
-                    PlayMetronome.stopit();
+                if(isPlay){
+
+                    media.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.pause_button));
+                   // a.run();
+                }else{
+                    media.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.play_button));
+                    //a.stopit();
                 }
             }
         });
-
-
-
 
 
 
@@ -248,7 +247,7 @@ public class Metronome extends AppCompatActivity {
 
 
 
-    //---- creat Nevigation method ---/
+    //---- create Nevigation method ---/
     private void nevigation() {
         mDrawerLayout = (DrawerLayout) findViewById(R.id.activity_metronome_drawarLayout);
         mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.open, R.string.close);
@@ -278,7 +277,8 @@ public class Metronome extends AppCompatActivity {
 
 //----- Class PlayMetronome----//
 
-class PlayMetronome extends Thread{
+class PlayMetronome extends AppCompatActivity implements Runnable {
+
     static int firstSignature;
     static int secondSignature;
     static int tempo;
@@ -286,6 +286,7 @@ class PlayMetronome extends Thread{
     static boolean isPlay;
 
     //--- create constructor ----//
+    PlayMetronome(){ }
     PlayMetronome(int firstSignature, int secondSignature, int tempo, boolean isPlay){
         this.firstSignature = firstSignature;
         this.secondSignature = secondSignature;
@@ -293,7 +294,9 @@ class PlayMetronome extends Thread{
         this.isPlay = isPlay;
     }
 
-    public static void play() {
+
+    @Override
+    public void run() {
         while(isPlay != true) {		//! Thread.currentThread().isInterrupted()
             try {
                 work();
@@ -302,56 +305,58 @@ class PlayMetronome extends Thread{
                 e.printStackTrace();
             }
         }
-
     }
 
-    public static void work(){
+
+    public  void work(){
         if(isPlay != true) return;
         for(int i=0;i<secondSignature;i++) {
             try {
                 if(isPlay != true) return;
-                sound1();
+                tok();
                 Thread.sleep(timeDifference);
             } catch(InterruptedException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
                 e.printStackTrace();
             }
             for(int j=0;j<firstSignature-1;j++) {
                 try {
                     if(isPlay != true) return;
-                    sound2();
+                    tik();
                     Thread.sleep(timeDifference);
                 } catch(InterruptedException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
         }
     }
 
-    public static void sound1(){
-//        File clap = new File("A3.wav");
-        try {
-//            Clip clip = AudioSystem.getClip();
-//            clip.open(AudioSystem.getAudioInputStream(clap));
-//            clip.start();
-            Thread.sleep(0);
-        } catch(Exception e) {
-        }
+    public void tok() throws IOException {
+        Uri myTok = Uri.parse(Environment.getExternalStorageDirectory().getPath()+ "/raw/tok.wav");
+        MediaPlayer mediaPlayer = new MediaPlayer();
+        mediaPlayer.setAudioStreamType(STREAM_MUSIC);
+        mediaPlayer.setDataSource(getApplicationContext(), myTok);
+        mediaPlayer.prepare();
+        mediaPlayer.start();
+
 
     }
-    public static void sound2(){
-        //File clap = new File("A2A3.wav");
-        try {
-//            Clip clip = AudioSystem.getClip();
-//            clip.open(AudioSystem.getAudioInputStream(clap));
-//            clip.start();
-            Thread.sleep(0);
-        } catch(Exception e) {
-        }
+    public void tik() throws IOException {
 
+        Uri myTik = Uri.parse(Environment.getExternalStorageDirectory().getPath()+ "/raw/tik.wav");
+        MediaPlayer mediaPlayer = new MediaPlayer();
+        mediaPlayer.setAudioStreamType(STREAM_MUSIC);
+        mediaPlayer.setDataSource(getApplicationContext(), myTik);
+        mediaPlayer.prepare();
+        mediaPlayer.start();
     }
 
     public static void stopit(){
         isPlay = false;
     }
+
 
 }
