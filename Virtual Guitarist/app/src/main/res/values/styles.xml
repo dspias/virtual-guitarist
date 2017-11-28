@@ -3,9 +3,14 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">#8e030b</item>
+        <item name="colorPrimaryDark">#462325</item>
+        <item name="colorAccent">@color/white</item>
     </style>
+
+    <style name="NumberPicker">
+        <item name="android:textSize">25dp</item>
+    </style>
+
 
 </resources>

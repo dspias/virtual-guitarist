@@ -2,5 +2,15 @@
     <string name="app_name">Virtual Guitarist</string>
     <string name="home_header">VIRTUAL GUITARIST</string>
     <string name="Metronome">Metronome</string>
-    <string name="play_guitar">Virtual Guitarist</string>
+    <string name="play_guitar">Play Guitar</string>
+    <string name="setting"> Setting</string>
+    <string name="information"> Using Information</string>
+    <string name="songList"> Song List With Info</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <string name="signature">SIGNATURE</string>
+    <string name="tempo">TEMPO</string>
+    <string name="bpm">BPM</string>
+    <string name="strumming_pattern">STRUMMING</string>
+    <string name="chords">CHORDS</string>
 </resources>
