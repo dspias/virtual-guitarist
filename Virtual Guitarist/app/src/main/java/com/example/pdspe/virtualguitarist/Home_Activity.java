@@ -40,6 +40,7 @@ public class Home_Activity extends AppCompatActivity {
 
 
 
+<<<<<<< HEAD
     private void nevigation(){
         mDrawerLayout = (DrawerLayout) findViewById(R.id.activity_home_drawarLayout);
         mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.open, R.string.close);
@@ -88,6 +89,8 @@ public class Home_Activity extends AppCompatActivity {
     }   //------ goMetronomeActivity Method are Closed------//
 
 
+=======
+>>>>>>> 59233d3aa969261342f38aff5c86d3b7e5c31a09
 
 
 

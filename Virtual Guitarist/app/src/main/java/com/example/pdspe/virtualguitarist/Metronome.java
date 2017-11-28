@@ -52,6 +52,7 @@ public class Metronome extends AppCompatActivity {
         setTitle("Metronome");      //----Set title on Metronome Page----//
         nevigation();               //-----call nevigation draware method-----//
 
+<<<<<<< HEAD
         //-------- Signature input start -------//
         first = (TextView) findViewById(R.id.beat_pattern1);
         second = (TextView) findViewById(R.id.beat_pattern2);
@@ -133,6 +134,9 @@ public class Metronome extends AppCompatActivity {
                 }
             }
         });
+=======
+
+>>>>>>> 59233d3aa969261342f38aff5c86d3b7e5c31a09
 
 
 
@@ -148,6 +152,7 @@ public class Metronome extends AppCompatActivity {
 
 
 
+<<<<<<< HEAD
     //-------------start setSignature method -----//
     public void setSignature() {
         final Dialog d = new Dialog(Metronome.this);
@@ -271,10 +276,13 @@ public class Metronome extends AppCompatActivity {
 
 
 
+=======
+>>>>>>> 59233d3aa969261342f38aff5c86d3b7e5c31a09
 
 }      //------Closed Metronome class----//
 
 
+<<<<<<< HEAD
 
 //----- Class PlayMetronome----//
 
@@ -355,3 +363,5 @@ class PlayMetronome extends Thread{
     }
 
 }
+=======
+>>>>>>> 59233d3aa969261342f38aff5c86d3b7e5c31a09
