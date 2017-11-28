@@ -21,9 +21,9 @@
     <color name="blue">#0000FF</color>
     <color name="navy">#000080</color>
     <color name="black">#000000</color>
-    <color name="White">#FFFFFF</color>
+    <color name="White">#fafcfcfc</color>
     <color name="Ivory">#FFFFF0</color>
-    <color name="LightYellow">#FFFFE0</color>
+    <color name="LightYellow">#caec4248</color>
     <color name="Yellow">#FFFF00</color>
     <color name="Snow">#FFFAFA</color>
     <color name="FloralWhite">#FFFAF0</color>
@@ -65,7 +65,7 @@
     <color name="SandyBrown">#F4A460</color>
     <color name="Azure">#F0FFFF</color>
     <color name="Honeydew">#F0FFF0</color>
-    <color name="AliceBlue">#F0F8FF</color>
+    <color name="AliceBlue">#f0f8ff</color>
     <color name="Khaki">#F0E68C</color>
     <color name="LightCoral">#F08080</color>
     <color name="PaleGoldenrod">#EEE8AA</color>
@@ -125,7 +125,7 @@
     <color name="LightSlateGray">#778899</color>
     <color name="SlateGray">#708090</color>
     <color name="OliveDrab">#6B8E23</color>
-    <color name="SlateBlue">#6A5ACD</color>
+    <color name="SlateBlue">#7d6edd</color>
     <color name="DimGray">#696969</color>
     <color name="MediumAquamarine">#66CDAA</color>
     <color name="CornflowerBlue">#6495ED</color>
@@ -145,10 +145,10 @@
     <color name="LightSeaGreen">#20B2AA</color>
     <color name="DodgerBlue">#1E90FF</color>
     <color name="MidnightBlue">#191970</color>
-    <color name="Aqua">#00FFFF</color>
-    <color name="Cyan">#00FFFF</color>
+    <color name="Aqua">#2ae1e1</color>
+    <color name="Cyan">#00ffff</color>
     <color name="SpringGreen">#00FF7F</color>
-    <color name="Lime">#00FF00</color>
+    <color name="Lime">#00ff00</color>
     <color name="MediumSpringGreen">#00FA9A</color>
     <color name="DarkTurquoise">#00CED1</color>
     <color name="DeepSkyBlue">#00BFFF</color>
@@ -156,9 +156,9 @@
     <color name="Teal">#008080</color>
     <color name="Green">#008000</color>
     <color name="DarkGreen">#006400</color>
-    <color name="Blue">#0000FF</color>
+    <color name="Blue">#7474f1</color>
     <color name="MediumBlue">#0000CD</color>
     <color name="DarkBlue">#00008B</color>
     <color name="Navy">#000080</color>
-    <color name="Black">#000000</color>
+    <color name="Black">#5d1f1f</color>
 </resources>
