@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:id="@+id/nav_metronome"
+        android:title="@string/Metronome"
+        android:icon="@mipmap/metronome"
+        />
+
+    <item android:id="@+id/nav_playGuitar"
+        android:title="Play Guitar"
+        android:icon="@mipmap/guitar_player"
+
+
+        />
+
+    <item android:id="@+id/nav_info"
+        android:title="@string/information"
+        android:icon="@mipmap/ic_info_black_24dp"
+        />
+
+    <item android:id="@+id/nav_songList_with_informtion"
+        android:title="@string/songList"
+        android:icon="@mipmap/ic_list_black_24dp"
+        />
+
+    <item android:id="@+id/nav_setting"
+        android:title="@string/setting"
+        android:icon="@mipmap/ic_settings_applications_black_24dp"
+        />
+
+</menu>
