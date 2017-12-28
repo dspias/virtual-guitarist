@@ -13,4 +13,16 @@
     <string name="bpm">BPM</string>
     <string name="strumming_pattern">STRUMMING</string>
     <string name="chords">CHORDS</string>
+
+    <string-array name="playGuitar_Signature" style="playGuitar_Signature">
+        <item>1 / 1</item>
+        <item>3 / 2</item>
+        <item>3 / 4</item>
+        <item>4 / 4</item>
+        <item>4 / 5</item>
+        <item>5 / 4</item>
+    </string-array>
+
+
+
 </resources>

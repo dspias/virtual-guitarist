@@ -11,14 +11,14 @@
         <shape android:shape="rectangle"  >
             <corners android:radius="100dip" />
             <stroke android:width="2dip" android:color="#000000" />
-            <solid android:color="#26da80"/>
+            <solid android:color="#000201"/>
         </shape>
     </item>
     <item >
         <shape android:shape="rectangle"  >
             <corners android:radius="100dip" />
-            <stroke android:width="2dip" android:color="#c6560808" />
-            <gradient android:angle="-90" android:startColor="#250101" android:endColor="#250101" />
+            <stroke android:width="2dip" android:color="#c6000000" />
+            <gradient android:angle="-90" android:startColor="#000000" android:endColor="#000000" />
         </shape>
     </item>
 </selector>

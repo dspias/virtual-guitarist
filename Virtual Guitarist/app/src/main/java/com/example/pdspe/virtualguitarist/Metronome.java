@@ -1,20 +1,14 @@
 package com.example.pdspe.virtualguitarist;
 
 import android.app.Dialog;
-import android.content.Context;
+import android.content.Intent;
 import android.media.AudioManager;
-import android.media.MediaPlayer;
 import android.net.Uri;
-import android.os.Environment;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
-import android.text.Layout;
-import android.text.method.NumberKeyListener;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -28,10 +22,6 @@ import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
 
-import java.io.File;
-import java.io.IOException;
-
-import static android.media.AudioManager.*;
 
 public class Metronome extends AppCompatActivity {
 
@@ -40,21 +30,38 @@ public class Metronome extends AppCompatActivity {
 
     //----set signature value----//
     String value1 = "", value2 = "";
-    TextView first,second;
+    TextView first, second;
 
     //------set tempo value ----//
     Button tempo;
 
     //---- set media option ------//
-    static boolean isPlay=false;
+    boolean isPlay = false;
+    PlayMetronome mPlayMetronome = new PlayMetronome();
 
 
+
+
+
+
+    /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
+    private GoogleApiClient client;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_metronome);
+        setVolumeControlStream(AudioManager.STREAM_MUSIC);
+
+        //-------- Init sound Manager---------//
+        SoundManager.getInstance();
+        SoundManager.initSounds(this);
+        SoundManager.loadSounds();
+
 
         setTitle("Metronome");      //----Set title on Metronome Page----//
         nevigation();               //-----call nevigation draware method-----//
@@ -68,6 +75,7 @@ public class Metronome extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 setSignature();
+                setMetronome();
 
             }
         });     //----- Signature input complete------//
@@ -75,11 +83,12 @@ public class Metronome extends AppCompatActivity {
         //-----------Tempo input start -------//
         tempo = (Button) findViewById(R.id.tempo_input_value);
 
-        tempo.setOnClickListener(new View.OnClickListener(){
+        tempo.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 setTempo();
+                setMetronome();
             }
         });     //----------Tempo input Complete ---------//
 
@@ -88,12 +97,16 @@ public class Metronome extends AppCompatActivity {
         minus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
                 int oldVal = 0;
                 try {
                     oldVal = Integer.parseInt(String.valueOf(tempo.getText()));
-                } catch(NumberFormatException nfe) {}
-                oldVal--;
+                } catch (NumberFormatException nfe) {}
+                if(oldVal > 40) oldVal--;
                 tempo.setText(String.valueOf(oldVal));
+                setMetronome();
+
             }
         });     //----------minus botton code complete -------//
 
@@ -102,47 +115,73 @@ public class Metronome extends AppCompatActivity {
         plus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 int oldVal = 0;
                 try {
                     oldVal = Integer.parseInt(String.valueOf(tempo.getText()));
-                } catch(NumberFormatException nfe) {}
-                oldVal++;
+                } catch (NumberFormatException nfe) {}
+                if(oldVal < 240) oldVal++;
                 tempo.setText(String.valueOf(oldVal));
+                setMetronome();
+
             }
         });     //----------plus botton code complete -------//
 
 
         //------ Working Media Button code ------- //
+
         final ImageButton media = (ImageButton) findViewById(R.id.media_button);
         media.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                Intent intent = new Intent(Metronome.this, PlayMetronome.class);
+
                 isPlay = !isPlay; // reverse
+                if (isPlay) {
+                    media.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.stop_btn));
+                    int size = getResources().getDimensionPixelOffset(R.dimen.thirty);
+                    media.setPadding(size,size,size,size);
+                    setMetronome();
+                    startService(intent);
 
-                int fsignature = Integer.parseInt(String.valueOf(first.getText()));
-                int ssignature = Integer.parseInt(String.valueOf(second.getText()));
-                int tempoValue = Integer.parseInt(String.valueOf(tempo.getText()));
-                PlayMetronome a = new PlayMetronome(fsignature,ssignature,tempoValue,isPlay);
 
-                if(isPlay){
+                } else {
+                    media.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.play_btn));
+                    int topbottom = getResources().getDimensionPixelOffset(R.dimen.thirty);
+                    int right = getResources().getDimensionPixelOffset(R.dimen.towentysix);
+                    int left = getResources().getDimensionPixelOffset(R.dimen.thirty);
+                    media.setPadding(left, topbottom, right, topbottom);
+                    stopService(intent);
 
-                    media.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.pause_button));
-                   // a.run();
-                }else{
-                    media.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.play_button));
-                    //a.stopit();
                 }
+
+
             }
         });
 
 
-
-
-
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
 
     }       //------Closed onCreate Method-----//
 
+
+
+
+    /*---------- Create set Metronome value --------*/
+    /*----------start setMetronome Method -----*/
+    public void setMetronome(){
+        int fsignature = Integer.parseInt(String.valueOf(first.getText()));
+        int ssignature = Integer.parseInt(String.valueOf(second.getText()));
+        int tempoValue = Integer.parseInt(String.valueOf(tempo.getText()));
+
+        PlayMetronome.setFirstSignature(fsignature);
+        PlayMetronome.setSecondSignature(ssignature);
+        PlayMetronome.setTempo(tempoValue);
+
+    }       //-------closed setMetronome Metod--------//
 
 
 
@@ -157,7 +196,8 @@ public class Metronome extends AppCompatActivity {
         int oldVal1 = 0;
         try {
             oldVal1 = Integer.parseInt(String.valueOf(first.getText()));
-        } catch(NumberFormatException nfe) {}
+        } catch (NumberFormatException nfe) {
+        }
         np1.setValue(oldVal1);
 
         np1.setMinValue(1);   // min value 0
@@ -176,7 +216,8 @@ public class Metronome extends AppCompatActivity {
         int oldVal2 = 0;
         try {
             oldVal2 = Integer.parseInt(String.valueOf(second.getText()));
-        } catch(NumberFormatException nfe) {}
+        } catch (NumberFormatException nfe) {
+        }
         np2.setValue(oldVal2);
 
         np2.setMinValue(1);   // min value 0
@@ -191,7 +232,7 @@ public class Metronome extends AppCompatActivity {
         });
 
         Button okay = (Button) d.findViewById(R.id.okayButton);
-        okay.setOnClickListener(new View.OnClickListener(){
+        okay.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
@@ -205,9 +246,13 @@ public class Metronome extends AppCompatActivity {
     }   //----------- Closed setSignature method----//
 
 
+
+
+
+
     //-----------start setTempo method--------//
 
-    protected void setTempo(){
+    protected void setTempo() {
         final Dialog d = new Dialog(Metronome.this);
         d.setContentView(R.layout.inputtempovalue);
         final NumberPicker np = (NumberPicker) d.findViewById(R.id.numberPicker_tempo);
@@ -216,7 +261,8 @@ public class Metronome extends AppCompatActivity {
         int oldVal = 0;
         try {
             oldVal = Integer.parseInt(String.valueOf(tempo.getText()));
-        } catch(NumberFormatException nfe) {}
+        } catch (NumberFormatException nfe) {
+        }
         np.setValue(oldVal);
 
         np.setMinValue(40);
@@ -231,7 +277,7 @@ public class Metronome extends AppCompatActivity {
         });
 
         Button okay = (Button) d.findViewById(R.id.okayButton);
-        okay.setOnClickListener(new View.OnClickListener(){
+        okay.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
@@ -269,94 +315,47 @@ public class Metronome extends AppCompatActivity {
 
 
 
+    /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
+    public Action getIndexApiAction() {
+        Thing object = new Thing.Builder()
+                .setName("Metronome Page") // TODO: Define a title for the content shown.
+                // TODO: Make sure this auto-generated URL is correct.
+                .setUrl(Uri.parse("http://[ENTER-YOUR-URL-HERE]"))
+                .build();
+        return new Action.Builder(Action.TYPE_VIEW)
+                .setObject(object)
+                .setActionStatus(Action.STATUS_TYPE_COMPLETED)
+                .build();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client.connect();
+        AppIndex.AppIndexApi.start(client, getIndexApiAction());
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        AppIndex.AppIndexApi.end(client, getIndexApiAction());
+        client.disconnect();
+    }
+
+
 
 
 }      //------Closed Metronome class----//
 
 
 
-//----- Class PlayMetronome----//
 
-class PlayMetronome extends AppCompatActivity implements Runnable {
-
-    static int firstSignature;
-    static int secondSignature;
-    static int tempo;
-    static int timeDifference = (60000/tempo);
-    static boolean isPlay;
-
-    //--- create constructor ----//
-    PlayMetronome(){ }
-    PlayMetronome(int firstSignature, int secondSignature, int tempo, boolean isPlay){
-        this.firstSignature = firstSignature;
-        this.secondSignature = secondSignature;
-        this.tempo = tempo;
-        this.isPlay = isPlay;
-    }
-
-
-    @Override
-    public void run() {
-        while(isPlay != true) {		//! Thread.currentThread().isInterrupted()
-            try {
-                work();
-                Thread.sleep(0);
-            } catch(InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-
-    public  void work(){
-        if(isPlay != true) return;
-        for(int i=0;i<secondSignature;i++) {
-            try {
-                if(isPlay != true) return;
-                tok();
-                Thread.sleep(timeDifference);
-            } catch(InterruptedException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            for(int j=0;j<firstSignature-1;j++) {
-                try {
-                    if(isPlay != true) return;
-                    tik();
-                    Thread.sleep(timeDifference);
-                } catch(InterruptedException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    public void tok() throws IOException {
-        Uri myTok = Uri.parse(Environment.getExternalStorageDirectory().getPath()+ "/raw/tok.wav");
-        MediaPlayer mediaPlayer = new MediaPlayer();
-        mediaPlayer.setAudioStreamType(STREAM_MUSIC);
-        mediaPlayer.setDataSource(getApplicationContext(), myTok);
-        mediaPlayer.prepare();
-        mediaPlayer.start();
-
-
-    }
-    public void tik() throws IOException {
-
-        Uri myTik = Uri.parse(Environment.getExternalStorageDirectory().getPath()+ "/raw/tik.wav");
-        MediaPlayer mediaPlayer = new MediaPlayer();
-        mediaPlayer.setAudioStreamType(STREAM_MUSIC);
-        mediaPlayer.setDataSource(getApplicationContext(), myTik);
-        mediaPlayer.prepare();
-        mediaPlayer.start();
-    }
-
-    public static void stopit(){
-        isPlay = false;
-    }
-
-
-}
