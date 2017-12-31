@@ -95,7 +95,7 @@
                         />
                     <LinearLayout
                         android:layout_width="130dp"
-                        android:layout_height="60dp"
+                        android:layout_height="50dp"
                         android:layout_marginLeft="62dp"
                         android:layout_marginTop="7dp"
                         android:paddingLeft="5dp"
@@ -104,14 +104,15 @@
                         android:background="@drawable/homebutton">
 
                         <Spinner
-                            android:layout_margin="5dp"
+                            android:id="@+id/signature_spinner"
 
+                            android:backgroundTint="#00b10b09"
+                            android:textDirection="firstStrong"
+                            android:layout_margin="5dp"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:id="@+id/signature_spinner"
                             android:textAlignment="center"
-                            style="@style/spinner_style"
-                            android:textSize="30sp"
+                            style="@style/Signature_spinner_style"
                             />
 
                     </LinearLayout>
@@ -134,21 +135,31 @@
                         android:layout_marginTop="8dp"
 
                         />
-
-                    <Button
-                        android:id="@+id/strumming_pattern"
-                        android:layout_width="130dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="50dp"
+                    <LinearLayout
+                        android:layout_width="170dp"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_marginTop="7dp"
-                        android:text="EDIT"
-                        android:textColor="@color/white"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
-                        android:padding="10dp"
-                        android:background="@drawable/homebutton"
+                        android:paddingLeft="5dp"
 
-                        />
+                        android:orientation="horizontal"
+                        android:background="@drawable/homebutton">
+
+                        <Spinner
+                            android:id="@+id/srumming_spinner"
+
+                            android:backgroundTint="#00b10b09"
+                            android:layout_margin="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:textAlignment="center"
+                            android:spinnerMode="dropdown"
+                            style="@style/Strumming_spinner_style"
+                            />
+
+                    </LinearLayout>
+
+
 
                 </LinearLayout>
 
@@ -171,6 +182,7 @@
                         />
 
                     <Button
+                        android:id="@+id/setup_usable_chord"
                         android:layout_width="130dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="100dp"

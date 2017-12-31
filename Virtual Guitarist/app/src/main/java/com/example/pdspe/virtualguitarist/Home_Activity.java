@@ -2,17 +2,20 @@ package com.example.pdspe.virtualguitarist;
 
 
 import android.content.Intent;
+import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
 
 
-public class Home_Activity extends AppCompatActivity {
+public class Home_Activity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener  {
 
     //------------- Create Instant variable---------//
     public Button playGuitar;
@@ -30,6 +33,7 @@ public class Home_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_);
         setTitle("");
+
         nevigation();
 
 
@@ -48,6 +52,9 @@ public class Home_Activity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        NavigationView navigationView = (NavigationView) findViewById(R.id.navigation);
+        navigationView.setNavigationItemSelectedListener(this);
+
     }   //----Closed nevigation method--//
 
     @Override
@@ -56,6 +63,41 @@ public class Home_Activity extends AppCompatActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.actionhomebutton, menu);
+
+        return true;
+    }
+
+
+    @SuppressWarnings("StatementWithEmptyBody")
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        // Handle navigation view item clicks here.
+        int id = item.getItemId();
+
+        if (id == R.id.nav_metronome) {
+            Intent playGuitar = new Intent(Home_Activity.this, Metronome.class);
+            startActivity(playGuitar);
+        } else if (id == R.id.nav_playGuitar) {
+            Intent playGuitar = new Intent(Home_Activity.this, playGuitar.class);
+            startActivity(playGuitar);
+
+        } else if (id == R.id.nav_info) {
+
+        } else if (id == R.id.nav_songList_with_informtion) {
+
+        } else if (id == R.id.nav_setting) {
+
+        }
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.activity_home_drawarLayout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
     }
 
 

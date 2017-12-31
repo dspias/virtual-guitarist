@@ -4,11 +4,14 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.media.AudioManager;
 import android.net.Uri;
+import android.support.design.widget.NavigationView;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -23,7 +26,7 @@ import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
 
 
-public class Metronome extends AppCompatActivity {
+public class Metronome extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     protected DrawerLayout mDrawerLayout;
     protected ActionBarDrawerToggle mToggle;
@@ -302,6 +305,9 @@ public class Metronome extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        NavigationView navigationView = (NavigationView) findViewById(R.id.navigation);
+        navigationView.setNavigationItemSelectedListener(this);
+
     }   //----Closed nevigation method--//
 
     @Override
@@ -311,6 +317,43 @@ public class Metronome extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }       //-------Closed onOptionsItemSelected Method---//
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.actionhomebutton, menu);
+
+//        Intent playGuitar = new Intent(Metronome.this, Home_Activity.class);
+//        startActivity(playGuitar);
+        return true;
+    }
+
+
+    @SuppressWarnings("StatementWithEmptyBody")
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        // Handle navigation view item clicks here.
+        int id = item.getItemId();
+
+        if (id == R.id.nav_metronome) {
+            Intent playGuitar = new Intent(Metronome.this, Metronome.class);
+            startActivity(playGuitar);
+        } else if (id == R.id.nav_playGuitar) {
+            Intent playGuitar = new Intent(Metronome.this, playGuitar.class);
+            startActivity(playGuitar);
+
+        } else if (id == R.id.nav_info) {
+
+        } else if (id == R.id.nav_songList_with_informtion) {
+
+        } else if (id == R.id.nav_setting) {
+
+        }
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.activity_home_drawarLayout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
+    }
 
 
 

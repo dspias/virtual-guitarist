@@ -14,7 +14,7 @@
     <string name="strumming_pattern">STRUMMING</string>
     <string name="chords">CHORDS</string>
 
-    <string-array name="playGuitar_Signature" style="playGuitar_Signature">
+    <string-array name="playGuitar_Signature">
         <item>1 / 1</item>
         <item>3 / 2</item>
         <item>3 / 4</item>
@@ -22,6 +22,137 @@
         <item>4 / 5</item>
         <item>5 / 4</item>
     </string-array>
+
+    <string-array name="playGuitar_strumming_1_1">
+
+        <item>One Bye One-1</item>
+        <item>One Bye One-2</item>
+        <item>One Bye One-3</item>
+        <item>One Bye One-4</item>
+        <item>One Bye One-5</item>
+
+    </string-array>
+
+    <string-array name="playGuitar_strumming_3_2">
+
+        <item>Three bye two-1</item>
+        <item>Three bye two-2</item>
+        <item>Three bye two-3</item>
+        <item>Three bye two-4</item>
+        <item>Three bye two-5</item>
+
+    </string-array>
+
+    <string-array name="playGuitar_strumming_3_4">
+
+        <item>Three bye four-1</item>
+        <item>Three bye four-2</item>
+        <item>Three bye four-3</item>
+        <item>Three bye four-4</item>
+        <item>Three bye four-5</item>
+
+    </string-array>
+
+    <string-array name="playGuitar_strumming_4_4">
+
+        <item>Four bye four-1</item>
+        <item>Four bye four-2</item>
+        <item>Four bye four-3</item>
+        <item>Four bye four-4</item>
+        <item>Four bye four-5</item>
+
+    </string-array>
+
+    <string-array name="playGuitar_strumming_4_5">
+
+        <item>Four bye five-1</item>
+        <item>Four bye five-2</item>
+        <item>Four bye five-3</item>
+        <item>Four bye five-4</item>
+        <item>Four bye five-5</item>
+
+    </string-array>
+
+    <string-array name="playGuitar_strumming_5_4">
+
+        <item>Five bye Five-1</item>
+        <item>Five bye Five-2</item>
+        <item>Five bye Five-3</item>
+        <item>Five bye Five-4</item>
+        <item>Five bye Five-5</item>
+
+    </string-array>
+
+
+    <string-array name="playGuitar_Chord_Name">
+
+        <item>A</item>
+        <item>A#</item>
+        <item>B</item>
+        <item>C</item>
+        <item>C#</item>
+        <item>D</item>
+        <item>D#</item>
+        <item>E</item>
+        <item>F</item>
+        <item>F#</item>
+        <item>G</item>
+        <item>G#</item>
+
+
+    </string-array>
+
+    <string-array name="playGuitar_Chord_Type">
+
+        <item>Major</item>
+        <item>Minor</item>
+        <item>Sus2</item>
+        <item>Sus4</item>
+
+    </string-array>
+
+
+    <string-array name="playGuitar_Number_Of_Chord_1">
+
+        <item>1</item>
+
+    </string-array>
+
+    <string-array name="playGuitar_Number_Of_Chord_2">
+
+        <item>1</item>
+        <item>2</item>
+        <item>4</item>
+
+    </string-array>
+
+    <string-array name="playGuitar_Number_Of_Chord_3">
+
+        <item>1</item>
+        <item>3</item>
+        <item>6</item>
+
+    </string-array>
+
+    <string-array name="playGuitar_Number_Of_Chord_4">
+
+        <item>1</item>
+        <item>2</item>
+        <item>4</item>
+        <item>8</item>
+
+    </string-array>
+
+    <string-array name="playGuitar_Number_Of_Chord_5">
+
+        <item>1</item>
+        <item>2</item>
+        <item>5</item>
+        <item>10</item>
+
+    </string-array>
+
+
 
 
 

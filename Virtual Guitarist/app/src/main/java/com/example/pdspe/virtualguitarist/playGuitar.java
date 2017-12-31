@@ -1,26 +1,35 @@
 package com.example.pdspe.virtualguitarist;
 
 import android.app.Dialog;
+import android.content.ClipData;
+import android.content.Intent;
 import android.media.AudioManager;
 import android.net.Uri;
+import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.Layout;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.NumberPicker;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
 
-public class playGuitar extends AppCompatActivity {
+public class playGuitar extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     protected DrawerLayout mDrawerLayout;
     protected ActionBarDrawerToggle mToggle;
@@ -29,8 +38,31 @@ public class playGuitar extends AppCompatActivity {
     protected Button mTempo;
 
     //--------- Initial playGuitar Signature variable --------//
-    private Spinner mSpinner;
-    private ArrayAdapter<CharSequence> adapter;
+    private Spinner signatureSpinner;
+    private ArrayAdapter<CharSequence> signatureAdapter;
+
+
+
+    //--------- Initial playGuitar strumming variable --------//
+    private Spinner strummingSpinner;
+    private ArrayAdapter<CharSequence> strummingAdapter;
+
+    //--------- Initial playGuitar Chords variable --------//
+    private Button chordButton;
+
+    private Spinner numberofChord;
+    private ArrayAdapter<CharSequence> numberOfChordAddapter;
+
+    private Spinner chordNameSpinner1,chordNameSpinner2,chordNameSpinner3,chordNameSpinner4,chordNameSpinner5,chordNameSpinner6,
+            chordNameSpinner7,chordNameSpinner8,    chordTypeSpinner1,chordTypeSpinner2,chordTypeSpinner3,chordTypeSpinner4,
+            chordTypeSpinner5,chordTypeSpinner6,chordTypeSpinner7,chordTypeSpinner8;
+
+    private ArrayAdapter<CharSequence> chordNameAddapter, chordTypeAddapter;
+
+
+
+
+
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -58,11 +90,127 @@ public class playGuitar extends AppCompatActivity {
             }
         });     //----------Tempo input Complete ---------//
 
-        //----- Set Signature value -------//
-        mSpinner = (Spinner) findViewById(R.id.signature_spinner);
-        adapter = ArrayAdapter.createFromResource(this, R.array.playGuitar_Signature, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        mSpinner.setAdapter(adapter);
+
+
+        //----- Set Signature value with spinner-------//
+        signatureSpinner = (Spinner) findViewById(R.id.signature_spinner);
+        signatureAdapter = ArrayAdapter.createFromResource(this, R.array.playGuitar_Signature, android.R.layout.simple_spinner_item);
+        signatureAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        signatureSpinner.setAdapter(signatureAdapter);
+        signatureSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String name= null;
+                if(signatureSpinner != null && signatureSpinner.getSelectedItem() !=null ) {
+                    name = signatureSpinner.getSelectedItem().toString();
+                    if(name.matches("1 / 1")){
+                        strummingAdapter = ArrayAdapter.createFromResource(playGuitar.this, R.array.playGuitar_strumming_1_1, android.R.layout.simple_spinner_item);
+                    } else if(name.matches("3 / 2")){
+                        strummingAdapter = ArrayAdapter.createFromResource(playGuitar.this, R.array.playGuitar_strumming_3_2, android.R.layout.simple_spinner_item);
+                    } else if(name.matches("3 / 4")){
+                        strummingAdapter = ArrayAdapter.createFromResource(playGuitar.this, R.array.playGuitar_strumming_3_4, android.R.layout.simple_spinner_item);
+                    } else if(name.matches("4 / 4")){
+                        strummingAdapter = ArrayAdapter.createFromResource(playGuitar.this, R.array.playGuitar_strumming_4_4, android.R.layout.simple_spinner_item);
+                    } else if(name.matches("4 / 5")){
+                        strummingAdapter = ArrayAdapter.createFromResource(playGuitar.this, R.array.playGuitar_strumming_4_5, android.R.layout.simple_spinner_item);
+                    } else if(name.matches("5 / 4")){
+                        strummingAdapter = ArrayAdapter.createFromResource(playGuitar.this, R.array.playGuitar_strumming_5_4, android.R.layout.simple_spinner_item);
+                    }
+                    strummingAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    strummingSpinner.setAdapter(strummingAdapter);
+
+                    if(name.charAt(0) == '1'){
+                        numberOfChordAddapter = ArrayAdapter.createFromResource(playGuitar.this, R.array.playGuitar_Number_Of_Chord_1, android.R.layout.simple_spinner_item);
+                    } else if(name.charAt(0) == '2'){
+                        numberOfChordAddapter = ArrayAdapter.createFromResource(playGuitar.this, R.array.playGuitar_Number_Of_Chord_2, android.R.layout.simple_spinner_item);
+                    } else if(name.charAt(0) == '3'){
+                        numberOfChordAddapter = ArrayAdapter.createFromResource(playGuitar.this, R.array.playGuitar_Number_Of_Chord_3, android.R.layout.simple_spinner_item);
+                    } else if(name.charAt(0) == '4'){
+                        numberOfChordAddapter = ArrayAdapter.createFromResource(playGuitar.this, R.array.playGuitar_Number_Of_Chord_4, android.R.layout.simple_spinner_item);
+                    } else if(name.charAt(0) == '5'){
+                        numberOfChordAddapter = ArrayAdapter.createFromResource(playGuitar.this, R.array.playGuitar_Number_Of_Chord_5, android.R.layout.simple_spinner_item);
+                    }
+
+
+                } else  {
+                    Toast.makeText(getApplicationContext(), "First Set Signature.", Toast.LENGTH_SHORT).show();
+                }
+
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                Toast.makeText(getApplicationContext(), "First Set Signature.", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        /*------------ complete Signature ------------*/
+
+
+
+
+        /*------------ Set Strumming name Using Spinner------------*/
+        strummingSpinner = (Spinner) findViewById(R.id.srumming_spinner);
+
+        strummingSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String name= null;
+                if(signatureSpinner != null && signatureSpinner.getSelectedItem() !=null ) {
+                    name = signatureSpinner.getSelectedItem().toString();
+                    if(name.matches("1 / 1")){
+                        strummingAdapter = ArrayAdapter.createFromResource(playGuitar.this, R.array.playGuitar_strumming_1_1, android.R.layout.simple_spinner_item);
+                    } else if(name.matches("3 / 2")){
+                        strummingAdapter = ArrayAdapter.createFromResource(playGuitar.this, R.array.playGuitar_strumming_3_2, android.R.layout.simple_spinner_item);
+                    } else if(name.matches("3 / 4")){
+                        strummingAdapter = ArrayAdapter.createFromResource(playGuitar.this, R.array.playGuitar_strumming_3_4, android.R.layout.simple_spinner_item);
+                    } else if(name.matches("4 / 4")){
+                        strummingAdapter = ArrayAdapter.createFromResource(playGuitar.this, R.array.playGuitar_strumming_4_4, android.R.layout.simple_spinner_item);
+                    } else if(name.matches("4 / 5")){
+                        strummingAdapter = ArrayAdapter.createFromResource(playGuitar.this, R.array.playGuitar_strumming_4_5, android.R.layout.simple_spinner_item);
+                    } else if(name.matches("5 / 4")){
+                        strummingAdapter = ArrayAdapter.createFromResource(playGuitar.this, R.array.playGuitar_strumming_5_4, android.R.layout.simple_spinner_item);
+                    }
+                    strummingAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    strummingSpinner.setAdapter(strummingAdapter);
+
+                } else  {
+                    Toast.makeText(getApplicationContext(), "First Set Signature.", Toast.LENGTH_SHORT).show();
+                }
+
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                Toast.makeText(getApplicationContext(), "First Set Signature.", Toast.LENGTH_SHORT).show();
+            }
+        });
+        /*---------- Complete set strumming ---------*/
+
+
+
+        /*----------- chord setup start-----------*/
+        chordButton = (Button) findViewById(R.id.setup_usable_chord);
+
+        chordButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setupChord();
+            }
+        });
+
+
+
+        /*------------ Chord setup complete--------------*/
+
+
+
+
+
+
+
 
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
@@ -71,6 +219,9 @@ public class playGuitar extends AppCompatActivity {
     }       //------ Closed onCreate Method -----//
 
 
+
+
+    /*----------- nevigation method start------------*/
     private void nevigation() {
         mDrawerLayout = (DrawerLayout) findViewById(R.id.activity_play_guitar_DrawarLayout);
         mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.open, R.string.close);
@@ -79,6 +230,8 @@ public class playGuitar extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        NavigationView navigationView = (NavigationView) findViewById(R.id.navigation);
+        navigationView.setNavigationItemSelectedListener(this);
 
     }   //----Closed nevigation method--//
 
@@ -90,7 +243,45 @@ public class playGuitar extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.actionhomebutton, menu);
 
+//        Intent playGuitar = new Intent(playGuitar.this, Home_Activity.class);
+//        startActivity(playGuitar);
+        return true;
+    }
+
+
+    @SuppressWarnings("StatementWithEmptyBody")
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        // Handle navigation view item clicks here.
+        int id = item.getItemId();
+
+        if (id == R.id.nav_metronome) {
+            Intent playGuitar = new Intent(playGuitar.this, Metronome.class);
+            startActivity(playGuitar);
+        } else if (id == R.id.nav_playGuitar) {
+            Intent playGuitar = new Intent(playGuitar.this, playGuitar.class);
+            startActivity(playGuitar);
+
+        } else if (id == R.id.nav_info) {
+
+        } else if (id == R.id.nav_songList_with_informtion) {
+
+        } else if (id == R.id.nav_setting) {
+
+        }
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.activity_home_drawarLayout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
+    }
+
+
+    /*-------- create setTempo method --------*/
     protected void setTempo() {
         final Dialog d = new Dialog(playGuitar.this);
         d.setContentView(R.layout.inputtempovalue);
@@ -127,6 +318,140 @@ public class playGuitar extends AppCompatActivity {
 
 
     }       //-------closed Tempo Method-----//
+
+
+
+
+
+    /*-------- create setTempo method --------*/
+    protected void setupChord() {
+        final Dialog d = new Dialog(playGuitar.this);
+        d.setContentView(R.layout.choose_chords);
+
+        final LinearLayout two,three,four,five, six,seven,eight;
+        two = (LinearLayout) d.findViewById(R.id.inputChord_2);
+        three = (LinearLayout) d.findViewById(R.id.inputChord_2);
+        four = (LinearLayout) d.findViewById(R.id.inputChord_2);
+        five = (LinearLayout) d.findViewById(R.id.inputChord_2);
+        six = (LinearLayout) d.findViewById(R.id.inputChord_2);
+        seven = (LinearLayout) d.findViewById(R.id.inputChord_2);
+        eight = (LinearLayout) d.findViewById(R.id.inputChord_2);
+
+        numberofChord = (Spinner) d.findViewById(R.id.numberOfchords_spinner);
+        numberOfChordAddapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        numberofChord.setAdapter(numberOfChordAddapter);
+//        numberofChord.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            String name = null;
+//            @Override
+//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//                name = numberofChord.getSelectedItem().toString();
+//                if(name.matches("1")){
+//                    two.setVisibility(View.INVISIBLE);
+//                    three.setVisibility(View.INVISIBLE);
+//                    four.setVisibility(View.INVISIBLE);
+//                    five.setVisibility(View.INVISIBLE);
+//                    six.setVisibility(View.INVISIBLE);
+//                    seven.setVisibility(View.INVISIBLE);
+//                    eight.setVisibility(View.INVISIBLE);
+//                } else if(name.trim().equalsIgnoreCase("2")){
+//                    three.setVisibility(View.INVISIBLE);
+//                    four.setVisibility(View.INVISIBLE);
+//                    five.setVisibility(View.INVISIBLE);
+//                    six.setVisibility(View.INVISIBLE);
+//                    seven.setVisibility(View.INVISIBLE);
+//                    eight.setVisibility(View.INVISIBLE);
+//                } else if(name.trim().equalsIgnoreCase("3")){
+//                    four.setVisibility(View.INVISIBLE);
+//                    five.setVisibility(View.INVISIBLE);
+//                    six.setVisibility(View.INVISIBLE);
+//                    seven.setVisibility(View.INVISIBLE);
+//                    eight.setVisibility(View.INVISIBLE);
+//                } else if(name.trim().equalsIgnoreCase("4")){
+//                    five.setVisibility(View.INVISIBLE);
+//                    six.setVisibility(View.INVISIBLE);
+//                    seven.setVisibility(View.INVISIBLE);
+//                    eight.setVisibility(View.INVISIBLE);
+//                } else if(name.trim().equalsIgnoreCase("5")){
+//                    six.setVisibility(View.INVISIBLE);
+//                    seven.setVisibility(View.INVISIBLE);
+//                    eight.setVisibility(View.INVISIBLE);
+//                } else if(name.trim().equalsIgnoreCase("6")){
+//                    seven.setVisibility(View.INVISIBLE);
+//                    eight.setVisibility(View.INVISIBLE);
+//                } else if(name.trim().equalsIgnoreCase("7")){
+//                    eight.setVisibility(View.INVISIBLE);
+//                }
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> parent) {
+//
+//            }
+//        });
+
+
+        chordNameSpinner1 = (Spinner) d.findViewById(R.id.chord_Sl_1);
+        chordNameSpinner2 = (Spinner) d.findViewById(R.id.chord_Sl_2);
+        chordNameSpinner3 = (Spinner) d.findViewById(R.id.chord_Sl_3);
+        chordNameSpinner4 = (Spinner) d.findViewById(R.id.chord_Sl_4);
+        chordNameSpinner5 = (Spinner) d.findViewById(R.id.chord_Sl_5);
+        chordNameSpinner6 = (Spinner) d.findViewById(R.id.chord_Sl_6);
+        chordNameSpinner7 = (Spinner) d.findViewById(R.id.chord_Sl_7);
+        chordNameSpinner8 = (Spinner) d.findViewById(R.id.chord_Sl_8);
+
+        chordTypeSpinner1 = (Spinner) d.findViewById(R.id.chord_Type_1);
+        chordTypeSpinner2 = (Spinner) d.findViewById(R.id.chord_Type_2);
+        chordTypeSpinner3 = (Spinner) d.findViewById(R.id.chord_Type_3);
+        chordTypeSpinner4 = (Spinner) d.findViewById(R.id.chord_Type_4);
+        chordTypeSpinner5 = (Spinner) d.findViewById(R.id.chord_Type_5);
+        chordTypeSpinner6 = (Spinner) d.findViewById(R.id.chord_Type_6);
+        chordTypeSpinner7 = (Spinner) d.findViewById(R.id.chord_Type_7);
+        chordTypeSpinner8 = (Spinner) d.findViewById(R.id.chord_Type_8);
+
+        chordNameAddapter = ArrayAdapter.createFromResource(playGuitar.this, R.array.playGuitar_Chord_Name, android.R.layout.simple_spinner_item);
+        chordTypeAddapter = ArrayAdapter.createFromResource(playGuitar.this, R.array.playGuitar_Chord_Type, android.R.layout.simple_spinner_item);
+
+        chordNameAddapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        chordTypeAddapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        chordNameSpinner1.setAdapter(chordNameAddapter);
+        chordNameSpinner2.setAdapter(chordNameAddapter);
+        chordNameSpinner3.setAdapter(chordNameAddapter);
+        chordNameSpinner4.setAdapter(chordNameAddapter);
+        chordNameSpinner5.setAdapter(chordNameAddapter);
+        chordNameSpinner6.setAdapter(chordNameAddapter);
+        chordNameSpinner7.setAdapter(chordNameAddapter);
+        chordNameSpinner8.setAdapter(chordNameAddapter);
+
+        chordTypeSpinner1.setAdapter(chordTypeAddapter);
+        chordTypeSpinner2.setAdapter(chordTypeAddapter);
+        chordTypeSpinner3.setAdapter(chordTypeAddapter);
+        chordTypeSpinner4.setAdapter(chordTypeAddapter);
+        chordTypeSpinner5.setAdapter(chordTypeAddapter);
+        chordTypeSpinner6.setAdapter(chordTypeAddapter);
+        chordTypeSpinner7.setAdapter(chordTypeAddapter);
+        chordTypeSpinner8.setAdapter(chordTypeAddapter);
+
+
+
+
+
+        Button okay = (Button) d.findViewById(R.id.okayButton);
+        okay.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                d.dismiss();
+            }
+        });
+        d.show();
+
+
+    }       //-------closed Tempo Method-----//
+
+
+
+
 
 
     /**
