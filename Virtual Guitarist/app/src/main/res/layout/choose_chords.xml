@@ -30,10 +30,9 @@
                 android:textColor="@color/white"
                 android:textStyle="bold"
                 android:layout_marginTop="12dp"
-                android:layout_marginLeft="5dp"
                 />
 
-                       <Spinner
+            <Spinner
                 android:id="@+id/numberOfchords_spinner"
 
                 android:layout_width="90dp"
@@ -127,6 +126,8 @@
                         android:orientation="vertical" >
 
                         <LinearLayout
+                            android:id="@+id/inputChord_1"
+
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="5dp"
@@ -205,6 +206,7 @@
                             android:layout_marginRight="5dp"
                             android:paddingTop="8dp"
                             android:paddingBottom="5dp"
+                            android:visibility="gone"
                             >
 
                             <TextView
@@ -276,6 +278,8 @@
                             android:layout_marginRight="5dp"
                             android:paddingTop="8dp"
                             android:paddingBottom="5dp"
+
+                            android:visibility="gone"
                             >
 
                             <TextView
@@ -347,6 +351,8 @@
                             android:layout_marginRight="5dp"
                             android:paddingTop="8dp"
                             android:paddingBottom="5dp"
+
+                            android:visibility="gone"
                             >
 
                             <TextView
@@ -417,6 +423,8 @@
                             android:layout_marginRight="5dp"
                             android:paddingTop="8dp"
                             android:paddingBottom="5dp"
+
+                            android:visibility="gone"
                             >
 
                             <TextView
@@ -487,6 +495,8 @@
                             android:layout_marginRight="5dp"
                             android:paddingTop="8dp"
                             android:paddingBottom="5dp"
+
+                            android:visibility="gone"
                             >
 
                             <TextView
@@ -557,6 +567,8 @@
                             android:layout_marginRight="5dp"
                             android:paddingTop="8dp"
                             android:paddingBottom="5dp"
+
+                            android:visibility="gone"
                             >
 
                             <TextView
@@ -627,6 +639,8 @@
                             android:layout_marginRight="5dp"
                             android:paddingTop="8dp"
                             android:paddingBottom="8dp"
+
+                            android:visibility="gone"
                             >
 
                             <TextView

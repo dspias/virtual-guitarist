@@ -173,9 +173,10 @@ public class Metronome extends AppCompatActivity implements NavigationView.OnNav
 
 
 
-    /*---------- Create set Metronome value --------*/
+
     /*----------start setMetronome Method -----*/
     public void setMetronome(){
+            /*---------- Create set Metronome value --------*/
         int fsignature = Integer.parseInt(String.valueOf(first.getText()));
         int ssignature = Integer.parseInt(String.valueOf(second.getText()));
         int tempoValue = Integer.parseInt(String.valueOf(tempo.getText()));
