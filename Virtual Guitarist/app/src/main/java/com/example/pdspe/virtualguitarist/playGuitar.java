@@ -64,6 +64,8 @@ public class playGuitar extends AppCompatActivity implements NavigationView.OnNa
     //------------ Initial media opition --------------//
     boolean isPlay = false;
     ImageButton playGuitarImageButton;
+    private int numberOfChord;
+    private String [][] chordListAndType;
 
 
 
@@ -84,6 +86,13 @@ public class playGuitar extends AppCompatActivity implements NavigationView.OnNa
 
         setTitle("Play Guitar");        //----Set title on Play Guitar Page----//
         nevigation();
+
+        //-------- Init sound Manager---------//
+        GuitarSoundManager.getInstance();
+        GuitarSoundManager.initSounds(this);
+        GuitarSoundManager.loadSounds();
+
+
 
         //-----------Tempo input start -------//
         mTempo = (Button) findViewById(R.id.tempo_button);
@@ -111,30 +120,28 @@ public class playGuitar extends AppCompatActivity implements NavigationView.OnNa
                     name = signatureSpinner.getSelectedItem().toString();
                     if(name.matches("1 / 1")){
                         strummingAdapter = ArrayAdapter.createFromResource(playGuitar.this, R.array.playGuitar_strumming_1_1, android.R.layout.simple_spinner_item);
-                    } else if(name.matches("3 / 2")){
-                        strummingAdapter = ArrayAdapter.createFromResource(playGuitar.this, R.array.playGuitar_strumming_3_2, android.R.layout.simple_spinner_item);
+                    }else if(name.matches("2 / 2")){
+                        strummingAdapter = ArrayAdapter.createFromResource(playGuitar.this, R.array.playGuitar_strumming_2_2, android.R.layout.simple_spinner_item);
+                    } else if(name.matches("3 / 3")) {
+                        strummingAdapter = ArrayAdapter.createFromResource(playGuitar.this, R.array.playGuitar_strumming_3_3, android.R.layout.simple_spinner_item);
                     } else if(name.matches("3 / 4")){
                         strummingAdapter = ArrayAdapter.createFromResource(playGuitar.this, R.array.playGuitar_strumming_3_4, android.R.layout.simple_spinner_item);
                     } else if(name.matches("4 / 4")){
                         strummingAdapter = ArrayAdapter.createFromResource(playGuitar.this, R.array.playGuitar_strumming_4_4, android.R.layout.simple_spinner_item);
-                    } else if(name.matches("4 / 5")){
-                        strummingAdapter = ArrayAdapter.createFromResource(playGuitar.this, R.array.playGuitar_strumming_4_5, android.R.layout.simple_spinner_item);
-                    } else if(name.matches("5 / 4")){
-                        strummingAdapter = ArrayAdapter.createFromResource(playGuitar.this, R.array.playGuitar_strumming_5_4, android.R.layout.simple_spinner_item);
                     }
                     strummingAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                     strummingSpinner.setAdapter(strummingAdapter);
 
-                    if(name.charAt(0) == '1'){
-                        numberOfChordAddapter = ArrayAdapter.createFromResource(playGuitar.this, R.array.playGuitar_Number_Of_Chord_1, android.R.layout.simple_spinner_item);
-                    } else if(name.charAt(0) == '2'){
-                        numberOfChordAddapter = ArrayAdapter.createFromResource(playGuitar.this, R.array.playGuitar_Number_Of_Chord_2, android.R.layout.simple_spinner_item);
-                    } else if(name.charAt(0) == '3'){
-                        numberOfChordAddapter = ArrayAdapter.createFromResource(playGuitar.this, R.array.playGuitar_Number_Of_Chord_3, android.R.layout.simple_spinner_item);
-                    } else if(name.charAt(0) == '4'){
-                        numberOfChordAddapter = ArrayAdapter.createFromResource(playGuitar.this, R.array.playGuitar_Number_Of_Chord_4, android.R.layout.simple_spinner_item);
-                    } else if(name.charAt(0) == '5'){
-                        numberOfChordAddapter = ArrayAdapter.createFromResource(playGuitar.this, R.array.playGuitar_Number_Of_Chord_5, android.R.layout.simple_spinner_item);
+                    if(name.matches("1 / 1")){
+                        numberOfChordAddapter = ArrayAdapter.createFromResource(playGuitar.this, R.array.playGuitar_Number_Of_Chord_1_1, android.R.layout.simple_spinner_item);
+                    } else if(name.matches("2 / 2")){
+                        numberOfChordAddapter = ArrayAdapter.createFromResource(playGuitar.this, R.array.playGuitar_Number_Of_Chord_2_2, android.R.layout.simple_spinner_item);
+                    } else if(name.matches("3 / 3")){
+                        numberOfChordAddapter = ArrayAdapter.createFromResource(playGuitar.this, R.array.playGuitar_Number_Of_Chord_3_3, android.R.layout.simple_spinner_item);
+                    } else if(name.matches("3 / 4")){
+                        numberOfChordAddapter = ArrayAdapter.createFromResource(playGuitar.this, R.array.playGuitar_Number_Of_Chord_3_4, android.R.layout.simple_spinner_item);
+                    } else if(name.matches("4 / 4")){
+                        numberOfChordAddapter = ArrayAdapter.createFromResource(playGuitar.this, R.array.playGuitar_Number_Of_Chord_4_4, android.R.layout.simple_spinner_item);
                     }
 
 
@@ -180,7 +187,7 @@ public class playGuitar extends AppCompatActivity implements NavigationView.OnNa
         playGuitarImageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(playGuitar.this, PlayMetronome.class);
+                Intent intent = new Intent(playGuitar.this, PlayingGuitarStrumming.class);
 
                 isPlay = !isPlay; // reverse
                 if (isPlay) {
@@ -188,6 +195,8 @@ public class playGuitar extends AppCompatActivity implements NavigationView.OnNa
                     int size = getResources().getDimensionPixelOffset(R.dimen.thirty);
                     playGuitarImageButton.setPadding(size,size,size,size);
 
+                    setPlayGuitarValue();
+                    startService(intent);
 
 
                 } else {
@@ -196,6 +205,8 @@ public class playGuitar extends AppCompatActivity implements NavigationView.OnNa
                     int right = getResources().getDimensionPixelOffset(R.dimen.towentysix);
                     int left = getResources().getDimensionPixelOffset(R.dimen.thirty);
                     playGuitarImageButton.setPadding(left, topbottom, right, topbottom);
+
+                    stopService(intent);
 
                 }
             }
@@ -213,55 +224,20 @@ public class playGuitar extends AppCompatActivity implements NavigationView.OnNa
     /*--------------- Set Guitar Value Method --------------*/
     public void setPlayGuitarValue(){
         int tempoValue = Integer.parseInt(String.valueOf(mTempo.getText()));
-        int NumberOfChord = Integer.parseInt(String.valueOf(signatureSpinner.getSelectedItem()));
 
         String signatureValue = signatureSpinner.getSelectedItem().toString().trim();
         String strummingValue = strummingSpinner.getSelectedItem().toString().trim();
-        String [][] chordListAndType = new String[8][2];
 
-        for(int i=0; i< NumberOfChord; i++){
-            if(i==0){
-                chordListAndType[i][0] = chordNameSpinner1.getSelectedItem().toString().trim();
-                chordListAndType[i][1] = chordTypeSpinner1.getSelectedItem().toString().trim();
-            }
-            if(i==1){
-                chordListAndType[i][0] = chordNameSpinner2.getSelectedItem().toString().trim();
-                chordListAndType[i][1] = chordTypeSpinner2.getSelectedItem().toString().trim();
-            }
-            if(i==2){
-                chordListAndType[i][0] = chordNameSpinner3.getSelectedItem().toString().trim();
-                chordListAndType[i][1] = chordTypeSpinner3.getSelectedItem().toString().trim();
-            }
-            if(i==3){
-                chordListAndType[i][0] = chordNameSpinner4.getSelectedItem().toString().trim();
-                chordListAndType[i][1] = chordTypeSpinner4.getSelectedItem().toString().trim();
-            }
-            if(i==4){
-                chordListAndType[i][0] = chordNameSpinner5.getSelectedItem().toString().trim();
-                chordListAndType[i][1] = chordTypeSpinner5.getSelectedItem().toString().trim();
-            }
-            if(i==5){
-                chordListAndType[i][0] = chordNameSpinner6.getSelectedItem().toString().trim();
-                chordListAndType[i][1] = chordTypeSpinner6.getSelectedItem().toString().trim();
-            }
-            if(i==6){
-                chordListAndType[i][0] = chordNameSpinner7.getSelectedItem().toString().trim();
-                chordListAndType[i][1] = chordTypeSpinner7.getSelectedItem().toString().trim();
-            }
-            if(i==7){
-                chordListAndType[i][0] = chordNameSpinner8.getSelectedItem().toString().trim();
-                chordListAndType[i][1] = chordTypeSpinner8.getSelectedItem().toString().trim();
-            }
 
-        }
 
-        
+
+        PlayingGuitarStrumming.setTempoValue(tempoValue);
+        PlayingGuitarStrumming.setSignatureValue(signatureValue);
+        PlayingGuitarStrumming.setStrummingName(strummingValue);
+        PlayingGuitarStrumming.setNumberOfChord(numberOfChord);
+        PlayingGuitarStrumming.setChordListAndType(chordListAndType);
+
     }
-
-
-
-
-
 
 
 
@@ -463,6 +439,15 @@ public class playGuitar extends AppCompatActivity implements NavigationView.OnNa
                     six.setVisibility(View.VISIBLE);
                     seven.setVisibility(View.VISIBLE);
                     eight.setVisibility(View.VISIBLE);
+                } else if (name.trim().equalsIgnoreCase("1")){
+                    two.setVisibility(View.GONE);
+
+                    three.setVisibility(View.GONE);
+                    four.setVisibility(View.GONE);
+                    five.setVisibility(View.GONE) ;
+                    six.setVisibility(View.GONE);
+                    seven.setVisibility(View.GONE);
+                    eight.setVisibility(View.GONE);
                 }
             }
 
@@ -522,6 +507,43 @@ public class playGuitar extends AppCompatActivity implements NavigationView.OnNa
 
             @Override
             public void onClick(View v) {
+                numberOfChord = Integer.parseInt(String.valueOf(numberofChord.getSelectedItem()).trim());
+                chordListAndType = new String[9][3];
+                for(int i=0; i< numberOfChord; i++){
+                    if(i==0){
+                        chordListAndType[i][0] = chordNameSpinner1.getSelectedItem().toString().trim();
+                        chordListAndType[i][1] = chordTypeSpinner1.getSelectedItem().toString().trim();
+                    }
+                    if(i==1){
+                        chordListAndType[i][0] = chordNameSpinner2.getSelectedItem().toString().trim();
+                        chordListAndType[i][1] = chordTypeSpinner2.getSelectedItem().toString().trim();
+                    }
+                    if(i==2){
+                        chordListAndType[i][0] = chordNameSpinner3.getSelectedItem().toString().trim();
+                        chordListAndType[i][1] = chordTypeSpinner3.getSelectedItem().toString().trim();
+                    }
+                    if(i==3){
+                        chordListAndType[i][0] = chordNameSpinner4.getSelectedItem().toString().trim();
+                        chordListAndType[i][1] = chordTypeSpinner4.getSelectedItem().toString().trim();
+                    }
+                    if(i==4){
+                        chordListAndType[i][0] = chordNameSpinner5.getSelectedItem().toString().trim();
+                        chordListAndType[i][1] = chordTypeSpinner5.getSelectedItem().toString().trim();
+                    }
+                    if(i==5){
+                        chordListAndType[i][0] = chordNameSpinner6.getSelectedItem().toString().trim();
+                        chordListAndType[i][1] = chordTypeSpinner6.getSelectedItem().toString().trim();
+                    }
+                    if(i==6){
+                        chordListAndType[i][0] = chordNameSpinner7.getSelectedItem().toString().trim();
+                        chordListAndType[i][1] = chordTypeSpinner7.getSelectedItem().toString().trim();
+                    }
+                    if(i==7){
+                        chordListAndType[i][0] = chordNameSpinner8.getSelectedItem().toString().trim();
+                        chordListAndType[i][1] = chordTypeSpinner8.getSelectedItem().toString().trim();
+                    }
+
+                }
                 d.dismiss();
             }
         });
@@ -529,9 +551,6 @@ public class playGuitar extends AppCompatActivity implements NavigationView.OnNa
 
 
     }       /*-------closed Tempo Method-----*/
-
-
-
 
 
 

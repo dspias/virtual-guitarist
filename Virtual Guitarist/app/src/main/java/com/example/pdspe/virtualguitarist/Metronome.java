@@ -145,6 +145,7 @@ public class Metronome extends AppCompatActivity implements NavigationView.OnNav
                     media.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.stop_btn));
                     int size = getResources().getDimensionPixelOffset(R.dimen.thirty);
                     media.setPadding(size,size,size,size);
+
                     setMetronome();
                     startService(intent);
 
@@ -155,6 +156,7 @@ public class Metronome extends AppCompatActivity implements NavigationView.OnNav
                     int right = getResources().getDimensionPixelOffset(R.dimen.towentysix);
                     int left = getResources().getDimensionPixelOffset(R.dimen.thirty);
                     media.setPadding(left, topbottom, right, topbottom);
+
                     stopService(intent);
 
                 }
