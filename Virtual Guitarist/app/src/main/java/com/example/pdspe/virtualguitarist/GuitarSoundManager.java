@@ -75,6 +75,7 @@ public class GuitarSoundManager {
         mSoundPoolMap.put(10, mSoundPool.load(mContext, R.raw.c_2, 1));
         mSoundPoolMap.put(11, mSoundPool.load(mContext, R.raw.d2, 1));
         mSoundPoolMap.put(12, mSoundPool.load(mContext, R.raw.d_2, 1));
+
         mSoundPoolMap.put(13, mSoundPool.load(mContext, R.raw.e2, 1));
         mSoundPoolMap.put(14, mSoundPool.load(mContext, R.raw.f2, 1));
         mSoundPoolMap.put(15, mSoundPool.load(mContext, R.raw.f_2, 1));

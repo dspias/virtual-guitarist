@@ -123,8 +123,9 @@ public class PlayingGuitarStrumming extends Service {
     /*------------- One by One total work start -----------------*/
     public void oneByOne(){
 
-        if(strummingName.equalsIgnoreCase("One Bye One-1")){
+        if(isRunning != true) return;
 
+        if(strummingName.equalsIgnoreCase("One Bye One-1")){
         } else if(strummingName.equalsIgnoreCase("One Bye One-2")){
 
         } else if(strummingName.equalsIgnoreCase("One Bye One-3")){
@@ -146,6 +147,7 @@ public class PlayingGuitarStrumming extends Service {
 
     /*------------- Two by Two total work start -----------------*/
     public void twoByTwo(){
+        if(isRunning != true) return;
 
         if(strummingName.equalsIgnoreCase("Two Bye Two-1")){
 
@@ -169,6 +171,8 @@ public class PlayingGuitarStrumming extends Service {
     /*------------- Three by Three total work start -----------------*/
     public void threeByeThree(){
 
+        if(isRunning != true) return;
+
         if(strummingName.equalsIgnoreCase("Three Bye Three-1")){
 
         } else if(strummingName.equalsIgnoreCase("Three Bye Three-2")){
@@ -188,6 +192,8 @@ public class PlayingGuitarStrumming extends Service {
 
     /*------------- Three by Four total work start -----------------*/
     public void threeByFour(){
+
+        if(isRunning != true) return;
 
         if(strummingName.equalsIgnoreCase("Three Bye four-1")){
 
@@ -214,6 +220,9 @@ public class PlayingGuitarStrumming extends Service {
 
     /*------------- Four by Four total work start -----------------*/
     public void fourByfour(){
+
+        if(isRunning != true) return;
+
         if(strummingName.equalsIgnoreCase("Four bye four-1")){
             kaharbadown();
         } else if(strummingName.equalsIgnoreCase("Four bye four-2")){
@@ -229,23 +238,30 @@ public class PlayingGuitarStrumming extends Service {
     }
 
     /*---------- fourByfour all strumming method-----------*/
+
+    /*---------- kaharbadown strumming method start-----------*/
     public void kaharbadown(){
+
+        if(isRunning != true) return;
+
         if(numberOfChord == 2){
-
-        } else if(numberOfChord == 8){
-
-        } else {
-            for(int i=0;i<numberOfChord;i++){
-
-
-                positionMainDown(chordListAndType[i],240 * 2);
-                positionMainDown(chordListAndType[i],240 / 2);
-                positionMainUp(chordListAndType[i],240 / 2);
-                positionMainDown(chordListAndType[i],240 /2);
-                positionMainUp(chordListAndType[i],240 /2);
+            for(int i = 0;i<4;i++){
+                if(i==0 || i==1){ kaharbadownCod(0,0); }
+                else { kaharbadownCod(1,0);}
             }
+        } else if(numberOfChord == 8){
+            for(int i=0;i<8;i+=2){ kaharbadownCod(i,1); }
+        } else {
+            for(int i=0;i<numberOfChord;i++){ if(isRunning != true) return; kaharbadownCod(i,0); }
         }
     }
+    public void kaharbadownCod(int i,int dbl){
+        positionMainDown(chordListAndType[i],semiTimeDifference * 240 * 2);
+        positionMainDown(chordListAndType[i],semiTimeDifference * 240 / 2);
+        positionMainUp(chordListAndType[i+dbl],semiTimeDifference * 240 / 2);
+        positionMainDown(chordListAndType[i+dbl],semiTimeDifference * 240 *1);
+    }
+    /*---------- kaharbadown strumming method Complete-----------*/
 
 
     /*------------- Four by Four total work complete -----------------*/
@@ -259,10 +275,12 @@ public class PlayingGuitarStrumming extends Service {
         int [] chord = new int[6];
         chord= findChordSerial(chordName);
 
-        for(int i=0;i<4;i++){chord[i] = chord[i+1];}
-        try{
+        int [] chordF = new int[5];
 
-            play4(chord);
+        for(int i=0;i<4;i++){chordF[i] = chord[i+1];}
+        try{
+            if(isRunning != true) return;
+            play4(chordF);
             Thread.sleep(waitTime);
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -273,10 +291,12 @@ public class PlayingGuitarStrumming extends Service {
     public void positionMainUp(String[] chordName, int waitTime){
         int [] chord = new int[6];
         chord= findChordSerial(chordName);
-        Collections.reverse(Arrays.asList(chord));
-        for(int i=0;i<4;i++){chord[i] = chord[i+1];}
+        //Collections.reverse(Arrays.asList(chord));
+        int [] chordF = new int[5];
+        for(int i=0;i<4;i++){chordF[i] = chord[i+2];}
         try{
-            play4(chord);
+            if(isRunning != true) return;
+            play4(chordF);
             Thread.sleep(waitTime);
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -287,9 +307,11 @@ public class PlayingGuitarStrumming extends Service {
     public void positionSlowDown(String[] chordName, int waitTime){
         int [] chord = new int[6];
         chord= findChordSerial(chordName);
-        for(int i=0;i<2;i++){chord[i] = chord[i+3];}
+        int [] chordF = new int[5];
+        for(int i=0;i<2;i++){chordF[i] = chord[i+3];}
         try{
-            play2(chord);
+            if(isRunning != true) return;
+            play2(chordF);
             Thread.sleep(waitTime);
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -300,10 +322,12 @@ public class PlayingGuitarStrumming extends Service {
     public void positionSlowUp(String[] chordName, int waitTime){
         int [] chord = new int[6];
         chord= findChordSerial(chordName);
-        Collections.reverse(Arrays.asList(chord));
-        for(int i=0;i<2;i++){chord[i] = chord[i+3];}
+        //Collections.reverse(Arrays.asList(chord));
+        int [] chordF = new int[5];
+        for(int i=0;i<2;i++){chordF[i] = chord[i+3];}
         try{
-            play2(chord);
+            if(isRunning != true) return;
+            play2(chordF);
             Thread.sleep(waitTime);
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -333,40 +357,40 @@ public class PlayingGuitarStrumming extends Service {
 
     public void play4(int[] a){
         //float x = tempoValue/80;
-        try{
+//        try{
             if(isRunning != true) return;
             GuitarSoundManager.playSound(a[0],1.5f);
-            Thread.sleep(semiTimeDifference * 1);
+            //Thread.sleep(semiTimeDifference * 1);
 
             if(isRunning != true) return;
             GuitarSoundManager.playSound(a[1],1.5f);
-            Thread.sleep(semiTimeDifference * 1);
+            //Thread.sleep(semiTimeDifference * 1);
 
             if(isRunning != true) return;
             GuitarSoundManager.playSound(a[2],1.5f);
-            Thread.sleep(semiTimeDifference * 1);
+            //Thread.sleep(semiTimeDifference * 1);
 
             if(isRunning != true) return;
             GuitarSoundManager.playSound(a[3],1.5f);
 
-        } catch(InterruptedException e) {
-            e.printStackTrace();
-        }
+//        } catch(InterruptedException e) {
+//            e.printStackTrace();
+//        }
 
     }
 
     public void play2(int[] a){
-        try{
+//        try{
             if(isRunning != true) return;
-            GuitarSoundManager.playSound(a[0],1.0f);
-            Thread.sleep(semiTimeDifference * 6);
+            GuitarSoundManager.playSound(a[0],1.5f);
+            //Thread.sleep(semiTimeDifference * 6);
 
             if(isRunning != true) return;
-            GuitarSoundManager.playSound(a[1],1.0f);
+            GuitarSoundManager.playSound(a[1],1.5f);
 
-        } catch(InterruptedException e) {
-            e.printStackTrace();
-        }
+//        } catch(InterruptedException e) {
+//            e.printStackTrace();
+//        }
 
     }
 
