@@ -231,12 +231,18 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/boxshadow"
                     android:orientation="vertical">
-                    <TextView
-                        android:id="@+id/checkCotext"
+                    <LinearLayout
+                        android:id="@+id/setColorBeatPatturn1"
+                        android:orientation="vertical"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:textSize="20dp"
-                        />
+                        android:layout_height="75dp" >
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/setColorBeatPatturn2"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp">
+                    </LinearLayout>
 
 
                 </LinearLayout>

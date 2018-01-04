@@ -41,7 +41,10 @@ public class Metronome extends AppCompatActivity implements NavigationView.OnNav
     //---- set media option ------//
     boolean isPlay = false;
     PlayMetronome mPlayMetronome = new PlayMetronome();
+    Intent intent;
 
+    //------------ set Metronome Light --------//
+    LinearLayout beatPaturn1, beatPaturn2;
 
 
 
@@ -64,6 +67,9 @@ public class Metronome extends AppCompatActivity implements NavigationView.OnNav
         SoundManager.getInstance();
         SoundManager.initSounds(this);
         SoundManager.loadSounds();
+
+        beatPaturn1 = (LinearLayout) findViewById(R.id.setColorBeatPatturn1);
+        beatPaturn2 = (LinearLayout) findViewById(R.id.setColorBeatPatturn2);
 
 
         setTitle("Metronome");      //----Set title on Metronome Page----//
@@ -134,6 +140,8 @@ public class Metronome extends AppCompatActivity implements NavigationView.OnNav
         //------ Working Media Button code ------- //
 
         final ImageButton media = (ImageButton) findViewById(R.id.media_button);
+
+        intent = new Intent(Metronome.this, PlayMetronome.class);
         media.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -172,6 +180,12 @@ public class Metronome extends AppCompatActivity implements NavigationView.OnNav
 
     }       //------Closed onCreate Method-----//
 
+    @Override
+    public void onBackPressed() {
+        stopService(intent);
+        finish();
+    }
+
 
 
 
@@ -186,6 +200,8 @@ public class Metronome extends AppCompatActivity implements NavigationView.OnNav
         PlayMetronome.setFirstSignature(fsignature);
         PlayMetronome.setSecondSignature(ssignature);
         PlayMetronome.setTempo(tempoValue);
+        PlayMetronome.setBeatptn1(beatPaturn1);
+        PlayMetronome.setBeatptn2(beatPaturn2);
 
     }       //-------closed setMetronome Metod--------//
 
@@ -244,6 +260,7 @@ public class Metronome extends AppCompatActivity implements NavigationView.OnNav
             public void onClick(View v) {
                 //first.setText(String.valueOf(np1.getValue()));
                 //second.setText(String.valueOf(np2.getValue()));
+                setMetronome();
                 d.dismiss();
             }
         });
@@ -287,6 +304,7 @@ public class Metronome extends AppCompatActivity implements NavigationView.OnNav
 
             @Override
             public void onClick(View v) {
+                setMetronome();
                 d.dismiss();
             }
         });

@@ -13,7 +13,9 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
 import android.text.Layout;
+import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,6 +26,7 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.NumberPicker;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.appindexing.Action;
@@ -66,7 +69,13 @@ public class playGuitar extends AppCompatActivity implements NavigationView.OnNa
     ImageButton playGuitarImageButton;
     private int numberOfChord;
     private String [][] chordListAndType;
+    private Intent intent;
 
+    //----------- set chord setup or not check-------------//
+    private boolean chrodIsSetup;
+
+
+    TextView a;
 
 
 
@@ -184,41 +193,53 @@ public class playGuitar extends AppCompatActivity implements NavigationView.OnNa
 
         /*---------------- media play pause start ------------------*/
         playGuitarImageButton = (ImageButton) findViewById(R.id.media_button);
+        intent = new Intent(playGuitar.this, PlayingGuitarStrumming.class);
+
+        chrodIsSetup = false;
         playGuitarImageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(playGuitar.this, PlayingGuitarStrumming.class);
 
-                isPlay = !isPlay; // reverse
-                if (isPlay) {
-                    playGuitarImageButton.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.stop_btn));
-                    int size = getResources().getDimensionPixelOffset(R.dimen.thirty);
-                    playGuitarImageButton.setPadding(size,size,size,size);
+                if (chrodIsSetup == true) {
+                    isPlay = !isPlay; // reverse
+                    if(isPlay){
+                        playGuitarImageButton.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.stop_btn));
+                        int size = getResources().getDimensionPixelOffset(R.dimen.thirty);
+                        playGuitarImageButton.setPadding(size,size,size,size);
 
-                    setPlayGuitarValue();
-                    startService(intent);
+                        setPlayGuitarValue();
+                        startService(intent);
+                    } else {
+                        playGuitarImageButton.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.play_btn));
+                        int topbottom = getResources().getDimensionPixelOffset(R.dimen.thirty);
+                        int right = getResources().getDimensionPixelOffset(R.dimen.towentysix);
+                        int left = getResources().getDimensionPixelOffset(R.dimen.thirty);
+                        playGuitarImageButton.setPadding(left, topbottom, right, topbottom);
 
+                        stopService(intent);
+                    }
 
                 } else {
-                    playGuitarImageButton.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.play_btn));
-                    int topbottom = getResources().getDimensionPixelOffset(R.dimen.thirty);
-                    int right = getResources().getDimensionPixelOffset(R.dimen.towentysix);
-                    int left = getResources().getDimensionPixelOffset(R.dimen.thirty);
-                    playGuitarImageButton.setPadding(left, topbottom, right, topbottom);
-
-                    stopService(intent);
-
+                    Toast.makeText(playGuitar.this, "Setup Chord First than play.", Toast.LENGTH_SHORT).show();
                 }
             }
         });
 
-
+        a = (TextView) findViewById(R.id.show_chords);
+        a.setText(setChordValue());
 
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }       //------ Closed onCreate Method -----//
+
+    @Override
+    public void onBackPressed() {
+        stopService(intent);
+        finish();
+    }
+
 
 
     /*--------------- Set Guitar Value Method --------------*/
@@ -227,9 +248,6 @@ public class playGuitar extends AppCompatActivity implements NavigationView.OnNa
 
         String signatureValue = signatureSpinner.getSelectedItem().toString().trim();
         String strummingValue = strummingSpinner.getSelectedItem().toString().trim();
-
-
-
 
         PlayingGuitarStrumming.setTempoValue(tempoValue);
         PlayingGuitarStrumming.setSignatureValue(signatureValue);
@@ -240,13 +258,18 @@ public class playGuitar extends AppCompatActivity implements NavigationView.OnNa
     }
 
 
-
-
-
-
-
-
-
+    /*------------ set chrod Value in last layout method ------------*/
+    public String setChordValue(){
+        String chord = new String();
+        for(int i=0;i<numberOfChord;i++){
+            if(numberOfChord-1 == i){
+                chord+=chordListAndType[i][0]+"-"+chordListAndType[i][1]+".";
+            }else {
+                chord+=chordListAndType[i][0]+"-"+chordListAndType[i][1]+", ";
+            }
+        }
+        return chord;
+    }
 
 
 
@@ -544,6 +567,9 @@ public class playGuitar extends AppCompatActivity implements NavigationView.OnNa
                     }
 
                 }
+                a.setText(setChordValue());
+                chrodIsSetup = true;
+
                 d.dismiss();
             }
         });

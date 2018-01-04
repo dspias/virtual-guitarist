@@ -249,7 +249,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/show_chords"
+
                 android:layout_width="350dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_horizontal"
@@ -259,6 +259,19 @@
                 android:layout_marginBottom="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="5dp">
+                <TextView
+                    android:id="@+id/show_chords"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textSize="20dp"
+                    android:padding="5dp"
+                    android:textStyle="bold"
+                    android:textColor="#fff"
+
+                    android:text=""
+                    />
 
             </LinearLayout>
 

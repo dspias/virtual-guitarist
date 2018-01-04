@@ -1,14 +1,21 @@
 package com.example.pdspe.virtualguitarist;
 
 import android.app.Service;
-        import android.content.Intent;
+import android.content.Context;
+import android.content.Intent;
         import android.os.Handler;
         import android.os.HandlerThread;
         import android.os.IBinder;
         import android.os.Looper;
         import android.os.Message;
         import android.os.Process;
-        import android.widget.Toast;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.Toast;
+
+import static com.example.pdspe.virtualguitarist.R.color.AliceBlue;
+import static com.example.pdspe.virtualguitarist.R.color.dark_red;
+import static com.example.pdspe.virtualguitarist.R.color.red;
 
 /**
  * The metronome works like this:
@@ -36,6 +43,7 @@ public class PlayMetronome extends Service  {
 
 
     private static int firstSignature, secondSignature, tempo, timeDifference;
+    private static LinearLayout beatptn1,beatptn2;
 
 
     //------- create setter method ------//
@@ -51,6 +59,12 @@ public class PlayMetronome extends Service  {
     public static void setTempo(int tempoV) {
         tempo = tempoV;
         timeDifference = (60000/tempo);
+    }
+    public static void setBeatptn1(LinearLayout beat1) {
+        beatptn1 = beat1;
+    }
+    public static void setBeatptn2(LinearLayout beat2) {
+        beatptn2 = beat2;
     }
 
 
