@@ -162,7 +162,7 @@
             <!-- Metronome Play and poss option -->
             <LinearLayout
                 android:layout_width="280dp"
-                android:layout_height="140dp"
+                android:layout_height="150dp"
                 android:layout_gravity="center_horizontal"
                 android:orientation="horizontal"
                 android:padding="10dp"
@@ -173,29 +173,33 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="15dp"
-                    android:layout_marginTop="35dp"
+                    android:layout_gravity="center_vertical"
                     android:src="@drawable/minus"
 
                     android:background="@drawable/homebutton"
                     />
                 <LinearLayout
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    android:background="@drawable/circle"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:background="@drawable/circle">
+                    android:layout_marginLeft="10dp">
 
                     <ImageButton
                         android:id="@+id/media_button"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:paddingLeft="12dp"
-                        android:src="@drawable/play_button"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginLeft="20dp"
-                        android:onClick="buttonPressed"
-                        android:background="@drawable/circle"
+                        android:layout_width="95dp"
+                        android:layout_height="95dp"
+                        android:src="@drawable/play_btn"
+                        android:scaleType="fitXY"
+                        android:paddingLeft="30dp"
+                        android:paddingTop="30dp"
+                        android:paddingBottom="30dp"
+                        android:paddingRight="26dp"
+
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginTop="18dp"
+
+                        android:background="@drawable/circle_inner"
                         />
                 </LinearLayout>
 
@@ -205,7 +209,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="15dp"
-                    android:layout_marginTop="35dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_gravity="center_vertical"
                     android:src="@drawable/add"
                     android:background="@drawable/homebutton"
                     />
@@ -221,10 +226,24 @@
                 android:background="@drawable/boxshadow">
 
                 <LinearLayout
+                    android:id="@+id/metronome_play_Style"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/boxshadow"
                     android:orientation="vertical">
+                    <LinearLayout
+                        android:id="@+id/setColorBeatPatturn1"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="75dp" >
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/setColorBeatPatturn2"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp">
+                    </LinearLayout>
+
 
                 </LinearLayout>
 

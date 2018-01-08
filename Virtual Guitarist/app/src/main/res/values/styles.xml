@@ -12,5 +12,45 @@
         <item name="android:textSize">25dp</item>
     </style>
 
+    <style name="Signature_spinner_style" >
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:dropDownWidth">60dp</item>
+        <item name="android:showDividers">none</item>
+        <item name="android:dividerHeight">5dp</item>
+        <item name="android:textSize">30dp</item>
+        <item name="android:textColorHint">#ccc</item>
+        <item name="android:popupBackground">@color/Peru</item>
+        <item name="android:dropDownHeight">120dp</item>
+        <item name="android:scrollbarAlwaysDrawVerticalTrack">true</item>
+        <item name="android:dropDownSelector">@android:color/darker_gray</item>
+    </style>
+
+    <style name="Strumming_spinner_style" >
+        <item name="android:paddingRight">30dp</item>
+        <item name="android:dropDownWidth">150dp</item>
+        <item name="android:showDividers">none</item>
+        <item name="android:dividerHeight">5dp</item>
+        <item name="android:textSize">30dp</item>
+        <item name="android:popupBackground">@color/Peru</item>
+        <item name="android:dropDownHeight">120dp</item>
+        <item name="android:scrollbarAlwaysDrawVerticalTrack">true</item>
+        <item name="android:dropDownSelector">@android:color/darker_gray</item>
+    </style>
+
+    <style name="NumberOfChord" >
+        <item name="android:paddingLeft">0dp</item>
+        <item name="android:dropDownWidth">60dp</item>
+        <item name="android:showDividers">none</item>
+        <item name="android:dividerHeight">5dp</item>
+        <item name="android:textSize">30dp</item>
+        <item name="android:textColor">@color/Coral</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:popupBackground">@color/Peru</item>
+        <item name="android:dropDownHeight">120dp</item>
+        <item name="android:scrollbarAlwaysDrawVerticalTrack">true</item>
+        <item name="android:dropDownSelector">@android:color/darker_gray</item>
+    </style>
+
+
 
 </resources>

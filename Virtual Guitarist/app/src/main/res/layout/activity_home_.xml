@@ -6,7 +6,6 @@ xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_home_drawarLayout"
     tools:context=".Home_Activity" >
 
-
 <FrameLayout
     android:id="@+id/content_frame"
     android:layout_width="match_parent"
@@ -141,6 +140,7 @@ xmlns:app="http://schemas.android.com/apk/res-auto"
 
 
 </FrameLayout>
+
 <!-- The navigation drawer -->
 <android.support.design.widget.NavigationView
     android:id="@+id/navigation"

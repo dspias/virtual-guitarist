@@ -6,4 +6,19 @@
     <dimen name="HomePageImage_horizontal">230dp</dimen>
     <dimen name="button_text_size">20dp</dimen>
 
+    <dimen name="eight">8dp</dimen>
+    <dimen name="ten">10dp</dimen>
+    <dimen name="twelve">12dp</dimen>
+    <dimen name="fourteen">14dp</dimen>
+    <dimen name="sixteen">16dp</dimen>
+    <dimen name="eighteen">18dp</dimen>
+    <dimen name="towenty">20dp</dimen>
+    <dimen name="towentytwo">22dp</dimen>
+    <dimen name="towentyfour">24dp</dimen>
+    <dimen name="towentysix">26dp</dimen>
+    <dimen name="towentyeight">28dp</dimen>
+    <dimen name="thirty">30dp</dimen>
+    <dimen name="thirtytwo">32dp</dimen>
+
+
 </resources>

@@ -50,6 +50,8 @@
                         />
 
                     <Button
+                        android:id="@+id/tempo_button"
+
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="70dp"
@@ -60,9 +62,7 @@
                         android:background="@drawable/homebutton"
                         android:textSize="50sp"
                         android:textStyle="bold"
-
-
-                        android:id="@+id/button" />
+                         />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -95,7 +95,7 @@
                         />
                     <LinearLayout
                         android:layout_width="130dp"
-                        android:layout_height="60dp"
+                        android:layout_height="50dp"
                         android:layout_marginLeft="62dp"
                         android:layout_marginTop="7dp"
                         android:paddingLeft="5dp"
@@ -103,39 +103,16 @@
                         android:orientation="horizontal"
                         android:background="@drawable/homebutton">
 
-                        <TextView
-                            android:id="@+id/beat_pattern1"
-                            android:layout_width="45dp"
-                            android:layout_height="60dp"
-                            android:textAlignment="center"
-                            android:text="4"
-                            android:textColor="@color/white"
-                            android:textSize="30sp"
-                            android:textStyle="bold"
-                            android:padding="5dp" />
-                        <TextView
-                            android:layout_width="23dp"
-                            android:layout_height="60dp"
-                            android:text="/"
-                            android:textAlignment="center"
-                            android:textColor="@color/white"
-                            android:textSize="40sp"
-                            android:textStyle="bold"
-                            android:paddingTop="5dp"
+                        <Spinner
+                            android:id="@+id/signature_spinner"
 
-                            />
-
-                        <TextView
-                            android:id="@+id/beat_pattern2"
-                            android:layout_width="45dp"
-                            android:layout_height="45dp"
-                            android:text="4"
+                            android:backgroundTint="#00b10b09"
+                            android:textDirection="firstStrong"
+                            android:layout_margin="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
                             android:textAlignment="center"
-                            android:textColor="@color/white"
-                            android:textSize="30sp"
-                            android:textStyle="bold"
-                            android:padding="5dp"
-
+                            style="@style/Signature_spinner_style"
                             />
 
                     </LinearLayout>
@@ -148,7 +125,6 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/strumming_pattern"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/strumming_pattern"
@@ -159,20 +135,31 @@
                         android:layout_marginTop="8dp"
 
                         />
-
-                    <Button
-                        android:layout_width="130dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="50dp"
+                    <LinearLayout
+                        android:layout_width="170dp"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_marginTop="7dp"
-                        android:text="EDIT"
-                        android:textColor="@color/white"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
-                        android:padding="10dp"
-                        android:background="@drawable/homebutton"
+                        android:paddingLeft="5dp"
 
-                        />
+                        android:orientation="horizontal"
+                        android:background="@drawable/homebutton">
+
+                        <Spinner
+                            android:id="@+id/srumming_spinner"
+
+                            android:backgroundTint="#00b10b09"
+                            android:layout_margin="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:textAlignment="center"
+                            android:spinnerMode="dropdown"
+                            style="@style/Strumming_spinner_style"
+                            />
+
+                    </LinearLayout>
+
+
 
                 </LinearLayout>
 
@@ -195,6 +182,7 @@
                         />
 
                     <Button
+                        android:id="@+id/setup_usable_chord"
                         android:layout_width="130dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="100dp"
@@ -212,7 +200,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="250dp"
+                android:layout_width="280dp"
                 android:layout_height="150dp"
                 android:orientation="horizontal"
                 android:layout_gravity="center_horizontal"
@@ -225,29 +213,58 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_margin="6dp"
-                    android:background="@drawable/homebutton"
-                    >
+                    android:layout_margin="5dp"
+                    android:background="@drawable/homebutton" >
+                    <ImageButton
+                        android:id="@+id/negative_buttton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:padding="15dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/minus"
+
+                        android:background="@drawable/homebutton"
+                        />
                     <LinearLayout
                         android:layout_width="130dp"
                         android:layout_height="130dp"
                         android:background="@drawable/circle"
-                        android:layout_marginTop="4dp"
-                        android:layout_marginLeft="50dp">
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dp"
+                        >
 
                         <ImageButton
                             android:id="@+id/media_button"
                             android:layout_width="95dp"
                             android:layout_height="95dp"
-                            android:src="@drawable/play_button"
-                            android:paddingLeft="10dp"
+                            android:src="@drawable/play_btn"
+                            android:paddingLeft="30dp"
+                            android:paddingTop="30dp"
+                            android:paddingBottom="30dp"
+                            android:paddingRight="26dp"
+                            android:scaleType="fitXY"
 
-                            android:layout_marginTop="18dp"
                             android:layout_marginLeft="18dp"
+                            android:layout_marginTop="18dp"
 
-                            android:background="@drawable/circle"
+                            android:background="@drawable/circle_inner"
                             />
                     </LinearLayout>
+
+                    <ImageButton
+                        android:id="@+id/positive_button"
+                        android:layout_alignParentRight="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="15dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/add"
+                        android:background="@drawable/homebutton"
+                        />
+
+
 
                 </LinearLayout>
 
@@ -255,7 +272,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/show_chords"
+
                 android:layout_width="350dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_horizontal"
@@ -265,6 +282,19 @@
                 android:layout_marginBottom="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="5dp">
+                <TextView
+                    android:id="@+id/show_chords"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textSize="20dp"
+                    android:padding="5dp"
+                    android:textStyle="bold"
+                    android:textColor="#fff"
+
+                    android:text=""
+                    />
 
             </LinearLayout>
 
