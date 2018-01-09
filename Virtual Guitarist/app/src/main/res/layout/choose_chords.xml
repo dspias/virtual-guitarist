@@ -25,35 +25,35 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="5dp"
-                android:text="Number of Chords :"
+                android:text="Number of Chords "
                 android:textSize="20dp"
                 android:textColor="@color/white"
                 android:textStyle="bold"
                 android:layout_marginTop="12dp"
                 />
-
-            <Spinner
-                android:id="@+id/numberOfchords_spinner"
-
-                android:layout_width="90dp"
-                android:layout_height="36dp"
-                android:textSize="22dp"
-                android:textColor="@color/white"
-                android:paddingTop="5dp"
-                android:paddingLeft="5dp"
-                android:paddingRight="15dp"
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
                 android:layout_marginTop="10dp"
-                android:layout_marginLeft="5dp"
-                android:paddingBottom="5dp"
-                android:background="@drawable/allpagebackgrund"
+                android:layout_marginLeft="1dp"
+                android:background="#ce8705">
+                <Spinner
+                    android:id="@+id/numberOfchords_spinner"
 
-                android:backgroundTint="#c16767"
-                android:textDirection="firstStrong"
+                    android:layout_width="90dp"
+                    android:layout_height="36dp"
 
-                android:textAlignment="viewEnd"
-                android:spinnerMode="dropdown"
-                style="@style/NumberOfChord"
-                />
+                    android:paddingLeft="25dp"
+                    android:backgroundTint="#ffffff"
+                    android:textDirection="firstStrong"
+                    android:spinnerMode="dropdown"
+                    style="@style/NumberOfChord"
+                    />
+
+            </LinearLayout>
+
+
 
         </LinearLayout>
 
@@ -88,7 +88,7 @@
                 <TextView
                     android:layout_width="89dp"
                     android:layout_height="36dp"
-                    android:text="Chrod"
+                    android:text="Chord"
                     android:textSize="22dp"
                     android:textColor="@color/white"
                     android:paddingTop="5dp"
@@ -107,7 +107,7 @@
                     android:textSize="22dp"
                     android:textColor="@color/white"
                     android:paddingTop="5dp"
-                    android:paddingLeft="25dp"
+                    android:paddingLeft="22dp"
                     android:paddingRight="15dp"
                     android:paddingBottom="5dp"
                     android:background="@drawable/allpagebackgrund"
@@ -139,62 +139,45 @@
                             <TextView
                                 android:layout_width="50dp"
                                 android:layout_height="36dp"
-                                android:text="1."
-                                android:textSize="22dp"
-                                android:textColor="@color/white"
-                                android:paddingTop="5dp"
-                                android:paddingLeft="15dp"
-                                android:paddingRight="15dp"
-                                android:paddingBottom="5dp"
-                                android:background="@drawable/allpagebackgrund"
+                                android:text="1"
+                                style="@style/chordSerial"
 
                                 />
 
-                            <Spinner
-                                android:id="@+id/chord_Sl_1"
 
-                                android:layout_width="79dp"
-                                android:layout_height="36dp"
-                                android:textSize="22dp"
-                                android:textColor="@color/white"
-                                android:paddingTop="5dp"
-                                android:paddingLeft="15dp"
-                                android:paddingRight="15dp"
-                                android:paddingBottom="5dp"
-                                android:background="@drawable/allpagebackgrund"
-                                android:layout_marginLeft="25dp"
-                                android:layout_marginRight="22dp"
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                style="@style/chrodNameTypeBackground">
+                                <Spinner
+                                    android:id="@+id/chord_Sl_1"
+
+                                    android:layout_width="80dp"
+                                    android:layout_height="36dp"
+                                    android:backgroundTint="#c16767"
+                                    android:textAlignment="viewEnd"
+                                    style="@style/chordName"
+
+                                    />
+                            </LinearLayout>
 
 
 
-                                android:backgroundTint="#c16767"
-                                android:textDirection="firstStrong"
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                style="@style/chrodNameTypeBackground">
+                                <Spinner
+                                    android:id="@+id/chord_Type_1"
 
-                                android:textAlignment="viewEnd"
-                                android:spinnerMode="dropdown"
-                                style="@style/NumberOfChord"
-                                />
+                                    android:layout_width="90dp"
+                                    android:layout_height="36dp"
+                                    android:backgroundTint="#c16767"
+                                    android:textAlignment="viewEnd"
+                                    style="@style/chordType"
+                                    />
+                            </LinearLayout>
 
-                            <Spinner
-                                android:id="@+id/chord_Type_1"
-
-                                android:layout_width="90dp"
-                                android:layout_height="36dp"
-                                android:textSize="22dp"
-                                android:textColor="@color/white"
-                                android:paddingTop="5dp"
-                                android:paddingLeft="15dp"
-                                android:paddingRight="15dp"
-                                android:paddingBottom="5dp"
-                                android:background="@drawable/allpagebackgrund"
-
-                                android:backgroundTint="#c16767"
-                                android:textDirection="firstStrong"
-
-                                android:textAlignment="viewEnd"
-                                android:spinnerMode="dropdown"
-                                style="@style/NumberOfChord"
-                                />
                         </LinearLayout>
 
                         <LinearLayout
@@ -210,64 +193,46 @@
                             >
 
                             <TextView
+                                android:text="2"
                                 android:layout_width="50dp"
                                 android:layout_height="36dp"
-                                android:text="2."
-                                android:textSize="22dp"
-                                android:textColor="@color/white"
-                                android:paddingTop="5dp"
-                                android:paddingLeft="15dp"
-                                android:paddingRight="15dp"
-                                android:paddingBottom="5dp"
-                                android:background="@drawable/allpagebackgrund"
+                                style="@style/chordSerial"
 
                                 />
 
-                            <Spinner
-                                android:id="@+id/chord_Sl_2"
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                style="@style/chrodNameTypeBackground">
+                                <Spinner
+                                    android:id="@+id/chord_Sl_2"
 
-                                android:layout_width="79dp"
-                                android:layout_height="36dp"
-                                android:textSize="22dp"
-                                android:textColor="@color/white"
-                                android:paddingTop="5dp"
-                                android:paddingLeft="15dp"
-                                android:paddingRight="15dp"
-                                android:paddingBottom="5dp"
-                                android:background="@drawable/allpagebackgrund"
-                                android:layout_marginLeft="25dp"
-                                android:layout_marginRight="22dp"
+                                    android:layout_width="80dp"
+                                    android:layout_height="36dp"
+                                    android:backgroundTint="#c16767"
+                                    android:textAlignment="viewEnd"
+                                    style="@style/chordName"
+
+                                    />
+                            </LinearLayout>
 
 
 
-                                android:backgroundTint="#c16767"
-                                android:textDirection="firstStrong"
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                style="@style/chrodNameTypeBackground">
+                                <Spinner
+                                    android:id="@+id/chord_Type_2"
 
-                                android:textAlignment="viewEnd"
-                                android:spinnerMode="dropdown"
-                                style="@style/NumberOfChord"
-                                />
+                                    android:layout_width="90dp"
+                                    android:layout_height="36dp"
+                                    android:backgroundTint="#c16767"
+                                    android:textAlignment="viewEnd"
+                                    style="@style/chordType"
+                                    />
+                            </LinearLayout>
 
-                            <Spinner
-                                android:id="@+id/chord_Type_2"
-
-                                android:layout_width="90dp"
-                                android:layout_height="36dp"
-                                android:textSize="22dp"
-                                android:textColor="@color/white"
-                                android:paddingTop="5dp"
-                                android:paddingLeft="15dp"
-                                android:paddingRight="15dp"
-                                android:paddingBottom="5dp"
-                                android:background="@drawable/allpagebackgrund"
-
-                                android:backgroundTint="#c16767"
-                                android:textDirection="firstStrong"
-
-                                android:textAlignment="viewEnd"
-                                android:spinnerMode="dropdown"
-                                style="@style/NumberOfChord"
-                                />
                         </LinearLayout>
                         <LinearLayout
                             android:id="@+id/inputChord_3"
@@ -283,64 +248,45 @@
                             >
 
                             <TextView
+                                android:text="3"
                                 android:layout_width="50dp"
                                 android:layout_height="36dp"
-                                android:text="3."
-                                android:textSize="22dp"
-                                android:textColor="@color/white"
-                                android:paddingTop="5dp"
-                                android:paddingLeft="15dp"
-                                android:paddingRight="15dp"
-                                android:paddingBottom="5dp"
-                                android:background="@drawable/allpagebackgrund"
-
+                                style="@style/chordSerial"
                                 />
 
-                            <Spinner
-                                android:id="@+id/chord_Sl_3"
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                style="@style/chrodNameTypeBackground">
+                                <Spinner
+                                    android:id="@+id/chord_Sl_3"
 
-                                android:layout_width="79dp"
-                                android:layout_height="36dp"
-                                android:textSize="22dp"
-                                android:textColor="@color/white"
-                                android:paddingTop="5dp"
-                                android:paddingLeft="15dp"
-                                android:paddingRight="15dp"
-                                android:paddingBottom="5dp"
-                                android:background="@drawable/allpagebackgrund"
-                                android:layout_marginLeft="25dp"
-                                android:layout_marginRight="22dp"
+                                    android:layout_width="80dp"
+                                    android:layout_height="36dp"
+                                    android:backgroundTint="#c16767"
+                                    android:textAlignment="viewEnd"
+                                    style="@style/chordName"
+
+                                    />
+                            </LinearLayout>
 
 
 
-                                android:backgroundTint="#c16767"
-                                android:textDirection="firstStrong"
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                style="@style/chrodNameTypeBackground">
+                                <Spinner
+                                    android:id="@+id/chord_Type_3"
 
-                                android:textAlignment="viewEnd"
-                                android:spinnerMode="dropdown"
-                                style="@style/NumberOfChord"
-                                />
+                                    android:layout_width="90dp"
+                                    android:layout_height="36dp"
+                                    android:backgroundTint="#c16767"
+                                    android:textAlignment="viewEnd"
+                                    style="@style/chordType"
+                                    />
+                            </LinearLayout>
 
-                            <Spinner
-                                android:id="@+id/chord_Type_3"
-
-                                android:layout_width="90dp"
-                                android:layout_height="36dp"
-                                android:textSize="22dp"
-                                android:textColor="@color/white"
-                                android:paddingTop="5dp"
-                                android:paddingLeft="15dp"
-                                android:paddingRight="15dp"
-                                android:paddingBottom="5dp"
-                                android:background="@drawable/allpagebackgrund"
-
-                                android:backgroundTint="#c16767"
-                                android:textDirection="firstStrong"
-
-                                android:textAlignment="viewEnd"
-                                android:spinnerMode="dropdown"
-                                style="@style/NumberOfChord"
-                                />
                         </LinearLayout>
                         <LinearLayout
                             android:id="@+id/inputChord_4"
@@ -358,61 +304,44 @@
                             <TextView
                                 android:layout_width="50dp"
                                 android:layout_height="36dp"
-                                android:text="4."
+                                android:text="4"
                                 android:textSize="22dp"
-                                android:textColor="@color/white"
-                                android:paddingTop="5dp"
-                                android:paddingLeft="15dp"
-                                android:paddingRight="15dp"
-                                android:paddingBottom="5dp"
-                                android:background="@drawable/allpagebackgrund"
+                                style="@style/chordSerial"
                                 />
 
-                            <Spinner
-                                android:id="@+id/chord_Sl_4"
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                style="@style/chrodNameTypeBackground">
+                                <Spinner
+                                    android:id="@+id/chord_Sl_4"
 
-                                android:layout_width="79dp"
-                                android:layout_height="36dp"
-                                android:textSize="22dp"
-                                android:textColor="@color/white"
-                                android:paddingTop="5dp"
-                                android:paddingLeft="15dp"
-                                android:paddingRight="15dp"
-                                android:paddingBottom="5dp"
-                                android:background="@drawable/allpagebackgrund"
-                                android:layout_marginLeft="25dp"
-                                android:layout_marginRight="22dp"
+                                    android:layout_width="80dp"
+                                    android:layout_height="36dp"
+                                    android:backgroundTint="#c16767"
+                                    android:textAlignment="viewEnd"
+                                    style="@style/chordName"
+
+                                    />
+                            </LinearLayout>
 
 
 
-                                android:backgroundTint="#c16767"
-                                android:textDirection="firstStrong"
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                style="@style/chrodNameTypeBackground">
+                                <Spinner
+                                    android:id="@+id/chord_Type_4"
 
-                                android:textAlignment="viewEnd"
-                                android:spinnerMode="dropdown"
-                                style="@style/NumberOfChord"
-                                />
+                                    android:layout_width="90dp"
+                                    android:layout_height="36dp"
+                                    android:backgroundTint="#c16767"
+                                    android:textAlignment="viewEnd"
+                                    style="@style/chordType"
+                                    />
+                            </LinearLayout>
 
-                            <Spinner
-                                android:id="@+id/chord_Type_4"
-
-                                android:layout_width="90dp"
-                                android:layout_height="36dp"
-                                android:textSize="22dp"
-                                android:textColor="@color/white"
-                                android:paddingTop="5dp"
-                                android:paddingLeft="15dp"
-                                android:paddingRight="15dp"
-                                android:paddingBottom="5dp"
-                                android:background="@drawable/allpagebackgrund"
-
-                                android:backgroundTint="#c16767"
-                                android:textDirection="firstStrong"
-
-                                android:textAlignment="viewEnd"
-                                android:spinnerMode="dropdown"
-                                style="@style/NumberOfChord"
-                                />
                         </LinearLayout>
                         <LinearLayout
                             android:id="@+id/inputChord_5"
@@ -430,61 +359,44 @@
                             <TextView
                                 android:layout_width="50dp"
                                 android:layout_height="36dp"
-                                android:text="5."
-                                android:textSize="22dp"
-                                android:textColor="@color/white"
-                                android:paddingTop="5dp"
-                                android:paddingLeft="15dp"
-                                android:paddingRight="15dp"
-                                android:paddingBottom="5dp"
-                                android:background="@drawable/allpagebackgrund"
+                                android:text="5"
+                                style="@style/chordSerial"
 
                                 />
 
-                            <Spinner
-                                android:id="@+id/chord_Sl_5"
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                style="@style/chrodNameTypeBackground">
+                                <Spinner
+                                    android:id="@+id/chord_Sl_5"
 
-                                android:layout_width="79dp"
-                                android:layout_height="36dp"
-                                android:textSize="22dp"
-                                android:textColor="@color/white"
-                                android:paddingTop="5dp"
-                                android:paddingLeft="15dp"
-                                android:paddingRight="15dp"
-                                android:paddingBottom="5dp"
-                                android:background="@drawable/allpagebackgrund"
-                                android:layout_marginLeft="25dp"
-                                android:layout_marginRight="22dp"
+                                    android:layout_width="80dp"
+                                    android:layout_height="36dp"
+                                    android:backgroundTint="#c16767"
+                                    android:textAlignment="viewEnd"
+                                    style="@style/chordName"
+
+                                    />
+                            </LinearLayout>
 
 
-                                android:backgroundTint="#c16767"
-                                android:textDirection="firstStrong"
 
-                                android:textAlignment="viewEnd"
-                                android:spinnerMode="dropdown"
-                                style="@style/NumberOfChord"
-                                />
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                style="@style/chrodNameTypeBackground">
+                                <Spinner
+                                    android:id="@+id/chord_Type_5"
 
-                            <Spinner
-                                android:id="@+id/chord_Type_5"
+                                    android:layout_width="90dp"
+                                    android:layout_height="36dp"
+                                    android:backgroundTint="#c16767"
+                                    android:textAlignment="viewEnd"
+                                    style="@style/chordType"
+                                    />
+                            </LinearLayout>
 
-                                android:layout_width="90dp"
-                                android:layout_height="36dp"
-                                android:textSize="22dp"
-                                android:textColor="@color/white"
-                                android:paddingTop="5dp"
-                                android:paddingLeft="15dp"
-                                android:paddingRight="15dp"
-                                android:paddingBottom="5dp"
-                                android:background="@drawable/allpagebackgrund"
-
-                                android:backgroundTint="#c16767"
-                                android:textDirection="firstStrong"
-
-                                android:textAlignment="viewEnd"
-                                android:spinnerMode="dropdown"
-                                style="@style/NumberOfChord"
-                                />
                         </LinearLayout>
                         <LinearLayout
                             android:id="@+id/inputChord_6"
@@ -502,61 +414,42 @@
                             <TextView
                                 android:layout_width="50dp"
                                 android:layout_height="36dp"
-                                android:text="6."
-                                android:textSize="22dp"
-                                android:textColor="@color/white"
-                                android:paddingTop="5dp"
-                                android:paddingLeft="15dp"
-                                android:paddingRight="15dp"
-                                android:paddingBottom="5dp"
-                                android:background="@drawable/allpagebackgrund"
+                                android:text="6"
+                                style="@style/chordSerial"
                                 />
 
-                            <Spinner
-                                android:id="@+id/chord_Sl_6"
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                style="@style/chrodNameTypeBackground">
+                                <Spinner
+                                    android:id="@+id/chord_Sl_6"
 
-                                android:layout_width="79dp"
-                                android:layout_height="36dp"
-                                android:textSize="22dp"
-                                android:textColor="@color/white"
-                                android:paddingTop="5dp"
-                                android:paddingLeft="15dp"
-                                android:paddingRight="15dp"
-                                android:paddingBottom="5dp"
-                                android:background="@drawable/allpagebackgrund"
-                                android:layout_marginLeft="25dp"
-                                android:layout_marginRight="22dp"
+                                    android:layout_width="80dp"
+                                    android:layout_height="36dp"
+                                    android:backgroundTint="#c16767"
+                                    android:textAlignment="viewEnd"
+                                    style="@style/chordName"
+
+                                    />
+                            </LinearLayout>
 
 
 
-                                android:backgroundTint="#c16767"
-                                android:textDirection="firstStrong"
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                style="@style/chrodNameTypeBackground">
+                                <Spinner
+                                    android:id="@+id/chord_Type_6"
 
-                                android:textAlignment="viewEnd"
-                                android:spinnerMode="dropdown"
-                                style="@style/NumberOfChord"
-                                />
-
-                            <Spinner
-                                android:id="@+id/chord_Type_6"
-
-                                android:layout_width="90dp"
-                                android:layout_height="36dp"
-                                android:textSize="22dp"
-                                android:textColor="@color/white"
-                                android:paddingTop="5dp"
-                                android:paddingLeft="15dp"
-                                android:paddingRight="15dp"
-                                android:paddingBottom="5dp"
-                                android:background="@drawable/allpagebackgrund"
-
-                                android:backgroundTint="#c16767"
-                                android:textDirection="firstStrong"
-
-                                android:textAlignment="viewEnd"
-                                android:spinnerMode="dropdown"
-                                style="@style/NumberOfChord"
-                                />
+                                    android:layout_width="90dp"
+                                    android:layout_height="36dp"
+                                    android:backgroundTint="#c16767"
+                                    android:textAlignment="viewEnd"
+                                    style="@style/chordType"
+                                    />
+                            </LinearLayout>
                         </LinearLayout>
                         <LinearLayout
                             android:id="@+id/inputChord_7"
@@ -574,61 +467,43 @@
                             <TextView
                                 android:layout_width="50dp"
                                 android:layout_height="36dp"
-                                android:text="7."
-                                android:textSize="22dp"
-                                android:textColor="@color/white"
-                                android:paddingTop="5dp"
-                                android:paddingLeft="15dp"
-                                android:paddingRight="15dp"
-                                android:paddingBottom="5dp"
-                                android:background="@drawable/allpagebackgrund"
+                                android:text="7"
+                                style="@style/chordSerial"
 
                                 />
 
-                            <Spinner
-                                android:id="@+id/chord_Sl_7"
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                style="@style/chrodNameTypeBackground">
+                                <Spinner
+                                    android:id="@+id/chord_Sl_7"
 
-                                android:layout_width="79dp"
-                                android:layout_height="36dp"
-                                android:textSize="22dp"
-                                android:textColor="@color/white"
-                                android:paddingTop="5dp"
-                                android:paddingLeft="15dp"
-                                android:paddingRight="15dp"
-                                android:paddingBottom="5dp"
-                                android:background="@drawable/allpagebackgrund"
-                                android:layout_marginLeft="25dp"
-                                android:layout_marginRight="22dp"
+                                    android:layout_width="80dp"
+                                    android:layout_height="36dp"
+                                    android:backgroundTint="#c16767"
+                                    android:textAlignment="viewEnd"
+                                    style="@style/chordName"
+
+                                    />
+                            </LinearLayout>
 
 
-                                android:backgroundTint="#c16767"
-                                android:textDirection="firstStrong"
 
-                                android:textAlignment="viewEnd"
-                                android:spinnerMode="dropdown"
-                                style="@style/NumberOfChord"
-                                />
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                style="@style/chrodNameTypeBackground">
+                                <Spinner
+                                    android:id="@+id/chord_Type_7"
 
-                            <Spinner
-                                android:id="@+id/chord_Type_7"
-
-                                android:layout_width="90dp"
-                                android:layout_height="36dp"
-                                android:textSize="22dp"
-                                android:textColor="@color/white"
-                                android:paddingTop="5dp"
-                                android:paddingLeft="15dp"
-                                android:paddingRight="15dp"
-                                android:paddingBottom="5dp"
-                                android:background="@drawable/allpagebackgrund"
-
-                                android:backgroundTint="#c16767"
-                                android:textDirection="firstStrong"
-
-                                android:textAlignment="viewEnd"
-                                android:spinnerMode="dropdown"
-                                style="@style/NumberOfChord"
-                                />
+                                    android:layout_width="90dp"
+                                    android:layout_height="36dp"
+                                    android:backgroundTint="#c16767"
+                                    android:textAlignment="viewEnd"
+                                    style="@style/chordType"
+                                    />
+                            </LinearLayout>
                         </LinearLayout>
                         <LinearLayout
                             android:id="@+id/inputChord_8"
@@ -646,62 +521,44 @@
                             <TextView
                                 android:layout_width="50dp"
                                 android:layout_height="36dp"
-                                android:text="8."
-                                android:textSize="22dp"
-                                android:textColor="@color/white"
-                                android:paddingTop="5dp"
-                                android:paddingLeft="15dp"
-                                android:paddingRight="15dp"
-                                android:paddingBottom="5dp"
-                                android:background="@drawable/allpagebackgrund"
+                                android:text="8"
+                                style="@style/chordSerial"
 
                                 />
 
-                            <Spinner
-                                android:id="@+id/chord_Sl_8"
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                style="@style/chrodNameTypeBackground">
+                                <Spinner
+                                    android:id="@+id/chord_Sl_8"
 
-                                android:layout_width="79dp"
-                                android:layout_height="36dp"
-                                android:textSize="22dp"
-                                android:textColor="@color/white"
-                                android:paddingTop="5dp"
-                                android:paddingLeft="15dp"
-                                android:paddingRight="15dp"
-                                android:paddingBottom="5dp"
-                                android:background="@drawable/allpagebackgrund"
-                                android:layout_marginLeft="25dp"
-                                android:layout_marginRight="22dp"
+                                    android:layout_width="80dp"
+                                    android:layout_height="36dp"
+                                    android:backgroundTint="#c16767"
+                                    android:textAlignment="viewEnd"
+                                    style="@style/chordName"
+
+                                    />
+                            </LinearLayout>
 
 
 
-                                android:backgroundTint="#c16767"
-                                android:textDirection="firstStrong"
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                style="@style/chrodNameTypeBackground">
+                                <Spinner
+                                    android:id="@+id/chord_Type_8"
 
-                                android:textAlignment="viewEnd"
-                                android:spinnerMode="dropdown"
-                                style="@style/NumberOfChord"
-                                />
+                                    android:layout_width="90dp"
+                                    android:layout_height="36dp"
+                                    android:backgroundTint="#c16767"
+                                    android:textAlignment="viewEnd"
+                                    style="@style/chordType"
+                                    />
+                            </LinearLayout>
 
-                            <Spinner
-                                android:id="@+id/chord_Type_8"
-
-                                android:layout_width="90dp"
-                                android:layout_height="36dp"
-                                android:textSize="22dp"
-                                android:textColor="@color/white"
-                                android:paddingTop="5dp"
-                                android:paddingLeft="15dp"
-                                android:paddingRight="15dp"
-                                android:paddingBottom="5dp"
-                                android:background="@drawable/allpagebackgrund"
-
-                                android:backgroundTint="#c16767"
-                                android:textDirection="firstStrong"
-
-                                android:textAlignment="viewEnd"
-                                android:spinnerMode="dropdown"
-                                style="@style/NumberOfChord"
-                                />
                         </LinearLayout>
 
                     </LinearLayout>

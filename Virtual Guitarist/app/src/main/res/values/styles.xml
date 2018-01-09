@@ -3,8 +3,8 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">#8e030b</item>
-        <item name="colorPrimaryDark">#462325</item>
+        <item name="colorPrimary">#094040</item>
+        <item name="colorPrimaryDark">#e01a525b</item>
         <item name="colorAccent">@color/white</item>
     </style>
 
@@ -18,11 +18,11 @@
         <item name="android:showDividers">none</item>
         <item name="android:dividerHeight">5dp</item>
         <item name="android:textSize">30dp</item>
-        <item name="android:textColorHint">#ccc</item>
-        <item name="android:popupBackground">@color/Peru</item>
+        <item name="android:textColorHint">#fffdfd</item>
+        <item name="android:popupBackground">#6846bf</item>
         <item name="android:dropDownHeight">120dp</item>
         <item name="android:scrollbarAlwaysDrawVerticalTrack">true</item>
-        <item name="android:dropDownSelector">@android:color/darker_gray</item>
+        <item name="android:dropDownSelector">@android:color/white</item>
     </style>
 
     <style name="Strumming_spinner_style" >
@@ -30,9 +30,8 @@
         <item name="android:dropDownWidth">150dp</item>
         <item name="android:showDividers">none</item>
         <item name="android:dividerHeight">5dp</item>
-        <item name="android:textSize">30dp</item>
+        <item name="android:textSize">30sp</item>
         <item name="android:popupBackground">@color/Peru</item>
-        <item name="android:dropDownHeight">120dp</item>
         <item name="android:scrollbarAlwaysDrawVerticalTrack">true</item>
         <item name="android:dropDownSelector">@android:color/darker_gray</item>
     </style>
@@ -43,14 +42,60 @@
         <item name="android:showDividers">none</item>
         <item name="android:dividerHeight">5dp</item>
         <item name="android:textSize">30dp</item>
-        <item name="android:textColor">@color/Coral</item>
         <item name="android:textAlignment">center</item>
-        <item name="android:popupBackground">@color/Peru</item>
+        <item name="android:popupBackground">#219e9c</item>
         <item name="android:dropDownHeight">120dp</item>
         <item name="android:scrollbarAlwaysDrawVerticalTrack">true</item>
-        <item name="android:dropDownSelector">@android:color/darker_gray</item>
+        <item name="android:dropDownSelector">#c2ffcd18</item>
     </style>
 
+    <style name="chordName" >
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingLeft">15dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:paddingRight">15dp</item>
+        <item name="android:dropDownWidth">60dp</item>
+        <item name="android:showDividers">none</item>
+        <item name="android:dividerHeight">5dp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:popupBackground">#219e9c</item>
+        <item name="android:dropDownHeight">120dp</item>
+        <item name="android:scrollbarAlwaysDrawVerticalTrack">true</item>
+        <item name="android:dropDownSelector">#c2ffcd18</item>
+
+
+        <item name="android:spinnerMode">dropdown</item>
+    </style>
+
+    <style name="chordType" >
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingLeft">15dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:paddingRight">15dp</item>
+        <item name="android:dropDownWidth">60dp</item>
+        <item name="android:showDividers">none</item>
+        <item name="android:dividerHeight">5dp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:popupBackground">#219e9c</item>
+        <item name="android:dropDownHeight">120dp</item>
+        <item name="android:scrollbarAlwaysDrawVerticalTrack">true</item>
+        <item name="android:dropDownSelector">#c2ffcd18</item>
+    </style>
+
+    <style name="chordSerial" >
+        <item name="android:textSize">22dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingLeft">15dp</item>
+        <item name="android:paddingRight">15dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:background">@drawable/allpagebackgrund</item>
+    </style>
+    <style name="chrodNameTypeBackground">
+        <item name="android:background">#f2ae0d</item>
+        <item name="android:layout_marginLeft">23dp</item>
+        <!--<item name="android:layout_marginRight">10dp</item>-->
+    </style>
 
 
 </resources>

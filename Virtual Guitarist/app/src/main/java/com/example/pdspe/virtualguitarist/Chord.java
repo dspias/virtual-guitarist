@@ -145,6 +145,16 @@ public class Chord extends Note {
         return position;
     }		// ------- Chord Distance Method Closed ---- //
 
+    //----- Chord Distance Method Start ----//
+    public int chordType(String a) {
+        int b=1;
+        if(a.trim().equalsIgnoreCase("major")){b = 1;}
+        if(a.trim().equalsIgnoreCase("minor")){b=2;}
+        if(a.trim().equalsIgnoreCase("sus2")){b=3;}
+        if(a.trim().equalsIgnoreCase("sus4")){b=4;}
+        return b;
+    }		// ------- Chord Distance Method Closed ---- //
+
 
 
 

@@ -88,6 +88,33 @@ public class GuitarSoundManager {
         mSoundPoolMap.put(22, mSoundPool.load(mContext, R.raw.c_3, 1));
         mSoundPoolMap.put(23, mSoundPool.load(mContext, R.raw.d3, 1));
         mSoundPoolMap.put(24, mSoundPool.load(mContext, R.raw.d_3, 1));
+
+
+        mSoundPoolMap.put(25, mSoundPool.load(mContext, R.raw.e1m, 1));
+        mSoundPoolMap.put(26, mSoundPool.load(mContext, R.raw.f1m, 1));
+        mSoundPoolMap.put(27, mSoundPool.load(mContext, R.raw.f_1m, 1));
+        mSoundPoolMap.put(28, mSoundPool.load(mContext, R.raw.g1m, 1));
+        mSoundPoolMap.put(29, mSoundPool.load(mContext, R.raw.g_1m, 1));
+        mSoundPoolMap.put(30, mSoundPool.load(mContext, R.raw.a1m, 1));
+        mSoundPoolMap.put(31, mSoundPool.load(mContext, R.raw.a_1m, 1));
+        mSoundPoolMap.put(32, mSoundPool.load(mContext, R.raw.b1m, 1));
+        mSoundPoolMap.put(33, mSoundPool.load(mContext, R.raw.c2m, 1));
+        mSoundPoolMap.put(34, mSoundPool.load(mContext, R.raw.c_2m, 1));
+        mSoundPoolMap.put(35, mSoundPool.load(mContext, R.raw.d2m, 1));
+        mSoundPoolMap.put(36, mSoundPool.load(mContext, R.raw.d_2m, 1));
+
+        mSoundPoolMap.put(37, mSoundPool.load(mContext, R.raw.e2m, 1));
+        mSoundPoolMap.put(38, mSoundPool.load(mContext, R.raw.f2m, 1));
+        mSoundPoolMap.put(39, mSoundPool.load(mContext, R.raw.f_2m, 1));
+        mSoundPoolMap.put(40, mSoundPool.load(mContext, R.raw.g2m, 1));
+        mSoundPoolMap.put(41, mSoundPool.load(mContext, R.raw.g_2m, 1));
+        mSoundPoolMap.put(42, mSoundPool.load(mContext, R.raw.a2m, 1));
+        mSoundPoolMap.put(43, mSoundPool.load(mContext, R.raw.a_2m, 1));
+        mSoundPoolMap.put(44, mSoundPool.load(mContext, R.raw.b2m, 1));
+        mSoundPoolMap.put(45, mSoundPool.load(mContext, R.raw.c3m, 1));
+        mSoundPoolMap.put(46, mSoundPool.load(mContext, R.raw.c_3m, 1));
+        mSoundPoolMap.put(47, mSoundPool.load(mContext, R.raw.d3m, 1));
+        mSoundPoolMap.put(48, mSoundPool.load(mContext, R.raw.d_3m, 1));
     }
 
     /**

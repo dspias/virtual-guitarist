@@ -16,4 +16,17 @@
                 <item name="android:scrollbarAlwaysDrawVerticalTrack">true</item>
                 <item name="android:dropDownSelector">@android:color/darker_gray</item>
         </style>
+
+        <style name="Signature_spinner_style">
+                <item name="android:paddingLeft">10dp</item>
+                <item name="android:dropDownWidth">60dp</item>
+                <item name="android:showDividers">none</item>
+                <item name="android:dividerHeight">5dp</item>
+                <item name="android:textSize">30dp</item>
+                <item name="android:textColorHint">#fffdfd</item>
+                <item name="android:numbersSelectorColor">#f9f9f9</item>
+                <item name="android:popupBackground">#6846bf</item>
+                <item name="android:scrollbarAlwaysDrawVerticalTrack">true</item>
+                <item name="android:dropDownSelector">#a65ab79b</item>
+        </style>
 </resources>

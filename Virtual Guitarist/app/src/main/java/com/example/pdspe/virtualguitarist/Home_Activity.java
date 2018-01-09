@@ -12,7 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-
+import android.widget.TextView;
 
 
 public class Home_Activity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener  {
@@ -24,6 +24,9 @@ public class Home_Activity extends AppCompatActivity implements NavigationView.O
     //---------------- Use DrawerLayout Instance Variable-----//
     protected DrawerLayout mDrawerLayout;
     protected ActionBarDrawerToggle mToggle;
+
+    /*-----------Init Sound TextView------------*/
+    TextView e1,a1,d2,g2,b2,e3;
 
 
 
@@ -39,7 +42,67 @@ public class Home_Activity extends AppCompatActivity implements NavigationView.O
 
         goPlayGuitarActivity();     //-----goPlayGuitarActivity Method are called---.//
         goMetronomeActivity();      //-----goMetronomeActivity Method are Called----//
+
+        //-------- Init sound Manager---------//
+        GuitarSoundManager.getInstance();
+        GuitarSoundManager.initSounds(this);
+        GuitarSoundManager.loadSounds();
+
+        /*-------- Call soundTextView Id------*/
+
+        e1 = (TextView) findViewById(R.id.e1);
+        a1 = (TextView) findViewById(R.id.a1);
+        d2 = (TextView) findViewById(R.id.d2);
+        g2 = (TextView) findViewById(R.id.g2);
+        b2 = (TextView) findViewById(R.id.b2);
+        e3 = (TextView) findViewById(R.id.e3);
+
+        e1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                play(1);
+            }
+        });
+
+        a1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                play(6);
+            }
+        });
+        d2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                play(11);
+            }
+        });
+        g2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                play(16);
+            }
+        });
+        b2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                play(20);
+            }
+        });
+        e3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                play(13);
+            }
+        });
+
+    }       /*--------------closed onCreate Method*/
+
+
+    public static void play(int id){
+            GuitarSoundManager.playSound(id,1.5f);
+
     }
+
 
 
 
@@ -81,18 +144,26 @@ public class Home_Activity extends AppCompatActivity implements NavigationView.O
         int id = item.getItemId();
 
         if (id == R.id.nav_metronome) {
-            Intent playGuitar = new Intent(Home_Activity.this, Metronome.class);
-            startActivity(playGuitar);
+            Intent metroNome = new Intent(Home_Activity.this, Metronome.class);
+            startActivity(metroNome);
         } else if (id == R.id.nav_playGuitar) {
             Intent playGuitar = new Intent(Home_Activity.this, playGuitar.class);
             startActivity(playGuitar);
 
         } else if (id == R.id.nav_info) {
 
+            Intent usingInfo = new Intent(Home_Activity.this, UsingInformation.class);
+            startActivity(usingInfo);
+
         } else if (id == R.id.nav_songList_with_informtion) {
-
-        } else if (id == R.id.nav_setting) {
-
+            Intent songlist = new Intent(Home_Activity.this, SongListWithInfo.class);
+            startActivity(songlist);
+        } else if (id == R.id.developerInfo) {
+            Intent developers = new Intent(Home_Activity.this, developers.class);
+            startActivity(developers);
+        } else if(id == R.id.nav_Home){
+            Intent home = new Intent(Home_Activity.this, Home_Activity.class);
+            startActivity(home);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.activity_home_drawarLayout);
@@ -128,11 +199,5 @@ public class Home_Activity extends AppCompatActivity implements NavigationView.O
             }
         });
     }   //------ goMetronomeActivity Method are Closed------//
-
-
-
-
-
-
 
 }

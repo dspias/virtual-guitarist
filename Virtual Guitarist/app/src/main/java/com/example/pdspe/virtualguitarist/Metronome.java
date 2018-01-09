@@ -3,6 +3,7 @@ package com.example.pdspe.virtualguitarist;
 import android.app.Dialog;
 import android.content.Intent;
 import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.support.design.widget.NavigationView;
 import android.support.v4.content.ContextCompat;
@@ -19,6 +20,7 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.NumberPicker;
 import android.widget.TextView;
+import android.widget.VideoView;
 
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
@@ -43,8 +45,8 @@ public class Metronome extends AppCompatActivity implements NavigationView.OnNav
     PlayMetronome mPlayMetronome = new PlayMetronome();
     Intent intent;
 
-    //------------ set Metronome Light --------//
-    LinearLayout beatPaturn1, beatPaturn2;
+
+    VideoView videoview;
 
 
 
@@ -68,9 +70,6 @@ public class Metronome extends AppCompatActivity implements NavigationView.OnNav
         SoundManager.initSounds(this);
         SoundManager.loadSounds();
 
-        beatPaturn1 = (LinearLayout) findViewById(R.id.setColorBeatPatturn1);
-        beatPaturn2 = (LinearLayout) findViewById(R.id.setColorBeatPatturn2);
-
 
         setTitle("Metronome");      //----Set title on Metronome Page----//
         nevigation();               //-----call nevigation draware method-----//
@@ -84,7 +83,6 @@ public class Metronome extends AppCompatActivity implements NavigationView.OnNav
             @Override
             public void onClick(View v) {
                 setSignature();
-                setMetronome();
 
             }
         });     //----- Signature input complete------//
@@ -97,7 +95,6 @@ public class Metronome extends AppCompatActivity implements NavigationView.OnNav
             @Override
             public void onClick(View v) {
                 setTempo();
-                setMetronome();
             }
         });     //----------Tempo input Complete ---------//
 
@@ -156,6 +153,13 @@ public class Metronome extends AppCompatActivity implements NavigationView.OnNav
 
                     setMetronome();
                     startService(intent);
+                    videoview.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                        public void onCompletion(MediaPlayer mp) {
+                            videoview.start(); //need to make transition seamless.
+                        }
+                    });
+                    videoview.requestFocus();
+                    videoview.start();
 
 
                 } else {
@@ -167,12 +171,18 @@ public class Metronome extends AppCompatActivity implements NavigationView.OnNav
 
                     stopService(intent);
 
+                    videoview.pause();
+
                 }
 
 
             }
         });
 
+
+        videoview = (VideoView) findViewById(R.id.videoview);
+        Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.music);
+        videoview.setVideoURI(uri);
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -183,6 +193,7 @@ public class Metronome extends AppCompatActivity implements NavigationView.OnNav
     @Override
     public void onBackPressed() {
         stopService(intent);
+        videoview.stopPlayback();
         finish();
     }
 
@@ -200,8 +211,6 @@ public class Metronome extends AppCompatActivity implements NavigationView.OnNav
         PlayMetronome.setFirstSignature(fsignature);
         PlayMetronome.setSecondSignature(ssignature);
         PlayMetronome.setTempo(tempoValue);
-        PlayMetronome.setBeatptn1(beatPaturn1);
-        PlayMetronome.setBeatptn2(beatPaturn2);
 
     }       //-------closed setMetronome Metod--------//
 
@@ -357,18 +366,26 @@ public class Metronome extends AppCompatActivity implements NavigationView.OnNav
         int id = item.getItemId();
 
         if (id == R.id.nav_metronome) {
-            Intent playGuitar = new Intent(Metronome.this, Metronome.class);
-            startActivity(playGuitar);
+            Intent metroNome = new Intent(Metronome.this, Metronome.class);
+            startActivity(metroNome);
         } else if (id == R.id.nav_playGuitar) {
             Intent playGuitar = new Intent(Metronome.this, playGuitar.class);
             startActivity(playGuitar);
 
         } else if (id == R.id.nav_info) {
 
+            Intent usingInfo = new Intent(Metronome.this, UsingInformation.class);
+            startActivity(usingInfo);
+
         } else if (id == R.id.nav_songList_with_informtion) {
-
-        } else if (id == R.id.nav_setting) {
-
+            Intent songlist = new Intent(Metronome.this, SongListWithInfo.class);
+            startActivity(songlist);
+        } else if (id == R.id.developerInfo) {
+            Intent developers = new Intent(Metronome.this, developers.class);
+            startActivity(developers);
+        } else if(id == R.id.nav_Home){
+            Intent home = new Intent(Metronome.this, Home_Activity.class);
+            startActivity(home);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.activity_home_drawarLayout);

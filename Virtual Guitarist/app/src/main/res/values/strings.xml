@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:android="http://schemas.android.com/tools">
     <string name="app_name">Virtual Guitarist</string>
     <string name="home_header">VIRTUAL GUITARIST</string>
     <string name="Metronome">Metronome</string>
@@ -13,6 +13,7 @@
     <string name="bpm">BPM</string>
     <string name="strumming_pattern">STRUMMING</string>
     <string name="chords">CHORDS</string>
+    <string name="developerInfo">Developers Info</string>
 
     <string-array name="playGuitar_Signature">
         <item>1 / 1</item>
@@ -20,25 +21,26 @@
         <item>3 / 3</item>
         <item>3 / 4</item>
         <item>4 / 4</item>
+        <item>6 / 4</item>
     </string-array>
 
     <string-array name="playGuitar_strumming_1_1">
 
         <item>One Bye One-1</item>
         <item>One Bye One-2</item>
-        <item>One Bye One-3</item>
-        <item>One Bye One-4</item>
-        <item>One Bye One-5</item>
+        <!--<item>One Bye One-3</item>-->
+        <!--<item>One Bye One-4</item>-->
+        <!--<item>One Bye One-5</item>-->
 
     </string-array>
 
     <string-array name="playGuitar_strumming_2_2">
 
         <item>Two Bye Two-1</item>
-        <item>Two Bye Two-2</item>
-        <item>Two Bye Two-3</item>
-        <item>Two Bye Two-4</item>
-        <item>Two Bye Two-5</item>
+        <!--<item>Two Bye Two-2</item>-->
+        <!--<item>Two Bye Two-3</item>-->
+        <!--<item>Two Bye Two-4</item>-->
+        <!--<item>Two Bye Two-5</item>-->
 
     </string-array>
 
@@ -47,9 +49,9 @@
 
         <item>Three bye Three-1</item>
         <item>Three bye Three-2</item>
-        <item>Three bye Three-3</item>
-        <item>Three bye Three-4</item>
-        <item>Three bye Three-5</item>
+        <!--<item>Three bye Three-3</item>-->
+        <!--<item>Three bye Three-4</item>-->
+        <!--<item>Three bye Three-5</item>-->
 
     </string-array>
 
@@ -57,9 +59,9 @@
 
         <item>Three bye four-1</item>
         <item>Three bye four-2</item>
-        <item>Three bye four-3</item>
-        <item>Three bye four-4</item>
-        <item>Three bye four-5</item>
+        <!--<item>Three bye four-3</item>-->
+        <!--<item>Three bye four-4</item>-->
+        <!--<item>Three bye four-5</item>-->
 
     </string-array>
 
@@ -70,9 +72,17 @@
         <item>Four bye four-3</item>
         <item>Four bye four-4</item>
         <item>Four bye four-5</item>
+        <item>Four bye four-6</item>
 
     </string-array>
 
+    <string-array name="playGuitar_strumming_6_8">
+
+        <item>Six bye Four-1</item>
+        <item>Six bye Four-2</item>
+        <item>Six bye Four-3</item>
+
+    </string-array>
 
 
     <string-array name="playGuitar_Chord_Name">
@@ -149,7 +159,14 @@
 
     </string-array>
 
+    <string-array name="playGuitar_Number_Of_Chord_6_8">
 
+        <item>1</item>
+        <item>2</item>
+        <item>4</item>
+        <item>8</item>
+
+    </string-array>
 
 
 </resources>

@@ -44,7 +44,7 @@
                         android:text="@string/tempo"
                         android:textColor="@color/white"
                         android:textIsSelectable="false"
-                        android:textSize="25dp"
+                        android:textSize="17dp"
                         android:textStyle="bold"
 
                         />
@@ -52,9 +52,9 @@
                     <Button
                         android:id="@+id/tempo_button"
 
-                        android:layout_width="wrap_content"
+                        android:layout_width="160dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="70dp"
+                        android:layout_marginLeft="53dp"
                         android:text="120"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
@@ -67,10 +67,10 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
+                        android:layout_marginLeft="15dp"
                         android:text="@string/bpm"
                         android:textColor="@color/white"
-                        android:textSize="25sp"
+                        android:textSize="17sp"
                         android:textStyle="bold"
 
                         />
@@ -88,17 +88,17 @@
                         android:text="@string/signature"
                         android:textColor="@color/white"
                         android:textIsSelectable="false"
-                        android:textSize="25dp"
+                        android:textSize="17dp"
                         android:textStyle="bold"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="25dp"
 
                         />
                     <LinearLayout
-                        android:layout_width="130dp"
+                        android:layout_width="150dp"
                         android:layout_height="50dp"
-                        android:layout_marginLeft="62dp"
+                        android:layout_marginLeft="85dp"
                         android:layout_marginTop="7dp"
-                        android:paddingLeft="5dp"
+                        android:paddingLeft="20dp"
 
                         android:orientation="horizontal"
                         android:background="@drawable/homebutton">
@@ -106,12 +106,12 @@
                         <Spinner
                             android:id="@+id/signature_spinner"
 
-                            android:backgroundTint="#00b10b09"
+                            android:backgroundTint="#e6ffffff"
                             android:textDirection="firstStrong"
                             android:layout_margin="5dp"
+                            android:layout_marginRight="0dp"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:textAlignment="center"
                             style="@style/Signature_spinner_style"
                             />
 
@@ -130,13 +130,13 @@
                         android:text="@string/strumming_pattern"
                         android:textColor="@color/white"
                         android:textIsSelectable="false"
-                        android:textSize="25dp"
+                        android:textSize="17dp"
                         android:textStyle="bold"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginTop="24dp"
 
                         />
                     <LinearLayout
-                        android:layout_width="170dp"
+                        android:layout_width="215dp"
                         android:layout_height="50dp"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="7dp"
@@ -148,11 +148,10 @@
                         <Spinner
                             android:id="@+id/srumming_spinner"
 
-                            android:backgroundTint="#00b10b09"
+                            android:backgroundTint="#e6ffffff"
                             android:layout_margin="5dp"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:textAlignment="center"
                             android:spinnerMode="dropdown"
                             style="@style/Strumming_spinner_style"
                             />
@@ -175,23 +174,23 @@
                         android:text="@string/chords"
                         android:textColor="@color/white"
                         android:textIsSelectable="false"
-                        android:textSize="25dp"
+                        android:textSize="17dp"
                         android:textStyle="bold"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginTop="10dp"
 
                         />
 
                     <Button
                         android:id="@+id/setup_usable_chord"
-                        android:layout_width="130dp"
+                        android:layout_width="150dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="100dp"
+                        android:layout_marginLeft="109dp"
                         android:layout_marginTop="7dp"
                         android:text="EDIT"
                         android:textColor="@color/white"
                         android:textSize="20sp"
                         android:textStyle="bold"
-                        android:padding="10dp"
+                        android:padding="5dp"
                         android:background="@drawable/homebutton"
 
                         />
@@ -200,7 +199,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="250dp"
+                android:layout_width="280dp"
                 android:layout_height="150dp"
                 android:orientation="horizontal"
                 android:layout_gravity="center_horizontal"
@@ -215,12 +214,23 @@
                     android:layout_height="match_parent"
                     android:layout_margin="5dp"
                     android:background="@drawable/homebutton" >
+                    <ImageButton
+                        android:id="@+id/negative_buttton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:padding="15dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/minus"
+
+                        android:background="@drawable/homebutton"
+                        />
                     <LinearLayout
                         android:layout_width="130dp"
                         android:layout_height="130dp"
                         android:background="@drawable/circle"
                         android:layout_gravity="center_vertical"
-                        android:layout_marginLeft="55dp"
+                        android:layout_marginLeft="10dp"
                         >
 
                         <ImageButton
@@ -240,6 +250,18 @@
                             android:background="@drawable/circle_inner"
                             />
                     </LinearLayout>
+
+                    <ImageButton
+                        android:id="@+id/positive_button"
+                        android:layout_alignParentRight="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="15dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/add"
+                        android:background="@drawable/homebutton"
+                        />
 
 
 
