@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#deffffff"
+    android:background="#0c7279"
 
     tools:context="com.example.pdspe.virtualguitarist.developers">
 
@@ -14,15 +14,18 @@
         android:layout_height="170dp"
 
         android:orientation="horizontal">
+
         <ImageView
             android:layout_width="100dp"
             android:layout_height="120dp"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="25dp"
 
             android:src="@drawable/fahim"
 
             />
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -33,26 +36,39 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Hasan Fahim"
-                android:textColor="#cc120606"
+                android:textColor="#ff6f00"
                 android:textStyle="bold"
-                android:textSize="20sp"
+                android:textSize="25sp"
                 />
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Project Leader"
-                android:textColor="#cc120606"
-                android:textStyle="normal"
-                android:textSize="15sp"
-                />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="email: HasanFahim.it@gmail.com"
-                android:textColor="#cc120606"
-                android:textStyle="normal"
-                android:textSize="15sp"
-                />
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textColor="#fff"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:text="Contact us"
+
+                    />
+                <ImageView
+                    android:id="@+id/hasan_fb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/facebook"/>
+                <ImageView
+                    android:id="@+id/hasan_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/gmail"/>
+            </LinearLayout>
+
+
         </LinearLayout>
 
     </LinearLayout>
@@ -66,7 +82,7 @@
             android:layout_width="100dp"
             android:layout_height="120dp"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="25dp"
 
             android:src="@drawable/pias"
 
@@ -81,26 +97,39 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Pias Das"
-                android:textColor="#cc120606"
+                android:textColor="#ff6f00"
                 android:textStyle="bold"
-                android:textSize="20sp"
+                android:textSize="25sp"
                 />
-            <TextView
+
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Coding Leader"
-                android:textColor="#cc120606"
-                android:textStyle="normal"
-                android:textSize="15sp"
-                />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="email: pdsperrow95@gmail.com"
-                android:textColor="#cc120606"
-                android:textStyle="normal"
-                android:textSize="15sp"
-                />
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textColor="#fff"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:text="Contact us"
+
+                    />
+                <ImageView
+                    android:id="@+id/pias_fb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/facebook"/>
+                <ImageView
+                    android:id="@+id/pias_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/gmail"/>
+            </LinearLayout>
         </LinearLayout>
 
     </LinearLayout>
@@ -125,30 +154,51 @@
             android:orientation="vertical"
             android:layout_marginLeft="10dp"
             android:gravity="center">
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Md Saiful Ambia"
-                android:textColor="#cc120606"
+                android:textColor="#ff6f00"
                 android:textStyle="bold"
-                android:textSize="20sp"
-                />
+                android:textSize="25sp"
+                android:id="@+id/textView2" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Project Advisor"
-                android:textColor="#cc120606"
+                android:textColor="#ccffffff"
                 android:textStyle="normal"
-                android:textSize="15sp"
+                android:textSize="17sp"
                 />
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="email: HasanFahim.it@gmail.com"
-                android:textColor="#cc120606"
-                android:textStyle="normal"
-                android:textSize="15sp"
-                />
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textColor="#fff"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:text="Contact us"
+
+                    />
+                <ImageView
+                    android:id="@+id/sir_fb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/facebook"/>
+                <ImageView
+                    android:id="@+id/sir_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/gmail"/>
+            </LinearLayout>
         </LinearLayout>
 
     </LinearLayout>

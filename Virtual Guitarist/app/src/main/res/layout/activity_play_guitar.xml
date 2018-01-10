@@ -22,7 +22,7 @@
             android:background="@drawable/allpagebackgrund">
             <LinearLayout
                 android:layout_width="350dp"
-                android:layout_height="260dp"
+                android:layout_height="250dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginRight="10dp"
@@ -188,8 +188,7 @@
                         android:layout_marginTop="7dp"
                         android:text="EDIT"
                         android:textColor="@color/white"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
+                        android:textSize="17sp"
                         android:padding="5dp"
                         android:background="@drawable/homebutton"
 

@@ -523,11 +523,11 @@ public class PlayingGuitarStrumming extends Service {
 
         if(isRunning != true) return;
 
-        if(strummingName.equalsIgnoreCase("Six bye Four-1")){  sixByFour1();  }
+        if(strummingName.equalsIgnoreCase("six bye four-1")){  sixByFour1();  }
 
-        else if(strummingName.equalsIgnoreCase("Six bye Four-2")){ sixByFour2();  }
+        else if(strummingName.equalsIgnoreCase("six bye four-2")){ sixByFour2();  }
 
-        else if(strummingName.equalsIgnoreCase("Six bye Four-3")){ sixByFour3();  }
+        else if(strummingName.equalsIgnoreCase("six bye four-3")){ sixByFour3();  }
     }
 
 

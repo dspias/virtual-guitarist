@@ -75,7 +75,16 @@ public class playGuitar extends AppCompatActivity implements NavigationView.OnNa
     private boolean chrodIsSetup;
 
 
+    private static int [] passSigAndStrum;
+    private static boolean passValue = false;
+
+    public static void setData(int[] a,boolean b){
+        passSigAndStrum= a;
+        passValue = b;
+    }
+
     TextView a;
+
 
 
 
@@ -121,6 +130,10 @@ public class playGuitar extends AppCompatActivity implements NavigationView.OnNa
         signatureAdapter = ArrayAdapter.createFromResource(this, R.array.playGuitar_Signature, R.layout.selectable_text_item);
         signatureAdapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
         signatureSpinner.setAdapter(signatureAdapter);
+
+        if(passValue == true){
+            signatureSpinner.setSelection(passSigAndStrum[0]);
+        }
         signatureSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -179,6 +192,10 @@ public class playGuitar extends AppCompatActivity implements NavigationView.OnNa
 
         /*------------ Set Strumming name Using Spinner------------*/
         strummingSpinner = (Spinner) findViewById(R.id.srumming_spinner);
+        if(passValue == true){
+            strummingSpinner.setSelection(passSigAndStrum[1]);
+            passValue = false;
+        }
 
         /*---------- Complete set strumming ---------*/
 
@@ -450,7 +467,12 @@ public class playGuitar extends AppCompatActivity implements NavigationView.OnNa
         numberOfChordAddapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
         numberofChord.setAdapter(numberOfChordAddapter);
 
-        if(numberOfChord > 0 ){  numberofChord.setSelection(numberOfChord-1); }
+        if(numberOfChord > 0 ){
+            String a = signatureSpinner.getSelectedItem().toString().trim();
+            Note b = new Note();
+            int position = b.position(a,numberOfChord);
+            numberofChord.setSelection(position);
+        }
 
         numberofChord.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override

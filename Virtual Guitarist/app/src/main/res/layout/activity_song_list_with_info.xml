@@ -1,13 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_song_list_with_info"
     android:layout_width="match_parent"
+    android:background="#0d716e"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.pdspe.virtualguitarist.SongListWithInfo">
 
+    tools:context="com.example.pdspe.virtualguitarist.SongListWithInfo">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="5dp">
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/FourByFour_1"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="70dp"
+            android:padding="5dp"
+            android:background="#d40c9ca1"
+            android:layout_marginBottom="10dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Four Bye Four-1"
+                android:textSize="22dp"
+                android:textStyle="bold"
+                android:textColor="#ffffff"
+                />
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Song : Jotho Dure, MonePore, Amake Amar Motho takthe daw."
+                        android:textSize="17dp"
+                        android:textStyle="bold"
+                        android:textColor="#ffffff"
+                        />
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
+        </LinearLayout>
+
+    </LinearLayout>
 </RelativeLayout>
+
+
+</ScrollView>

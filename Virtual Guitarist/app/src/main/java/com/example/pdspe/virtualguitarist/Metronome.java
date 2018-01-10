@@ -46,7 +46,7 @@ public class Metronome extends AppCompatActivity implements NavigationView.OnNav
     Intent intent;
 
 
-    VideoView videoview;
+    VideoView videoview,spekar1,spekar2;
 
 
 
@@ -153,6 +153,7 @@ public class Metronome extends AppCompatActivity implements NavigationView.OnNav
 
                     setMetronome();
                     startService(intent);
+
                     videoview.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                         public void onCompletion(MediaPlayer mp) {
                             videoview.start(); //need to make transition seamless.
@@ -160,6 +161,28 @@ public class Metronome extends AppCompatActivity implements NavigationView.OnNav
                     });
                     videoview.requestFocus();
                     videoview.start();
+
+
+                    spekar1.requestFocus();
+                    spekar1.start();
+                    spekar1.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                        public void onCompletion(MediaPlayer mp) {
+                            spekar1.start(); //need to make transition seamless.
+                        }
+                    });
+                    spekar1.requestFocus();
+                    spekar1.start();
+
+                    spekar2.requestFocus();
+                    spekar2.start();
+                    spekar2.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                        public void onCompletion(MediaPlayer mp) {
+                            spekar2.start(); //need to make transition seamless.
+                        }
+                    });
+                    spekar2.requestFocus();
+                    spekar2.start();
+
 
 
                 } else {
@@ -172,6 +195,8 @@ public class Metronome extends AppCompatActivity implements NavigationView.OnNav
                     stopService(intent);
 
                     videoview.pause();
+                    spekar1.pause();
+                    spekar2.pause();
 
                 }
 
@@ -181,8 +206,13 @@ public class Metronome extends AppCompatActivity implements NavigationView.OnNav
 
 
         videoview = (VideoView) findViewById(R.id.videoview);
+        spekar1 = (VideoView) findViewById(R.id.speaker1);
+        spekar2 = (VideoView) findViewById(R.id.speaker2);
         Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.music);
+        Uri urisp = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.speaker);
         videoview.setVideoURI(uri);
+        spekar1.setVideoURI(urisp);
+        spekar2.setVideoURI(urisp);
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -194,6 +224,8 @@ public class Metronome extends AppCompatActivity implements NavigationView.OnNav
     public void onBackPressed() {
         stopService(intent);
         videoview.stopPlayback();
+        spekar1.stopPlayback();
+        spekar2.stopPlayback();
         finish();
     }
 

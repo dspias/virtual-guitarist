@@ -2,6 +2,7 @@ package com.example.pdspe.virtualguitarist;
 
 
 import android.content.Intent;
+import android.media.AudioManager;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -10,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -35,6 +37,7 @@ public class Home_Activity extends AppCompatActivity implements NavigationView.O
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_);
+        setVolumeControlStream(AudioManager.STREAM_MUSIC);
         setTitle("");
 
         nevigation();
@@ -94,6 +97,8 @@ public class Home_Activity extends AppCompatActivity implements NavigationView.O
                 play(13);
             }
         });
+
+
 
     }       /*--------------closed onCreate Method*/
 

@@ -15,6 +15,7 @@
     <string name="chords">CHORDS</string>
     <string name="developerInfo">Developers Info</string>
 
+
     <string-array name="playGuitar_Signature">
         <item>1 / 1</item>
         <item>2 / 2</item>
@@ -167,6 +168,65 @@
         <item>8</item>
 
     </string-array>
+
+
+    <string name="using_play_guitar">
+
+        <![CDATA[
+
+        <p>i. Select your TEMPO.</p>
+<p>ii. Select Your Song Signature. Ex: press "4/4"</p>
+<p>iii. Select any Strumming and try to sing. Or you can go “navigation drawer” of our apps and select “Song List With Strumming”</p>
+<p>iv. Press in "Chord" and choose “Number Of chord” and Customize your chord :)</p>
+
+        ]]>
+    </string>
+
+    <string name="details_using_info">
+
+        <![CDATA[
+
+<p><b><u>Tempo:</u></b></p>
+<p>Tempo is originally use to describe the timing of music, or the speed at which a piece of music is played. Usually tempo expressed in Beats Per Minute (BPM). For example, 60 BPM mean 60 beat will be played in one minute. Other ways we can understand 60 bpm produce Slower sound than 80 bpm.</p>
+<p>You can change Tempo Any Time. To change tempo use “+” and “-” Button or you can change By clicking on Tempo Box.</p>
+<p><b>Signature Pattern:</b></p>
+<p>A true understanding of time signatures is crucial towards a correct use of the metronome.
+ signature consist of two numbers:</p>
+<p>- the upper number indicates how many beats there are in a measure.</p>
+<p>- the lower number indicates the note value which represents one beat.</p>
+
+<p>- 2/2 signature means ,2 half notes per measure.</p>
+<p>- 3/4 signature means ,3 quarter notes per measure.</p>
+<p>- 4/4 signature means ,4 quarter notes per measure.</p>
+<p>- 6/4 signature means ,2 dotted half notes per measure.</p>
+<p>Mostly General song played in 4/4 and 3/4 strumming pattern.</p>
+<p><b>Strumming:</b></p>
+<p>A strumming pattern or strum is a preset pattern used by a rhythm guitar.</p>
+<p>Strumming pattern shows how many sound use in a signature and where to use them. If you do not understand strumming pattern than Select Signature 4 / 4 and select given first strumming and try to sing. Or you can go “navigation drawer” of our apps and select “Song List With Strumming”  to get strumming Idea for your song. Or You can watch our demo video to understand that :)</p>
+<p><b>Chords:</b></p>
+<p>A chord is a number of musical notes played or sung at the same time with a pleasing effect. There are many (more than billion) chords discovered before. We have four Type’s of chords in our app. Those are Major, Minor, Sus2, Sus4. So you can choose any chord with any type of that.</p>
+<p>Select “Number Of chord” what number of chord you want to use in your song. Give the chord of your scale to sing any song. If you want to change your scale you have to change chord. you can use basic chord group to get a meaningful sound.</p>
+<p>Here are Four Different group of 4 chord pattern given to help you.\nYou can use any group from there or any chord you want to use.</p>
+<p>i)	A Major, F# Minor, D Major, E Major</p>
+<p>ii)	C Major, A Minor, F Major, G Major</p>
+<p>iii)	D Major, B Minor, G Major, A Major</p>
+<p>i)	iv)	G Major, E Minor, C Major, D Major</p>
+
+<p><b>Our Apps Speacial Feature:</b></p>
+	<p>i)	you can change your volume using your phone volume button.</p>
+	<p>ii)	You can go “Back” using your phone back button.</p>
+	<p>iii)	You can go anywhere using “Our navigation drawer”</p>
+	<p>iv)	Tune Your guitar with listing sound from apps Home Display by touching string.</p>
+	<p>v)	 Use Metronome and Be a pro guitarist with our apps.</p>
+
+
+
+        ]]>
+
+    </string>
+
+
+
 
 
 </resources>

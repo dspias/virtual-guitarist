@@ -576,16 +576,16 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@drawable/homebutton"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="10dp"
 
         android:text="okay"
         android:textColor="@color/white"
         android:textSize="20dp"
         android:textStyle="bold"
-        android:layout_alignParentBottom="true"
-        android:layout_alignEnd="@+id/linearLayout" />
+        android:layout_marginBottom="5dp"
+        android:layout_alignBottom="@+id/linearLayout"
+        android:layout_alignStart="@+id/linearLayout" />
 
 </RelativeLayout>
 
