@@ -9,7 +9,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/allpagebackgrund">
+        android:background="#10451b">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -18,17 +18,25 @@
                 android:id="@+id/using_Play_Guitar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
                 android:orientation="vertical">
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="Using Play Guitar and metronome:"
                     android:textSize="25sp"
-                    android:textColor="#fff"
                     android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+
                     android:textStyle="bold"
-                    android:layout_marginTop="20dp"/>
+                    android:textColor="#ffffff"
+                    android:shadowColor="#0b3618"
+                    android:shadowDx="3"
+                    android:shadowDy="3"
+                    android:shadowRadius="10"
+                    android:padding="5dp"
+                    android:soundEffectsEnabled="true"
+                    android:selectAllOnFocus="true"
+                    android:layout_gravity="top"/>
                 <TextView
                     android:id="@+id/shortInfo"
                     android:layout_width="match_parent"
@@ -50,9 +58,10 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_centerHorizontal="true"
-                        android:background="#abffe205"
+                        android:padding="5dp"
+                        android:background="@drawable/boxshadow"
                         android:layout_centerVertical="true"
-                        android:text="Demo Video"
+                        android:text="Watch Demo Video"
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:gravity="center" />
 
@@ -61,9 +70,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="30dp"
                         android:text="Details >>"
-                        android:background="#0c6142"
+                        android:background="#176b4c"
                         android:textColor="#fff"
-                        android:layout_marginLeft="120dp"/>
+                        android:textSize="17dp"
+                        android:padding="5dp"
+                        android:layout_marginLeft="40dp"/>
 
                 </LinearLayout>
 

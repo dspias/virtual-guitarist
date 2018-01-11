@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
@@ -20,11 +21,11 @@ public class SongListWithInfo extends AppCompatActivity {
 
         sigAndStrum = new int[3];
 
-        LinearLayout fourByFour = (LinearLayout) findViewById(R.id.FourByFour_1);
+        Button fourByFour = (Button) findViewById(R.id.FourByFour_1);
         fourByFour.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sigAndStrum[0] = 3;
+                sigAndStrum[0] = 4;
                 sigAndStrum[1] = 0;
                 playGuitar.setData(sigAndStrum,true);
                 Intent home = new Intent(SongListWithInfo.this, playGuitar.class);

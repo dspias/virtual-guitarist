@@ -5,8 +5,7 @@
     android:id="@+id/activity_play_guitar_DrawarLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.pdspe.virtualguitarist.playGuitar"
-    android:background="@drawable/allpagebackgrund">
+    tools:context="com.example.pdspe.virtualguitarist.playGuitar" >
 
 
 
@@ -19,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:background="@drawable/allpagebackgrund">
+            android:background="@drawable/main_back">
             <LinearLayout
                 android:layout_width="350dp"
                 android:layout_height="250dp"

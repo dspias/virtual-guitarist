@@ -115,7 +115,7 @@ public class PlayingGuitarStrumming extends Service {
             threeByFour();
         } else if(signatureValue.equalsIgnoreCase("4 / 4")){
             fourByfour();
-        } else if(signatureValue.equalsIgnoreCase("6 / 8")){
+        } else if(signatureValue.equalsIgnoreCase("6 / 4")){
             sixByEight();
         }
 
@@ -523,11 +523,11 @@ public class PlayingGuitarStrumming extends Service {
 
         if(isRunning != true) return;
 
-        if(strummingName.equalsIgnoreCase("six bye four-1")){  sixByFour1();  }
+        if(strummingName.equalsIgnoreCase("Six bye Four-1")){  sixByFour1();  }
 
-        else if(strummingName.equalsIgnoreCase("six bye four-2")){ sixByFour2();  }
+        else if(strummingName.equalsIgnoreCase("Six bye Four-2")){ sixByFour2();  }
 
-        else if(strummingName.equalsIgnoreCase("six bye four-3")){ sixByFour3();  }
+        else if(strummingName.equalsIgnoreCase("Six bye Dour-3")){ sixByFour3();  }
     }
 
 
@@ -775,19 +775,19 @@ public class PlayingGuitarStrumming extends Service {
         //float x = tempoValue/80;
 //        try{
             if(isRunning != true) return;
-            GuitarSoundManager.playSound(a[0],1.5f);
+            GuitarSoundManager.playSound(a[0],1.0f);
             //Thread.sleep(semiTimeDifference * 1);
 
             if(isRunning != true) return;
-            GuitarSoundManager.playSound(a[1],1.5f);
+            GuitarSoundManager.playSound(a[1],1.0f);
             //Thread.sleep(semiTimeDifference * 1);
 
             if(isRunning != true) return;
-            GuitarSoundManager.playSound(a[2],1.5f);
+            GuitarSoundManager.playSound(a[2],1.0f);
             //Thread.sleep(semiTimeDifference * 1);
 
             if(isRunning != true) return;
-            GuitarSoundManager.playSound(a[3],1.5f);
+            GuitarSoundManager.playSound(a[3],1.0f);
 
 //        } catch(InterruptedException e) {
 //            e.printStackTrace();
@@ -799,19 +799,19 @@ public class PlayingGuitarStrumming extends Service {
         //float x = tempoValue/80;
 //       try{
         if(isRunning != true) return;
-        GuitarSoundManager.playSound(a[0],3.0f);
+        GuitarSoundManager.playSound(a[0],1.0f);
 //        Thread.sleep((int)semiTimeDifference  * 1);
 
         if(isRunning != true) return;
-        GuitarSoundManager.playSound(a[1],3.0f);
+        GuitarSoundManager.playSound(a[1],1.0f);
 //        Thread.sleep((int)semiTimeDifference * 1);
 
         if(isRunning != true) return;
-        GuitarSoundManager.playSound(a[2],3.0f);
+        GuitarSoundManager.playSound(a[2],1.0f);
 //        Thread.sleep((int)semiTimeDifference * 1);
 
         if(isRunning != true) return;
-        GuitarSoundManager.playSound(a[3],3.0f);
+        GuitarSoundManager.playSound(a[3],1.0f);
 
 //        } catch(InterruptedException e) {
 //            e.printStackTrace();

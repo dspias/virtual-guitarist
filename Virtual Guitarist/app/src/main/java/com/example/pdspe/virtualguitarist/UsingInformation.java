@@ -28,7 +28,7 @@ public class UsingInformation extends AppCompatActivity {
         tv.setText(Html.fromHtml(getString(R.string.using_play_guitar)));
 
         demoLink = (TextView) findViewById(R.id.youtubelink);
-        Spanned text = Html.fromHtml("<a href='https://www.youtube.com/watch?v=_TDJQ3c_Wl4'>Demo Video</a>");
+        Spanned text = Html.fromHtml("<a href='https://www.youtube.com/watch?v=_TDJQ3c_Wl4'>Watch Demo Video</a>");
 
         demoLink.setMovementMethod(LinkMovementMethod.getInstance());
         demoLink.setText(text);

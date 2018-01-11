@@ -283,7 +283,8 @@ public class playGuitar extends AppCompatActivity implements NavigationView.OnNa
                     }
 
                 } else {
-                    Toast.makeText(playGuitar.this, "Setup Chord First than play.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(playGuitar.this, "Setup Chord First than play.", Toast.LENGTH_LONG).show();
+                    GuitarSoundManager.playSound(53,1.0f);
                 }
             }
         });

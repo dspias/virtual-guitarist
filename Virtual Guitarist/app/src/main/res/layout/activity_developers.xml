@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#0c7279"
+    android:background="#10451b"
 
     tools:context="com.example.pdspe.virtualguitarist.developers">
 
@@ -36,9 +36,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Hasan Fahim"
-                android:textColor="#ff6f00"
+                android:textColor="#ffffff"
                 android:textStyle="bold"
                 android:textSize="25sp"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Team Mamber"
+                android:textColor="#ccffffff"
+                android:textStyle="normal"
+                android:textSize="17sp"
                 />
             <LinearLayout
                 android:layout_width="match_parent"
@@ -51,7 +59,7 @@
                     android:textColor="#fff"
                     android:textSize="20dp"
                     android:textStyle="bold"
-                    android:text="Contact us"
+                    android:text="Contact"
 
                     />
                 <ImageView
@@ -97,10 +105,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Pias Das"
-                android:textColor="#ff6f00"
+                android:textColor="#ffffff"
                 android:textStyle="bold"
                 android:textSize="25sp"
                 />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Team Mamber"
+                android:textColor="#ccffffff"
+                android:textStyle="normal"
+                android:textSize="17sp"
+                />
+
 
 
             <LinearLayout
@@ -114,7 +131,7 @@
                     android:textColor="#fff"
                     android:textSize="20dp"
                     android:textStyle="bold"
-                    android:text="Contact us"
+                    android:text="Contact"
 
                     />
                 <ImageView
@@ -159,7 +176,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Md Saiful Ambia"
-                android:textColor="#ff6f00"
+                android:textColor="#ffffff"
                 android:textStyle="bold"
                 android:textSize="25sp"
                 android:id="@+id/textView2" />
@@ -183,7 +200,7 @@
                     android:textColor="#fff"
                     android:textSize="20dp"
                     android:textStyle="bold"
-                    android:text="Contact us"
+                    android:text="Contact"
 
                     />
                 <ImageView

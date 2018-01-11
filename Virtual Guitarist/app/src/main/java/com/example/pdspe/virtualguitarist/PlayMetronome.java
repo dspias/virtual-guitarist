@@ -82,7 +82,7 @@ public class PlayMetronome extends Service  {
         Message msg = myServiceHandler.obtainMessage();
         msg.arg1 = startId;
         myServiceHandler.sendMessage(msg);
-        Toast.makeText(this, "Metronome Started.", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "Metronome Started.", Toast.LENGTH_SHORT).show();
         //If service is killed while starting, it restarts.
         return START_STICKY;
     }
@@ -93,7 +93,7 @@ public class PlayMetronome extends Service  {
     @Override
     public void onDestroy() {
         isRunning = false;
-        Toast.makeText(this, "Metronome is Stopped.", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "Metronome is Stopped.", Toast.LENGTH_SHORT).show();
     }
     private final class MyServiceHandler extends Handler {
         public MyServiceHandler(Looper looper) {

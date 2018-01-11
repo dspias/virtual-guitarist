@@ -28,7 +28,7 @@ public class Home_Activity extends AppCompatActivity implements NavigationView.O
     protected ActionBarDrawerToggle mToggle;
 
     /*-----------Init Sound TextView------------*/
-    TextView e1,a1,d2,g2,b2,e3;
+    TextView e1,a1,d2,g2,b2,e3,headerText;
 
 
 
@@ -38,7 +38,7 @@ public class Home_Activity extends AppCompatActivity implements NavigationView.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_);
         setVolumeControlStream(AudioManager.STREAM_MUSIC);
-        setTitle("");
+        setTitle("VIRTUAL GUITARIST");
 
         nevigation();
 
@@ -59,14 +59,23 @@ public class Home_Activity extends AppCompatActivity implements NavigationView.O
         g2 = (TextView) findViewById(R.id.g2);
         b2 = (TextView) findViewById(R.id.b2);
         e3 = (TextView) findViewById(R.id.e3);
+        headerText = (TextView) findViewById(R.id.header_text);
+
+        headerText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                GuitarSoundManager.playSound(50,1.03f);
+            }
+        });
 
         e1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 play(1);
-            }
-        });
 
+            }
+
+        });
         a1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -94,7 +103,7 @@ public class Home_Activity extends AppCompatActivity implements NavigationView.O
         e3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                play(13);
+                play(49);
             }
         });
 
@@ -104,7 +113,7 @@ public class Home_Activity extends AppCompatActivity implements NavigationView.O
 
 
     public static void play(int id){
-            GuitarSoundManager.playSound(id,1.5f);
+            GuitarSoundManager.playSound(id,1.0f);
 
     }
 

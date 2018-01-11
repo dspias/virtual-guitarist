@@ -2,29 +2,19 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent" android:layout_height="160dp"
-    android:background="@drawable/guitar"
+    android:background="#074920"
     android:layout_margin="0dp"
     android:clickable="false">
 
-    <TextView
+    <ImageView
         android:id="@+id/nev_header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
-        android:text="Guitar Player"
-
-        android:padding="5dp"
-        android:layout_marginLeft="15dp"
         android:layout_marginTop="25dp"
-        android:shadowColor="#ce0404"
-        android:textSize="45sp"
-        android:fontFamily="cursive"
-        android:textStyle="bold"
-        android:textColor="@color/white"
-        android:shadowDx="2"
-        android:shadowDy="2"
-        android:shadowRadius="3"
+        android:layout_marginLeft="60dp"
+        android:layout_marginBottom="25dp"
 
-        android:textIsSelectable="false"
+
+        android:src="@mipmap/ic_launcher"
         />
 </RelativeLayout>
