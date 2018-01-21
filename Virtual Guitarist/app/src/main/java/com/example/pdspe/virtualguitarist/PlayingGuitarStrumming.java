@@ -10,9 +10,6 @@ import android.os.Message;
 import android.os.Process;
 import android.widget.Toast;
 
-import java.util.Arrays;
-import java.util.Collections;
-
 /**
  * Created by pdspe on 01-Jan-18.
  */
@@ -775,19 +772,19 @@ public class PlayingGuitarStrumming extends Service {
         //float x = tempoValue/80;
 //        try{
             if(isRunning != true) return;
-            GuitarSoundManager.playSound(a[0],1.0f);
+            GuitarSoundManager.playSound(a[0],1.5f);
             //Thread.sleep(semiTimeDifference * 1);
 
             if(isRunning != true) return;
-            GuitarSoundManager.playSound(a[1],1.0f);
+            GuitarSoundManager.playSound(a[1],1.5f);
             //Thread.sleep(semiTimeDifference * 1);
 
             if(isRunning != true) return;
-            GuitarSoundManager.playSound(a[2],1.0f);
+            GuitarSoundManager.playSound(a[2],1.5f);
             //Thread.sleep(semiTimeDifference * 1);
 
             if(isRunning != true) return;
-            GuitarSoundManager.playSound(a[3],1.0f);
+            GuitarSoundManager.playSound(a[3],1.5f);
 
 //        } catch(InterruptedException e) {
 //            e.printStackTrace();
@@ -799,19 +796,19 @@ public class PlayingGuitarStrumming extends Service {
         //float x = tempoValue/80;
 //       try{
         if(isRunning != true) return;
-        GuitarSoundManager.playSound(a[0],1.0f);
+        GuitarSoundManager.playSound(a[0],1.5f);
 //        Thread.sleep((int)semiTimeDifference  * 1);
 
         if(isRunning != true) return;
-        GuitarSoundManager.playSound(a[1],1.0f);
+        GuitarSoundManager.playSound(a[1],1.5f);
 //        Thread.sleep((int)semiTimeDifference * 1);
 
         if(isRunning != true) return;
-        GuitarSoundManager.playSound(a[2],1.0f);
+        GuitarSoundManager.playSound(a[2],1.5f);
 //        Thread.sleep((int)semiTimeDifference * 1);
 
         if(isRunning != true) return;
-        GuitarSoundManager.playSound(a[3],1.0f);
+        GuitarSoundManager.playSound(a[3],1.5f);
 
 //        } catch(InterruptedException e) {
 //            e.printStackTrace();

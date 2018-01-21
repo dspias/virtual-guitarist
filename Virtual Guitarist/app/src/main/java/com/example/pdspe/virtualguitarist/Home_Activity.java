@@ -3,15 +3,14 @@ package com.example.pdspe.virtualguitarist;
 
 import android.content.Intent;
 import android.media.AudioManager;
+import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -113,7 +112,7 @@ public class Home_Activity extends AppCompatActivity implements NavigationView.O
 
 
     public static void play(int id){
-            GuitarSoundManager.playSound(id,1.0f);
+            GuitarSoundManager.playSound(id,1.5f);
 
     }
 
@@ -176,8 +175,8 @@ public class Home_Activity extends AppCompatActivity implements NavigationView.O
             Intent developers = new Intent(Home_Activity.this, developers.class);
             startActivity(developers);
         } else if(id == R.id.nav_Home){
-            Intent home = new Intent(Home_Activity.this, Home_Activity.class);
-            startActivity(home);
+//            Intent home = new Intent(Home_Activity.this, Home_Activity.class);
+//            startActivity(home);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.activity_home_drawarLayout);

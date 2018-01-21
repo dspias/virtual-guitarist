@@ -1,11 +1,11 @@
 package com.example.pdspe.virtualguitarist;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 
 public class SongListWithInfo extends AppCompatActivity {
@@ -19,10 +19,17 @@ public class SongListWithInfo extends AppCompatActivity {
 
         setTitle("Song List With Strumming");
 
+        if(getSupportActionBar() != null){
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        }
+
+
         sigAndStrum = new int[3];
 
-        Button fourByFour = (Button) findViewById(R.id.FourByFour_1);
-        fourByFour.setOnClickListener(new View.OnClickListener() {
+        Button fourByFour1 = (Button) findViewById(R.id.FourByFour_1);
+        fourByFour1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 sigAndStrum[0] = 4;
@@ -37,4 +44,14 @@ public class SongListWithInfo extends AppCompatActivity {
 
 
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if(item.getItemId() == android.R.id.home){
+            finish();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
 }

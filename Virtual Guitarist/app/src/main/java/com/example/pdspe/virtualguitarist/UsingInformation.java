@@ -1,21 +1,29 @@
 package com.example.pdspe.virtualguitarist;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Html;
-import android.text.Spanned;
-import android.text.method.LinkMovementMethod;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class UsingInformation extends AppCompatActivity {
+import com.google.android.youtube.player.YouTubeBaseActivity;
+import com.google.android.youtube.player.YouTubeInitializationResult;
+import com.google.android.youtube.player.YouTubePlayer;
+import com.google.android.youtube.player.YouTubePlayerView;
 
-    TextView demoLink, detaisView;
+public class UsingInformation extends YouTubeBaseActivity {
+//youtube api serial
+    //  AIzaSyBcBPTWiqjUCQzglE2ttnk9g-qN-YoNZaA
+
+    TextView detaisView;
     boolean isAlive;
     LinearLayout detailsLayout;
-    Button back,details;
+    Button back,details,playdemoVideo;
+    YouTubePlayerView youTubePlayerView;
+    YouTubePlayer.OnInitializedListener onInitializedListener;
+    public static final String KEY = "AIzaSyBcBPTWiqjUCQzglE2ttnk9g-qN-YoNZaA";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,14 +32,49 @@ public class UsingInformation extends AppCompatActivity {
 
         setTitle("How to use our App");
 
+//        if(getSupportActionBar() != null){
+//            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//            getSupportActionBar().setDisplayShowHomeEnabled(true);
+//
+//        }
+
+
         TextView tv=(TextView)findViewById(R.id.shortInfo);
         tv.setText(Html.fromHtml(getString(R.string.using_play_guitar)));
 
-        demoLink = (TextView) findViewById(R.id.youtubelink);
-        Spanned text = Html.fromHtml("<a href='https://www.youtube.com/watch?v=_TDJQ3c_Wl4'>Watch Demo Video</a>");
+        playdemoVideo = (Button) findViewById(R.id.play_youtube);
+        youTubePlayerView = (YouTubePlayerView) findViewById(R.id.youtubelink);
 
-        demoLink.setMovementMethod(LinkMovementMethod.getInstance());
-        demoLink.setText(text);
+        onInitializedListener = new YouTubePlayer.OnInitializedListener() {
+            @Override
+            public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
+
+                youTubePlayer.loadVideo("_TDJQ3c_Wl4");
+            }
+
+            @Override
+            public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult youTubeInitializationResult) {
+
+            }
+        };
+        youTubePlayerView.initialize(KEY,onInitializedListener);
+
+
+        playdemoVideo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (playdemoVideo.getText().toString().equalsIgnoreCase("play demo video")){
+                    youTubePlayerView.setVisibility(View.VISIBLE);
+                    playdemoVideo.setText("close");
+                } else if (playdemoVideo.getText().toString().equalsIgnoreCase("close")){
+                    youTubePlayerView.setVisibility(View.GONE);
+                    playdemoVideo.setText("play demo video");
+                }
+            }
+        });
+
+
+
         isAlive = true;
         detailsLayout = (LinearLayout) findViewById(R.id.detalis_Layout);
 
@@ -67,4 +110,14 @@ public class UsingInformation extends AppCompatActivity {
 
 
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if(item.getItemId() == android.R.id.home){
+            finish();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
 }

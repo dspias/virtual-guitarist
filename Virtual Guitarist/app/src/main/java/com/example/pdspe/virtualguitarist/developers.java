@@ -2,14 +2,11 @@ package com.example.pdspe.virtualguitarist;
 
 import android.content.Intent;
 import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Html;
-import android.text.Spanned;
-import android.text.method.LinkMovementMethod;
+import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 public class developers extends AppCompatActivity {
 
@@ -19,6 +16,12 @@ public class developers extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_developers);
         setTitle("Developer's");
+
+        if(getSupportActionBar() != null){
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        }
 
         ImageView hasanF = (ImageView) findViewById(R.id.hasan_fb);
         hasanF.setOnClickListener(new View.OnClickListener(){
@@ -88,5 +91,15 @@ public class developers extends AppCompatActivity {
                 startActivity(Intent.createChooser(emailIntent, null));
             }
         });
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if(item.getItemId() == android.R.id.home){
+            finish();
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

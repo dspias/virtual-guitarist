@@ -43,7 +43,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Team Mamber"
+                android:text="Team Member"
                 android:textColor="#ccffffff"
                 android:textStyle="normal"
                 android:textSize="17sp"
@@ -112,7 +112,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Team Mamber"
+                android:text="Team Member"
                 android:textColor="#ccffffff"
                 android:textStyle="normal"
                 android:textSize="17sp"
@@ -188,7 +188,8 @@
                 android:textColor="#ccffffff"
                 android:textStyle="normal"
                 android:textSize="17sp"
-                />
+                android:id="@+id/textView" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

@@ -42,7 +42,8 @@ public class Chord extends Note {
                 21+position
         };
 
-        for(int i=0; i<6; i++) { if(statePosition[i] > 23) statePosition[i] -=24; statePosition[i]++; }
+        for(int i=0; i<6; i++) { if(statePosition[i] > 23) statePosition[i] -=24; statePosition[i]++;
+        }
         Arrays.sort(statePosition);
 
         return statePosition;
@@ -142,7 +143,8 @@ public class Chord extends Note {
                 break;
             }
         }
-        return position;
+        if(position <=4){return position+11-4;}
+        return position-4;
     }		// ------- Chord Distance Method Closed ---- //
 
     //----- Chord Distance Method Start ----//

@@ -1,21 +1,16 @@
 package com.example.pdspe.virtualguitarist;
 
 import android.app.Dialog;
-import android.content.ClipData;
 import android.content.Intent;
 import android.media.AudioManager;
 import android.net.Uri;
+import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
-import android.text.Editable;
-import android.text.Layout;
-import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -170,7 +165,18 @@ public class playGuitar extends AppCompatActivity implements NavigationView.OnNa
                     } else if(name.matches("6 / 4")){
                         numberOfChordAddapter = ArrayAdapter.createFromResource(playGuitar.this, R.array.playGuitar_Number_Of_Chord_4_4, R.layout.selectable_text_item);
                     }
+
                     numberOfChord=0;
+                    chrodIsSetup = false;
+                    a.setText("");
+                    playGuitarImageButton.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.play_btn));
+                    int topbottom = getResources().getDimensionPixelOffset(R.dimen.thirty);
+                    int right = getResources().getDimensionPixelOffset(R.dimen.towentysix);
+                    int left = getResources().getDimensionPixelOffset(R.dimen.thirty);
+                    playGuitarImageButton.setPadding(left, topbottom, right, topbottom);
+
+                    stopService(intent);
+
 
                 } else  {
                     Toast.makeText(getApplicationContext(), "First Set Signature.", Toast.LENGTH_SHORT).show();
@@ -448,7 +454,7 @@ public class playGuitar extends AppCompatActivity implements NavigationView.OnNa
 
 
 
-    /*-------- create setTempo method --------*/
+    /*-------- create setupchord method --------*/
     protected void setupChord() {
         final Dialog d = new Dialog(playGuitar.this);
         d.setContentView(R.layout.choose_chords);
