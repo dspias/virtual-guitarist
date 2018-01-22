@@ -5,6 +5,7 @@ import android.text.Html;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -24,6 +25,8 @@ public class UsingInformation extends YouTubeBaseActivity {
     YouTubePlayerView youTubePlayerView;
     YouTubePlayer.OnInitializedListener onInitializedListener;
     public static final String KEY = "AIzaSyBcBPTWiqjUCQzglE2ttnk9g-qN-YoNZaA";
+
+    ImageView back_icon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,9 +110,17 @@ public class UsingInformation extends YouTubeBaseActivity {
         });
 
 
+        back_icon = (ImageView) findViewById(R.id.back_button_icon);
+        back_icon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
 
-    }
+
+    }   /*close on ctreate method*/
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

@@ -79,6 +79,7 @@ public class playGuitar extends AppCompatActivity implements NavigationView.OnNa
     }
 
     TextView a;
+    LinearLayout showChordLayout;
 
 
 
@@ -174,6 +175,7 @@ public class playGuitar extends AppCompatActivity implements NavigationView.OnNa
                     int right = getResources().getDimensionPixelOffset(R.dimen.towentysix);
                     int left = getResources().getDimensionPixelOffset(R.dimen.thirty);
                     playGuitarImageButton.setPadding(left, topbottom, right, topbottom);
+                    showChordLayout.setVisibility(View.GONE);
 
                     stopService(intent);
 
@@ -299,6 +301,8 @@ public class playGuitar extends AppCompatActivity implements NavigationView.OnNa
         a = (TextView) findViewById(R.id.show_chords);
         a.setText(setChordValue());
 
+        showChordLayout = (LinearLayout) findViewById(R.id.show_chord_layout);
+
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -404,6 +408,9 @@ public class playGuitar extends AppCompatActivity implements NavigationView.OnNa
         } else if(id == R.id.nav_Home){
             Intent home = new Intent(playGuitar.this, Home_Activity.class);
             startActivity(home);
+        } else if(id == R.id.nav_chrod_guide){
+            Intent chrodguide = new Intent(playGuitar.this, ChordGuide.class);
+            startActivity(chrodguide);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.activity_home_drawarLayout);
@@ -611,6 +618,8 @@ public class playGuitar extends AppCompatActivity implements NavigationView.OnNa
                 a.setText(setChordValue());
                 chrodIsSetup = true;
                 setPlayGuitarValue();
+
+                showChordLayout.setVisibility(View.VISIBLE);
                 d.dismiss();
             }
         });

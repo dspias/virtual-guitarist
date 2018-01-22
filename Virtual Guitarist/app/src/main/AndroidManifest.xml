@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.pdspe.virtualguitarist">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -31,7 +32,8 @@
 
         <activity android:name=".developers" />
         <activity android:name=".SongListWithInfo" />
-        <activity android:name=".UsingInformation"></activity>
+        <activity android:name=".UsingInformation" />
+        <activity android:name=".ChordGuide"></activity>
     </application>
 
 </manifest>

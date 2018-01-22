@@ -270,6 +270,7 @@
 
             <LinearLayout
 
+                android:id="@+id/show_chord_layout"
                 android:layout_width="350dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_horizontal"
@@ -278,7 +279,8 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginBottom="10dp"
                 android:layout_marginRight="10dp"
-                android:layout_marginTop="5dp">
+                android:layout_marginTop="5dp"
+                android:visibility="gone">
                 <TextView
                     android:id="@+id/show_chords"
 

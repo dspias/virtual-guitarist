@@ -34,12 +34,13 @@ public class Chord extends Note {
         Note note = new Note();
         int position = chordCheck(a);
         int [] statePosition = {
-                0+position,
-                9+position,
+
+                2+position,
                 5+position,
-                12+position,
+                10+position,
+                14+position,
                 17+position,
-                21+position
+                23+position
         };
 
         for(int i=0; i<6; i++) { if(statePosition[i] > 23) statePosition[i] -=24; statePosition[i]++;
@@ -62,12 +63,12 @@ public class Chord extends Note {
         int position = chordCheck(a);
 
         int [] statePosition = {
-                0+position,
+                1+position,
                 5+position,
-                8+position,
-                12+position,
+                10+position,
+                13+position,
                 17+position,
-                20+position
+                22+position
         };
 
         for(int i=0; i<6; i++) { if(statePosition[i] > 23) statePosition[i] -=24; statePosition[i]++; }
@@ -89,12 +90,12 @@ public class Chord extends Note {
         int position = chordCheck(a);
 
         int [] statePosition = {
-                5+position,
-                7+position,
                 0+position,
+                5+position,
+                10+position,
+                12+position,
                 17+position,
-                19+position,
-                12+position
+                22+position
         };
 
         for(int i=0; i<6; i++) { if(statePosition[i] > 23) statePosition[i] -=24; statePosition[i]++; }
@@ -116,12 +117,12 @@ public class Chord extends Note {
         int position = chordCheck(a);
 
         int [] statePosition = {
+                3+position,
                 5+position,
                 10+position,
-                0+position,
+                15+position,
                 17+position,
-                22+position,
-                12+position
+                22+position
         };
 
         for(int i=0; i<6; i++) { if(statePosition[i] > 23) statePosition[i] -=24; statePosition[i]++; }
@@ -143,8 +144,8 @@ public class Chord extends Note {
                 break;
             }
         }
-        if(position <=4){return position+11-4;}
-        return position-4;
+       // if(position <=5){return position+11-4;}
+        return position;
     }		// ------- Chord Distance Method Closed ---- //
 
     //----- Chord Distance Method Start ----//

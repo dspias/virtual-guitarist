@@ -41,43 +41,97 @@ xmlns:app="http://schemas.android.com/apk/res-auto"
             android:layout_width="match_parent"
             android:background="@drawable/front1"
             android:layout_height="300dp"
-            android:orientation="vertical">
-            <TextView
-                android:id="@+id/e3"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="75dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/e3w"
+                    android:layout_width="match_parent"
+                    android:text="e3"
+                    android:layout_height="37dp"
+                    android:layout_marginTop="36dp"
+                    android:visibility="invisible"/>
+                <Button
+                    android:id="@+id/b2w"
+                    android:visibility="invisible"
+                    android:layout_width="match_parent"
+                    android:text="b2"
+                    android:layout_height="37dp"
+                    android:layout_marginTop="5dp"/>
+                <Button
+                    android:visibility="invisible"
+                    android:id="@+id/g2w"
+                    android:layout_width="match_parent"
+                    android:layout_height="37dp"
+                    android:text="g2"
+                    android:layout_marginTop="5dp"/>
+                <Button
+                    android:visibility="invisible"
+                    android:id="@+id/d2w"
+                    android:layout_width="match_parent"
+                    android:text="d2"
+                    android:layout_height="37dp"
+                    android:layout_marginTop="5dp"/>
+                <Button
+                    android:visibility="invisible"
+                    android:id="@+id/a1w"
+                    android:layout_width="match_parent"
+                    android:layout_height="37dp"
+                    android:text="a1"
+                    android:layout_marginTop="6dp"/>
+                <Button
+                    android:visibility="invisible"
+                    android:id="@+id/e1w"
+                    android:layout_width="match_parent"
+                    android:text="e1"
+                    android:layout_height="37dp"
+                    android:layout_marginTop="8dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="32dp"
-                android:layout_marginTop="36dp"
-                android:layout_marginLeft="75dp"/>
-            <TextView
-                android:id="@+id/b2"
-                android:layout_width="match_parent"
-                android:layout_height="34dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginLeft="75dp"/>
-            <TextView
-                android:id="@+id/g2"
-                android:layout_width="match_parent"
-                android:layout_height="33dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginLeft="75dp"/>
-            <TextView
-                android:id="@+id/d2"
-                android:layout_width="match_parent"
-                android:layout_height="36dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginLeft="75dp"/>
-            <TextView
-                android:id="@+id/a1"
-                android:layout_width="match_parent"
-                android:layout_height="34dp"
-                android:layout_marginTop="6dp"
-                android:layout_marginLeft="75dp"/>
-            <TextView
-                android:id="@+id/e1"
-                android:layout_width="match_parent"
-                android:layout_height="37dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginLeft="75dp"/>
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/e3"
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    android:layout_marginTop="36dp" />
+
+                <TextView
+                    android:id="@+id/b2"
+                    android:layout_width="match_parent"
+                    android:layout_height="34dp"
+                    android:layout_marginTop="5dp"/>
+
+                <TextView
+                    android:id="@+id/g2"
+                    android:layout_width="match_parent"
+                    android:layout_height="33dp"
+                    android:layout_marginTop="5dp"/>
+                <TextView
+                    android:id="@+id/d2"
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:layout_marginTop="5dp"/>
+                <TextView
+                    android:id="@+id/a1"
+                    android:layout_width="match_parent"
+                    android:layout_height="34dp"
+                    android:layout_marginTop="6dp"/>
+                <TextView
+                    android:id="@+id/e1"
+                    android:layout_width="match_parent"
+                    android:layout_height="37dp"
+                    android:layout_marginTop="8dp"/>
+
+            </LinearLayout>
+
+
 
 
         </LinearLayout>

@@ -15,6 +15,30 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
             <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:background="#085e29">
+                <ImageView
+                    android:id="@+id/back_button_icon"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/back_button_icon"
+
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="How to Use"
+                    android:textColor="#fff"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:textSize="20dp"/>
+
+
+            </LinearLayout>
+            <LinearLayout
                 android:id="@+id/using_Play_Guitar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

@@ -1,8 +1,6 @@
 package com.example.pdspe.virtualguitarist;
 
 import android.content.Context;
-import android.content.ContextWrapper;
-import android.app.Application;
 import android.media.AudioManager;
 import android.media.SoundPool;
 

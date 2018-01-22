@@ -28,6 +28,7 @@ public class Home_Activity extends AppCompatActivity implements NavigationView.O
 
     /*-----------Init Sound TextView------------*/
     TextView e1,a1,d2,g2,b2,e3,headerText;
+    Button e1w,a1w,d2w,g2w,b2w,e3w;
 
 
 
@@ -60,6 +61,13 @@ public class Home_Activity extends AppCompatActivity implements NavigationView.O
         e3 = (TextView) findViewById(R.id.e3);
         headerText = (TextView) findViewById(R.id.header_text);
 
+        e1w = (Button) findViewById(R.id.e1w);
+        a1w = (Button) findViewById(R.id.a1w);
+        d2w = (Button) findViewById(R.id.d2w);
+        g2w = (Button) findViewById(R.id.g2w);
+        b2w = (Button) findViewById(R.id.b2w);
+        e3w = (Button) findViewById(R.id.e3w);
+
         headerText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,6 +79,8 @@ public class Home_Activity extends AppCompatActivity implements NavigationView.O
             @Override
             public void onClick(View v) {
                 play(1);
+                allInvisible();
+                e1w.setVisibility(View.VISIBLE);
 
             }
 
@@ -79,36 +89,46 @@ public class Home_Activity extends AppCompatActivity implements NavigationView.O
             @Override
             public void onClick(View v) {
                 play(6);
+                allInvisible();
+                a1w.setVisibility(View.VISIBLE);
             }
         });
         d2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 play(11);
+                allInvisible();
+                d2w.setVisibility(View.VISIBLE);
             }
         });
         g2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 play(16);
+                allInvisible();
+                g2w.setVisibility(View.VISIBLE);
             }
         });
         b2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 play(20);
+                allInvisible();
+                b2w.setVisibility(View.VISIBLE);
             }
         });
         e3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 play(49);
+                allInvisible();
+                e3w.setVisibility(View.VISIBLE);
             }
         });
 
 
 
-    }       /*--------------closed onCreate Method*/
+    }       /*--------------closed onCreate Method---------------*/
 
 
     public static void play(int id){
@@ -116,6 +136,15 @@ public class Home_Activity extends AppCompatActivity implements NavigationView.O
 
     }
 
+    public void allInvisible(){
+
+        e1w.setVisibility(View.INVISIBLE);
+        a1w.setVisibility(View.INVISIBLE);
+        d2w.setVisibility(View.INVISIBLE);
+        g2w.setVisibility(View.INVISIBLE);
+        b2w.setVisibility(View.INVISIBLE);
+        e3w.setVisibility(View.INVISIBLE);
+    }
 
 
 
@@ -177,6 +206,9 @@ public class Home_Activity extends AppCompatActivity implements NavigationView.O
         } else if(id == R.id.nav_Home){
 //            Intent home = new Intent(Home_Activity.this, Home_Activity.class);
 //            startActivity(home);
+        } else if(id == R.id.nav_chrod_guide){
+            Intent chrodguide = new Intent(Home_Activity.this, ChordGuide.class);
+            startActivity(chrodguide);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.activity_home_drawarLayout);

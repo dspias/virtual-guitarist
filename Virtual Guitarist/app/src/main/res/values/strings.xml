@@ -183,6 +183,15 @@
         ]]>
     </string>
 
+    <string name="chord_guide">
+        <![CDATA[
+        <p>i)	A Major, F# Minor, D Major, E Major</p>
+<p>ii)	C Major, A Minor, F Major, G Major</p>
+<p>iii)	D Major, B Minor, G Major, A Major</p>
+<p>iv)	G Major, E Minor, C Major, D Major</p>
+        ]]>
+    </string>
+
     <string name="details_using_info">
 
         <![CDATA[
@@ -211,7 +220,7 @@
 <p>i)	A Major, F# Minor, D Major, E Major</p>
 <p>ii)	C Major, A Minor, F Major, G Major</p>
 <p>iii)	D Major, B Minor, G Major, A Major</p>
-<p>i)	iv)	G Major, E Minor, C Major, D Major</p>
+<p>iv)	G Major, E Minor, C Major, D Major</p>
 
 <p><b>Our Apps Speacial Feature:</b></p>
 	<p>i)	you can change your volume using your phone volume button.</p>
@@ -225,9 +234,6 @@
         ]]>
 
     </string>
-
-
-
 
 
 </resources>

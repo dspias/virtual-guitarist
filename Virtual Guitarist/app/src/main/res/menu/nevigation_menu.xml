@@ -28,6 +28,11 @@
         android:icon="@mipmap/ic_list_black_24dp"
         />
 
+    <item android:id="@+id/nav_chrod_guide"
+        android:title="Chord Guide"
+        android:icon="@mipmap/ic_list_black_24dp"
+        />
+
 
     <item android:id="@+id/developerInfo"
         android:title="@string/developerInfo"
