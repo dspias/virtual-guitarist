@@ -72,10 +72,16 @@ public class playGuitar extends AppCompatActivity implements NavigationView.OnNa
 
     private static int [] passSigAndStrum;
     private static boolean passValue = false;
+    private static String [][] chords;
+    private static int passnOfChord;
+    private static int passTempo;
 
-    public static void setData(int[] a,boolean b){
+    public static void setData(int[] a,boolean b,String [][] chord, int nofChord,int tempo){
         passSigAndStrum= a;
         passValue = b;
+        chords = chord;
+        passnOfChord = nofChord;
+        passTempo = tempo;
     }
 
     TextView a;
@@ -101,6 +107,10 @@ public class playGuitar extends AppCompatActivity implements NavigationView.OnNa
         setTitle("Play Guitar");        //----Set title on Play Guitar Page----//
         nevigation();
 
+        if(passValue == true){chrodIsSetup = true;} else{chrodIsSetup =false;}
+        a = (TextView) findViewById(R.id.show_chords);
+        showChordLayout = (LinearLayout) findViewById(R.id.show_chord_layout);
+
         //-------- Init sound Manager---------//
         GuitarSoundManager.getInstance();
         GuitarSoundManager.initSounds(this);
@@ -110,6 +120,11 @@ public class playGuitar extends AppCompatActivity implements NavigationView.OnNa
 
         //-----------Tempo input start -------//
         mTempo = (Button) findViewById(R.id.tempo_button);
+
+        if(passValue == true){
+            String oo = Integer.toString(passTempo);
+            mTempo.setText(oo);
+        }
 
         mTempo.setOnClickListener(new View.OnClickListener() {
 
@@ -127,9 +142,7 @@ public class playGuitar extends AppCompatActivity implements NavigationView.OnNa
         signatureAdapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
         signatureSpinner.setAdapter(signatureAdapter);
 
-        if(passValue == true){
-            signatureSpinner.setSelection(passSigAndStrum[0]);
-        }
+
         signatureSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -167,17 +180,32 @@ public class playGuitar extends AppCompatActivity implements NavigationView.OnNa
                         numberOfChordAddapter = ArrayAdapter.createFromResource(playGuitar.this, R.array.playGuitar_Number_Of_Chord_4_4, R.layout.selectable_text_item);
                     }
 
-                    numberOfChord=0;
-                    chrodIsSetup = false;
-                    a.setText("");
-                    playGuitarImageButton.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.play_btn));
-                    int topbottom = getResources().getDimensionPixelOffset(R.dimen.thirty);
-                    int right = getResources().getDimensionPixelOffset(R.dimen.towentysix);
-                    int left = getResources().getDimensionPixelOffset(R.dimen.thirty);
-                    playGuitarImageButton.setPadding(left, topbottom, right, topbottom);
-                    showChordLayout.setVisibility(View.GONE);
-
                     stopService(intent);
+
+                    if(passValue == true){
+
+                        signatureSpinner.setSelection(passSigAndStrum[0]);
+                        strummingSpinner.setSelection(passSigAndStrum[1]);
+                        numberOfChord = passnOfChord;
+
+                        for(int i=0;i<numberOfChord;i++){
+                            chordListAndType[i][0] = chords[i][0];
+                            chordListAndType[i][1] = chords[i][1];
+                        }
+
+                        showChordLayout.setVisibility(View.VISIBLE);
+                        a.setText(setChordValue());
+                    } else {
+                        numberOfChord=0;
+                        chrodIsSetup = false;
+                        a.setText("");
+                        playGuitarImageButton.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.play_btn));
+                        int topbottom = getResources().getDimensionPixelOffset(R.dimen.thirty);
+                        int right = getResources().getDimensionPixelOffset(R.dimen.towentysix);
+                        int left = getResources().getDimensionPixelOffset(R.dimen.thirty);
+                        playGuitarImageButton.setPadding(left, topbottom, right, topbottom);
+                        showChordLayout.setVisibility(View.GONE);
+                    }
 
 
                 } else  {
@@ -200,10 +228,6 @@ public class playGuitar extends AppCompatActivity implements NavigationView.OnNa
 
         /*------------ Set Strumming name Using Spinner------------*/
         strummingSpinner = (Spinner) findViewById(R.id.srumming_spinner);
-        if(passValue == true){
-            strummingSpinner.setSelection(passSigAndStrum[1]);
-            passValue = false;
-        }
 
         /*---------- Complete set strumming ---------*/
 
@@ -211,6 +235,7 @@ public class playGuitar extends AppCompatActivity implements NavigationView.OnNa
 
         /*----------- chord setup start-----------*/
         chordListAndType = new String[9][3];
+
 
         chordButton = (Button) findViewById(R.id.setup_usable_chord);
 
@@ -266,7 +291,6 @@ public class playGuitar extends AppCompatActivity implements NavigationView.OnNa
         playGuitarImageButton = (ImageButton) findViewById(R.id.media_button);
         intent = new Intent(playGuitar.this, PlayingGuitarStrumming.class);
 
-        chrodIsSetup = false;
         playGuitarImageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -280,6 +304,7 @@ public class playGuitar extends AppCompatActivity implements NavigationView.OnNa
 
                         setPlayGuitarValue();
                         startService(intent);
+                        passValue = false;
                     } else {
                         playGuitarImageButton.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.play_btn));
                         int topbottom = getResources().getDimensionPixelOffset(R.dimen.thirty);
@@ -298,10 +323,9 @@ public class playGuitar extends AppCompatActivity implements NavigationView.OnNa
         });
 
         /*--------- set chord value to last layout---------*/
-        a = (TextView) findViewById(R.id.show_chords);
         a.setText(setChordValue());
 
-        showChordLayout = (LinearLayout) findViewById(R.id.show_chord_layout);
+
 
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
@@ -390,27 +414,34 @@ public class playGuitar extends AppCompatActivity implements NavigationView.OnNa
         if (id == R.id.nav_metronome) {
             Intent metroNome = new Intent(playGuitar.this, Metronome.class);
             startActivity(metroNome);
+            finish();
         } else if (id == R.id.nav_playGuitar) {
             Intent playGuitar = new Intent(playGuitar.this, playGuitar.class);
             startActivity(playGuitar);
+            finish();
 
         } else if (id == R.id.nav_info) {
 
             Intent usingInfo = new Intent(playGuitar.this, UsingInformation.class);
             startActivity(usingInfo);
+            finish();
 
         } else if (id == R.id.nav_songList_with_informtion) {
             Intent songlist = new Intent(playGuitar.this, SongListWithInfo.class);
             startActivity(songlist);
+            finish();
         } else if (id == R.id.developerInfo) {
             Intent developers = new Intent(playGuitar.this, developers.class);
             startActivity(developers);
+            finish();
         } else if(id == R.id.nav_Home){
             Intent home = new Intent(playGuitar.this, Home_Activity.class);
             startActivity(home);
+            finish();
         } else if(id == R.id.nav_chrod_guide){
             Intent chrodguide = new Intent(playGuitar.this, ChordGuide.class);
             startActivity(chrodguide);
+            finish();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.activity_home_drawarLayout);

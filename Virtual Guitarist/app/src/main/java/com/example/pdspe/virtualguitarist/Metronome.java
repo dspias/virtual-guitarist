@@ -374,27 +374,34 @@ public class Metronome extends AppCompatActivity implements NavigationView.OnNav
         if (id == R.id.nav_metronome) {
             Intent metroNome = new Intent(Metronome.this, Metronome.class);
             startActivity(metroNome);
+            finish();
         } else if (id == R.id.nav_playGuitar) {
             Intent playGuitar = new Intent(Metronome.this, playGuitar.class);
             startActivity(playGuitar);
+            finish();
 
         } else if (id == R.id.nav_info) {
 
             Intent usingInfo = new Intent(Metronome.this, UsingInformation.class);
             startActivity(usingInfo);
+            finish();
 
         } else if (id == R.id.nav_songList_with_informtion) {
             Intent songlist = new Intent(Metronome.this, SongListWithInfo.class);
             startActivity(songlist);
+            finish();
         } else if (id == R.id.developerInfo) {
             Intent developers = new Intent(Metronome.this, developers.class);
             startActivity(developers);
+            finish();
         } else if(id == R.id.nav_Home){
             Intent home = new Intent(Metronome.this, Home_Activity.class);
             startActivity(home);
+            finish();
         } else if(id == R.id.nav_chrod_guide){
             Intent chrodguide = new Intent(Metronome.this, ChordGuide.class);
             startActivity(chrodguide);
+            finish();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.activity_home_drawarLayout);

@@ -212,7 +212,8 @@ xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_gravity="start"
     app:menu="@menu/nevigation_menu"
     app:headerLayout="@layout/nevigation_header"
-    android:background="@drawable/allpagebackgrund"/>
+    app:itemTextColor="#fff"
+    android:background="#c016735c"/>
 
 
 

@@ -27,8 +27,8 @@
 
     <string-array name="playGuitar_strumming_1_1">
 
-        <item>One Bye One-1</item>
-        <item>One Bye One-2</item>
+        <item>Basic Down</item>
+        <item>Basic Down up</item>
         <!--<item>One Bye One-3</item>-->
         <!--<item>One Bye One-4</item>-->
         <!--<item>One Bye One-5</item>-->
@@ -37,7 +37,7 @@
 
     <string-array name="playGuitar_strumming_2_2">
 
-        <item>Two Bye Two-1</item>
+        <item>Common time</item>
         <!--<item>Two Bye Two-2</item>-->
         <!--<item>Two Bye Two-3</item>-->
         <!--<item>Two Bye Two-4</item>-->
@@ -48,8 +48,8 @@
 
     <string-array name="playGuitar_strumming_3_3">
 
-        <item>Three bye Three-1</item>
-        <item>Three bye Three-2</item>
+        <item>Weird waltz</item>
+        <item>Weird mute waltz</item>
         <!--<item>Three bye Three-3</item>-->
         <!--<item>Three bye Three-4</item>-->
         <!--<item>Three bye Three-5</item>-->
@@ -58,8 +58,8 @@
 
     <string-array name="playGuitar_strumming_3_4">
 
-        <item>Three bye four-1</item>
-        <item>Three bye four-2</item>
+        <item>Common waltz</item>
+        <item>Mute Waltz</item>
         <!--<item>Three bye four-3</item>-->
         <!--<item>Three bye four-4</item>-->
         <!--<item>Three bye four-5</item>-->
@@ -68,20 +68,20 @@
 
     <string-array name="playGuitar_strumming_4_4">
 
-        <item>Four bye four-1</item>
-        <item>Four bye four-2</item>
-        <item>Four bye four-3</item>
-        <item>Four bye four-4</item>
-        <item>Four bye four-5</item>
-        <item>Four bye four-6</item>
+        <item>Common 4 beat</item>
+        <item>Old faithful</item>
+        <item>Latin dude</item>
+        <item>Country</item>
+        <item>Modern rock</item>
+        <item>Mute Lava</item>
 
     </string-array>
 
     <string-array name="playGuitar_strumming_6_8">
 
-        <item>Six bye Four-1</item>
-        <item>Six bye Four-2</item>
-        <item>Six bye Four-3</item>
+        <item>Double waltz</item>
+        <item>Double waltz mute</item>
+        <item>Funky mute waltz</item>
 
     </string-array>
 

@@ -40,7 +40,7 @@ public class Chord extends Note {
                 10+position,
                 14+position,
                 17+position,
-                23+position
+                22+position
         };
 
         for(int i=0; i<6; i++) { if(statePosition[i] > 23) statePosition[i] -=24; statePosition[i]++;

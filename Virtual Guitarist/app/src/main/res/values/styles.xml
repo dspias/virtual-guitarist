@@ -19,7 +19,7 @@
         <item name="android:dividerHeight">5dp</item>
         <item name="android:textSize">30dp</item>
         <item name="android:textColorHint">#fffdfd</item>
-        <item name="android:popupBackground">#6846bf</item>
+        <item name="android:popupBackground">#1b8636</item>
         <item name="android:dropDownHeight">120dp</item>
         <item name="android:scrollbarAlwaysDrawVerticalTrack">true</item>
         <item name="android:dropDownSelector">@android:color/white</item>
@@ -31,7 +31,7 @@
         <item name="android:showDividers">none</item>
         <item name="android:dividerHeight">5dp</item>
         <item name="android:textSize">30sp</item>
-        <item name="android:popupBackground">#e0108373</item>
+        <item name="android:popupBackground">#1b8636</item>
         <item name="android:scrollbarAlwaysDrawVerticalTrack">true</item>
         <item name="android:dropDownSelector">@android:color/darker_gray</item>
     </style>
@@ -43,7 +43,7 @@
         <item name="android:dividerHeight">5dp</item>
         <item name="android:textSize">30dp</item>
         <item name="android:textAlignment">center</item>
-        <item name="android:popupBackground">#176b2c</item>
+        <item name="android:popupBackground">#1b8636</item>
         <item name="android:dropDownHeight">120dp</item>
         <item name="android:scrollbarAlwaysDrawVerticalTrack">true</item>
         <item name="android:dropDownSelector">#c2ffcd18</item>
@@ -58,7 +58,7 @@
         <item name="android:showDividers">none</item>
         <item name="android:dividerHeight">5dp</item>
         <item name="android:textAlignment">center</item>
-        <item name="android:popupBackground">#176b2c</item>
+        <item name="android:popupBackground">#1b8636</item>
         <item name="android:dropDownHeight">120dp</item>
         <item name="android:scrollbarAlwaysDrawVerticalTrack">true</item>
         <item name="android:dropDownSelector">#c2ffcd18</item>
@@ -76,7 +76,7 @@
         <item name="android:showDividers">none</item>
         <item name="android:dividerHeight">5dp</item>
         <item name="android:textAlignment">center</item>
-        <item name="android:popupBackground">#a4a4a4</item>
+        <item name="android:popupBackground">#1b8636</item>
         <item name="android:dropDownHeight">120dp</item>
         <item name="android:scrollbarAlwaysDrawVerticalTrack">true</item>
         <item name="android:dropDownSelector">#c2ffcd18</item>
@@ -92,7 +92,7 @@
         <item name="android:background">@drawable/boxshadow</item>
     </style>
     <style name="chrodNameTypeBackground">
-        <item name="android:background">#219e9c</item>
+        <item name="android:background">#be064318</item>
         <item name="android:layout_marginLeft">23dp</item>
         <!--<item name="android:layout_marginRight">10dp</item>-->
     </style>

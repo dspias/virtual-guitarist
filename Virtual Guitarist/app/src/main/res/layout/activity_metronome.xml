@@ -175,7 +175,7 @@
                     android:layout_gravity="center_vertical"
                     android:src="@drawable/minus"
 
-                    android:background="@drawable/homebutton"
+                    android:background="@drawable/plusminus"
                     />
                 <LinearLayout
                     android:layout_width="130dp"
@@ -211,7 +211,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_gravity="center_vertical"
                     android:src="@drawable/add"
-                    android:background="@drawable/homebutton"
+                    android:background="@drawable/plusminus"
                     />
 
             </LinearLayout>
@@ -256,7 +256,8 @@
         android:layout_gravity="start"
         app:menu="@menu/nevigation_menu"
         app:headerLayout="@layout/nevigation_header"
-        android:background="@drawable/allpagebackgrund"/>
+        app:itemTextColor="#fff"
+        android:background="#c016735c"/>
 
 
 

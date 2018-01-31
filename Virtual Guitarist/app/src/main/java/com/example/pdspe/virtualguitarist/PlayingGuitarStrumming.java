@@ -125,8 +125,8 @@ public class PlayingGuitarStrumming extends Service {
 
         if(isRunning != true) return;
 
-        if(strummingName.equalsIgnoreCase("One Bye One-1")){ oneByOne1();  }
-        else if(strummingName.equalsIgnoreCase("One Bye One-2")){ oneByOne2();  }
+        if(strummingName.equalsIgnoreCase("Basic Down")){ oneByOne1();  }
+        else if(strummingName.equalsIgnoreCase("Basic Down up")){ oneByOne2();  }
     }
 
     /*--------- OnyByOne1 Method start--------*/
@@ -174,7 +174,7 @@ public class PlayingGuitarStrumming extends Service {
     public void twoByTwo(){
         if(isRunning != true) return;
 
-        if(strummingName.equalsIgnoreCase("Two Bye Two-1")){ twoByTwo1(); }
+        if(strummingName.equalsIgnoreCase("Common time")){ twoByTwo1(); }
     }
 
 
@@ -208,9 +208,9 @@ public class PlayingGuitarStrumming extends Service {
 
         if(isRunning != true) return;
 
-        if(strummingName.equalsIgnoreCase("Three Bye Three-1")){
+        if(strummingName.equalsIgnoreCase("Weird waltz")){
             threeByeThree1();
-        } else if(strummingName.equalsIgnoreCase("Three Bye Three-2")){
+        } else if(strummingName.equalsIgnoreCase("Weird mute waltz")){
             threeByeThree2();
         }
 
@@ -247,9 +247,9 @@ public class PlayingGuitarStrumming extends Service {
 
         if(isRunning != true) return;
 
-        if(strummingName.equalsIgnoreCase("Three Bye four-1")){
+        if(strummingName.equalsIgnoreCase("Common waltz")){
             threeByeFour1();
-        } else if(strummingName.equalsIgnoreCase("Three Bye four-2")){
+        } else if(strummingName.equalsIgnoreCase("Mute Waltz")){
             threeByeFour2();
         }
 
@@ -321,17 +321,17 @@ public class PlayingGuitarStrumming extends Service {
 
         if(isRunning != true) return;
 
-        if(strummingName.equalsIgnoreCase("Four bye four-1")){ kaharbadown(); }
+        if(strummingName.equalsIgnoreCase("Common 4 beat")){ kaharbadown(); }
 
-        else if(strummingName.equalsIgnoreCase("Four bye four-2")){ fourbyeFour2(); }
+        else if(strummingName.equalsIgnoreCase("Old faithful")){ fourbyeFour2(); }
 
-        else if(strummingName.equalsIgnoreCase("Four bye four-3")){ fourbyeFour3(); }
+        else if(strummingName.equalsIgnoreCase("Latin dude")){ fourbyeFour3(); }
 
-        else if(strummingName.equalsIgnoreCase("Four bye four-4")){ fourbyeFour4Country(); }
+        else if(strummingName.equalsIgnoreCase("Country")){ fourbyeFour4Country(); }
 
-        else if(strummingName.equalsIgnoreCase("Four bye four-5")){ fourbyeFour5ModernRock(); }
+        else if(strummingName.equalsIgnoreCase("Modern rock")){ fourbyeFour5ModernRock(); }
 
-        else if(strummingName.equalsIgnoreCase("Four bye four-6")){ fourbyeFour6(); }
+        else if(strummingName.equalsIgnoreCase("Mute Lava")){ fourbyeFour6(); }
 
         else if(strummingName.equalsIgnoreCase("Four bye four-7")){   }
 
@@ -520,11 +520,11 @@ public class PlayingGuitarStrumming extends Service {
 
         if(isRunning != true) return;
 
-        if(strummingName.equalsIgnoreCase("Six bye Four-1")){  sixByFour1();  }
+        if(strummingName.equalsIgnoreCase("Double waltz")){  sixByFour1();  }
 
-        else if(strummingName.equalsIgnoreCase("Six bye Four-2")){ sixByFour2();  }
+        else if(strummingName.equalsIgnoreCase("Double waltz mute")){ sixByFour2();  }
 
-        else if(strummingName.equalsIgnoreCase("Six bye Dour-3")){ sixByFour3();  }
+        else if(strummingName.equalsIgnoreCase("Funky mute waltz")){ sixByFour3();  }
     }
 
 
@@ -538,7 +538,7 @@ public class PlayingGuitarStrumming extends Service {
                 if(i <= 1){ sixByFour1Cod(0,0); }
                 else { sixByFour1Cod(1,0);}
             }
-        } else if(numberOfChord == 4){
+        } else if(numberOfChord == 8){
             for(int i=0;i<8;i+=2){
                     sixByFour1Cod(i,i+1);
             }
@@ -573,7 +573,7 @@ public class PlayingGuitarStrumming extends Service {
                 if(i <= 3){ sixByFour2Cod(0,0); }
                 else { sixByFour2Cod(1,0);}
             }
-        } else if(numberOfChord == 4){
+        } else if(numberOfChord == 8){
             for(int i=0;i<8;i+=2){
                     sixByFour2Cod(i,i+1);
             }
